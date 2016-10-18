@@ -15,3 +15,12 @@ numOfRealSolutions a b c
       disc = b^2 - 4*a*c
 
 {- up to https://en.wikibooks.org/wiki/Haskell/Type_basics -}
+:type 32
+:t 'H'
+:t (3 < 5)
+:module Data.Char
+:m Data.Char
+chr 97
+ord 'c'
+
+{- up to https://en.wikibooks.org/wiki/Haskell/Lists_and_tuples -}
