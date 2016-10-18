@@ -13,3 +13,5 @@ numOfRealSolutions a b c
   | otherwise  = 0
     where
       disc = b^2 - 4*a*c
+
+{- up to https://en.wikibooks.org/wiki/Haskell/Type_basics -}
