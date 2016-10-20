@@ -9,3 +9,5 @@ up to https://en.wikibooks.org/wiki/Haskell/Building_vocabulary
 When you're using *ghci*, you need to use let to define things.
 So, in source files _f x = x + 1_ is fine.
 In ghci, you'll need to use: _let f x = x + 1_.
+
+up to https://en.wikibooks.org/wiki/Haskell/Simple_input_and_output

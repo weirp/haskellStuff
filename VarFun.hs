@@ -48,3 +48,6 @@ fst' :: (a, b) -> a
 fst' (x, _) = x
 
 {- https://en.wikibooks.org/wiki/Haskell/Building_vocabulary -}
+
+revWords :: String -> String
+revWords input = (unwords . reverse . words) input
