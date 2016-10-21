@@ -39,7 +39,7 @@ mySignum x =
              then 1
              else 0
 
-mySignum2 x =
+mySignum2 x
   | x < 0    = -1
   | x > 0    = 1
   |otherwise = 0
@@ -51,3 +51,18 @@ fst' (x, _) = x
 
 revWords :: String -> String
 revWords input = (unwords . reverse . words) input
+
+
+contrivedMap :: ([a] -> a -> b) -> [a] -> [b]
+contrivedMap f [] = []
+contrivedMap f list@(x:xs) = f list x : contrivedMap f xs
+
+
+data Foo2 = Bar2 | Baz2 {bazNumber::Int, bazName::String}
+
+h2 :: Foo2 -> Int
+h2 Baz2 {bazName=name} = length name
+h2 Bar2 {} = 0
+
+x2 = Baz2 1 "Haskell"
+y2 = Baz2 {bazName = "Curry", bazNumber = 2}
