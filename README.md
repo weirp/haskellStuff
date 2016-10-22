@@ -13,3 +13,11 @@ In ghci, you'll need to use: _let f x = x + 1_.
 up to https://en.wikibooks.org/wiki/Haskell/Simple_input_and_output
 up to https://en.wikibooks.org/wiki/Haskell/Type_declarations
 up to https://en.wikibooks.org/wiki/Haskell/More_on_functions
+up to https://en.wikibooks.org/wiki/Haskell/Higher-order_functions
+up to https://en.wikibooks.org/wiki/Haskell/Using_GHCi_effectively
+
+Started Intermediate track.
+up to Standalone programs.
+more on datatypes
+.
+up to https://en.wikibooks.org/wiki/Haskell/Other_data_structures

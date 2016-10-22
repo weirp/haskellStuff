@@ -1,3 +1,5 @@
+{-# LANGUAGE NamedFieldPuns #-}
+
 r = 5.0
 area r = pi * r ^ 2
 
@@ -66,3 +68,47 @@ h2 Bar2 {} = 0
 
 x2 = Baz2 1 "Haskell"
 y2 = Baz2 {bazName = "Curry", bazNumber = 2}
+
+
+quickSort :: (Ord a) => [a] -> [a]
+quickSort [] = []
+quickSort (x : xs) = (quickSort less) ++ (x : equal) ++ (quickSort more)
+  where
+    less = filter (< x) xs
+    more = filter (> x) xs
+    equal = filter (== x) xs
+
+quickSort' :: (Ord a) => (a -> a -> Ordering) -> [a] -> [a]
+quickSort' _ [] = []
+
+quickSort' c (x : xs) = (quickSort' c less) ++ ( x : equal) ++ (quickSort' c more)
+  where
+    less  = filter (\y -> y `c` x == LT) xs
+    equal = filter (\y -> y `c` x == EQ) xs
+    more  = filter (\y -> y `c` x == GT) xs
+
+{- compare fns -}
+{- usual = compare
+descending x y = compare y x
+-}
+
+myInits :: [a] -> [[a]]
+myInits = map reverse . scanl (flip (:)) []
+
+{- https://en.wikibooks.org/wiki/Haskell/Using_GHCi_effectively -}
+
+data Month = January | February | March | April | May | June | July
+           | August | September | October | November | December
+
+data Configuration = Configuration
+  { username      :: String
+  , localHost     :: String
+  , remoteHost    :: String
+  , isGuest       :: Bool
+  , isSuperUser   :: Bool
+  , currentDir    :: String
+  , homeDir       :: String
+  , timeConnected :: Integer
+  }
+
+{-https://en.wikibooks.org/wiki/Haskell/Other_data_structures-}
