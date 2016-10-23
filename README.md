@@ -21,3 +21,4 @@ up to Standalone programs.
 more on datatypes
 .
 up to https://en.wikibooks.org/wiki/Haskell/Other_data_structures
+   -- revisit other data structures. Needs a second and third look!
