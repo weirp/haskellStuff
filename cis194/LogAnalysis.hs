@@ -32,7 +32,7 @@ insert newMsg (Node left msg right)
   | (getTimeStamp newMsg) == (getTimeStamp msg) = Node left newMsg right
   | (getTimeStamp newMsg) < (getTimeStamp msg) = Node (insert newMsg left) msg right
   | otherwise = Node left msg (insert newMsg right)
-insert _ tree = tree
+insert newMsg (Leaf) = Node Leaf newMsg Leaf
 
 
 build :: [LogMessage] -> MessageTree
