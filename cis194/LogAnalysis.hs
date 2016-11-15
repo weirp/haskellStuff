@@ -45,3 +45,33 @@ testBuild :: Int -> IO MessageTree
 testBuild n = do
   l <- (testParse parse n "error.log")
   return (build l)
+
+
+inOrder :: MessageTree -> [LogMessage]
+inOrder Leaf = []
+inOrder (Node left x right) = (inOrder left) ++ [x] ++ (inOrder right)
+
+
+testInorder :: Int -> IO [LogMessage]
+testInorder n = do
+  t <- testBuild n
+  return (inOrder t)
+
+
+getMessage :: LogMessage -> String
+getMessage (LogMessage _ _ msg) -> msg
+getMessage - -> ""
+
+getSeverity :: LogMessage -> Int
+getSeverity (LogMessage sev _ _) = sev
+getSeverity _ = 0
+
+whatWentWrong :: [LogMessage] -> [String]
+whatWentWrong n = map getMessage n
+
+testWhatWentWrong :: Int -> IO [String]
+testWhatWentWrong n = do
+  t <- testBuild n
+  msg = inOrder t
+
+  need a filter and a map
