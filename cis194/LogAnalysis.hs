@@ -59,19 +59,24 @@ testInorder n = do
 
 
 getMessage :: LogMessage -> String
-getMessage (LogMessage _ _ msg) -> msg
-getMessage - -> ""
+getMessage (LogMessage _ _ msg) = msg
+getMessage _ = ""
 
+{-
 getSeverity :: LogMessage -> Int
 getSeverity (LogMessage sev _ _) = sev
 getSeverity _ = 0
+-}
 
 whatWentWrong :: [LogMessage] -> [String]
 whatWentWrong n = map getMessage n
 
+{-
 testWhatWentWrong :: Int -> IO [String]
 testWhatWentWrong n = do
   t <- testBuild n
-  msg = inOrder t
+  msg <- inOrder t
+  return msg
+-}
 
-  need a filter and a map
+  {-need a filter and a map-}
