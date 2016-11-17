@@ -62,21 +62,15 @@ getMessage :: LogMessage -> String
 getMessage (LogMessage _ _ msg) = msg
 getMessage _ = ""
 
-{-
-getSeverity :: LogMessage -> Int
-getSeverity (LogMessage sev _ _) = sev
-getSeverity _ = 0
--}
 
 whatWentWrong :: [LogMessage] -> [String]
-whatWentWrong n = map getMessage n
+whatWentWrong [] = []
+whatWentWrong ((LogMessage (Error n) _ msg): xs)
+    | n > 50 = msg : (whatWentWrong xs)
+    | otherwise = (whatWentWrong xs)
+whatWentWrong (_:xs) = (whatWentWrong xs)
+
 
 {-
-testWhatWentWrong :: Int -> IO [String]
-testWhatWentWrong n = do
-  t <- testBuild n
-  msg <- inOrder t
-  return msg
+testWhatWentWrong parse whatWentWron "error.log"
 -}
-
-  {-need a filter and a map-}
