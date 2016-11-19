@@ -6,7 +6,7 @@ import Data.List
 given a list, take every element, then every 2nd element, every third, etc
 -}
 skips :: [a] -> [[a]]
-skips [] = [[]]
+skips [] = []
 skips lst = map (skipsHelper lst) [1..(length lst)]
 
 
