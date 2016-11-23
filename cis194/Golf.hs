@@ -79,8 +79,9 @@ putStr (histogram [3,5]).
 histogram :: [Integer] -> String
 histogram [] = ""
 histogram lst =
-  let m = map (\x -> head x, length x) $ group $ sort lst
-  map (\x -> let l = lookup x m
-             case l of
-               Nothing = " "
-               Just x) [0..9]
+  let m2 = map (\x -> [(i,j) | i <- [1..(length x)],
+                               j <- [(head x)]]) $ group $ sort lst
+
+foldr (++) [] (\x \y -> y ++ [(i,j) | i <- [1..(length x)], j <- [(head x)]]) $ group $ sort [1,2,3,2,1,3,5]
+
+let g = group $ sort [1,2,3,2,1,3,5,9,1,2,3,4,6,4,4,4,2,4]
