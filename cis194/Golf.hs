@@ -1,6 +1,9 @@
 module Golf where
 
 import Data.List
+import Data.Map (Map)
+import qualified Data.Map as Map
+
 
 {- Hopscotch
 given a list, take every element, then every 2nd element, every third, etc
@@ -79,9 +82,16 @@ putStr (histogram [3,5]).
 histogram :: [Integer] -> String
 histogram [] = ""
 histogram lst =
-  let m2 = map (\x -> [(i,j) | i <- [1..(length x)],
-                               j <- [(head x)]]) $ group $ sort lst
+  unlines $ reverse $ ( ["0123456789"] ++ (map (\x -> histo_helper g1 x) [1..longest]))
+  where g = group $ sort lst
+        g1 = map (\x -> ((head x), (length x))) g
+        longest = Prelude.foldr (max) 0 (map snd g1)
 
-foldr (++) [] (\x \y -> y ++ [(i,j) | i <- [1..(length x)], j <- [(head x)]]) $ group $ sort [1,2,3,2,1,3,5]
-
-let g = group $ sort [1,2,3,2,1,3,5,9,1,2,3,4,6,4,4,4,2,4]
+histo_helper :: (Ord a, Num a, Enum a) => [(a, Int)] -> Int -> String
+histo_helper g1 row =
+  Prelude.foldr (\x ->
+                   \y -> (case (Prelude.lookup x g1) of
+                      Nothing -> " "
+                      Just n
+                        | n >= row -> "*"
+                        | otherwise -> " ") ++ y) "" [0..9]
