@@ -16,7 +16,23 @@ RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 575159689B
 
 RUN echo 'deb http://download.fpcomplete.com/ubuntu yakkety main'|tee /etc/apt/sources.list.d/fpco.list
 
+RUN apt-get update
+RUN apt-get install stack -y
 
 # see stackage.org
 
 RUN stack setup
+
+RUN echo "export PATH=`stack path|grep ^bin-path|awk '{print $2}'`:$PATH" >> ~/.bashrc
+
+
+# wreq
+# www.serpentine.com/wreq
+# hackage -- search for wreq
+
+RUN stack build wreq
+
+
+
+
+# up to 23:34
