@@ -99,6 +99,7 @@ but it should result in balanced trees, with each subtree having a
 correct computed height.
 -}
 
+{-
 data Tree a = Leaf
   | Node Integer (Tree a) a (Tree a)
   deriving (Show, Eq)
@@ -113,3 +114,33 @@ insert a t = g where
   g (Leaf) = Node 0 Leaf a Leaf
   g (Node lvl left val right) = h where
     h
+-}
+
+
+
+{- =========================================== -}
+
+{-
+Exercise 3: More folds!
+1. Implement a function
+xor :: [Bool] -> Bool
+which returns True if and only if there are an odd number of True
+values contained in the input list. It does not matter how many
+False values the input list contains. For example,
+xor [False, True, False] == True
+xor [False, True, False, False, True] == False
+Your solution must be implemented using a fold.
+2. Implement map as a fold. That is, complete the definition
+map’ :: (a -> b) -> [a] -> [b]
+map’ f = foldr ...
+in such a way that map’ behaves identically to the standard map
+function.
+cis 194: homework 4 3
+3. (Optional) Implement foldl using foldr. That is, complete
+-}
+
+xor :: [Bool] -> Bool
+xor xs = odd $ length $ filter (== True) xs
+
+map' :: (a -> b) -> [a] -> [b]
+map' f xs = foldr (\x -> (\y -> (f x) : y)) [] xs

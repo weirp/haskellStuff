@@ -69,5 +69,17 @@ Vagrant.configure("2") do |config|
      apt-get install -y apache2
      apt-get install -y apt-utils emacs wget
 
+     apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 575159689BEFB442
+
+     echo 'deb http://download.fpcomplete.com/ubuntu yakkety main'|tee /etc/apt/sources.list.d/fpco.list
+
+     apt-get update
+     apt-get install stack -y
+
+     # see stackage.org
+     stack setup
+
+     echo "export PATH=`stack path|grep ^bin-path|awk '{print $2}'`:$PATH" >> ~/.bashrc
+
    SHELL
 end
