@@ -14,6 +14,8 @@ fibs2 :: [Integer]
 use iterate to generate list of fibs. then head $ take n
 
 this list could be a list of pairs... take the minimum of the 2??
+
+take 10 (iterate fibs2_helper2 (0,1))
 -}
 
 fibs2_helper1 :: Integer -> Integer -> Integer
