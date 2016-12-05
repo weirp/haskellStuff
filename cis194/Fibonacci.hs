@@ -23,3 +23,6 @@ fibs2_helper1 n1 n2 = n1 + n2
 
 fibs2_helper2 :: (Integer, Integer) -> (Integer, Integer)
 fibs2_helper2 (n1, n2) = (maximum [n1, n2], n1 + n2)
+
+fibs2 :: [Integer]
+fibs2 = map fst (iterate fibs2_helper2 (0,1))
