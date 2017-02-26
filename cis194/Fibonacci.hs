@@ -61,6 +61,9 @@ interleaveStreams (Cons a as) (Cons b bs) = Cons a (Cons b (interleaveStreams as
 interleaveStreams (streamFromSeed id 0) nats
 
 [2,4 .. 20]
+-}
 {-
 ruler :: Stream Integer
 -}
+testInterleave :: Stream Integer
+testInterleave = interleaveStreams (streamFromSeed id 0) nats
