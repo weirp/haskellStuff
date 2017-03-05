@@ -2,6 +2,8 @@
 
 module Ch11 where
 import Data.Char
+import Data.List
+import Data.Map (Map)
 
 data PugType = PugData
 
@@ -446,12 +448,12 @@ doubleUp :: [a] -> [a]
 doubleUp [] = []
 doubleUp xs@(x:_) = x: xs
 
-isSubsequenceOf :: (Eq a) => [a] -> [a] -> Bool
-isSubsequenceOf [] _ = True
-isSubsequenceOf s [] = False
-isSubsequenceOf s@(x1:x1s) x@(x2:x2s)
-  | x1 == x2 = isSubsequenceOf x1s x2s
-  | otherwise = isSubsequenceOf s x2s
+isSubsequenceOf' :: (Eq a) => [a] -> [a] -> Bool
+isSubsequenceOf' [] _ = True
+isSubsequenceOf' s [] = False
+isSubsequenceOf' s@(x1:x1s) x@(x2:x2s)
+  | x1 == x2 = isSubsequenceOf' x1s x2s
+  | otherwise = isSubsequenceOf' s x2s
 
 capitaliseWords :: String -> [(String, String)]
 capitaliseWords w = map f (words w)
@@ -465,8 +467,27 @@ capitaliseParagraph = undefined
 
 {- phone exercise -}
 
-data KeyInfo = KeyInfo Int [Char]
-data DaPhone = DaPhone [KeyInfo]
+data KeyInfo =
+  KeyInfo Char [Char]
+  deriving (Show)
+data DaPhone =
+  DaPhone [KeyInfo]
+  deriving (Show)
+
+myPhone = DaPhone
+  [ KeyInfo '1' "1"
+  , KeyInfo '2' "abc2"
+  , KeyInfo '3' "def3"
+  , KeyInfo '4' "ghi4"
+  , KeyInfo '5' "jkl5"
+  , KeyInfo '6' "mno6"
+  , KeyInfo '7' "pqrs7"
+  , KeyInfo '8' "tuv8"
+  , KeyInfo '9' "wxyz9"
+  , KeyInfo '*' "^*"
+  , KeyInfo '0' "+_0"
+  , KeyInfo '#' ".,#"
+  ]
 
 
 convo :: [String]
@@ -484,3 +505,31 @@ convo =
 
 type Digit = Char
 type Presses = Int
+
+taps :: Char -> [KeyInfo] -> [(Digit, Presses)]
+taps c [] = []
+taps c ((KeyInfo c1 chars):otherKeys)
+    = case (elemIndex c chars) of
+      Nothing -> taps c otherKeys
+      Just x -> [(c1, x + 1 )]
+
+reverseTaps :: DaPhone -> Char -> [(Digit, Presses)]
+reverseTaps phone@(DaPhone keys) c
+  | c >= 'A' && c <= 'Z' = reverseTaps phone '^' ++ reverseTaps phone (toLower c)
+  | otherwise = taps c keys
+
+
+
+
+cellPhonesDead :: DaPhone -> String -> [(Digit, Presses)]
+cellPhonesDead phone s = concat $ map (reverseTaps phone) s
+
+fingerTaps :: [(Digit, Presses)] -> Presses
+fingerTaps taps = foldr (\a b -> b + (snd a)) 0 taps
+
+
+mostPopularLetter :: String -> Char
+mostPopularLetter = undefined
+
+
+{- Need to do huttons razor -}
