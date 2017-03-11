@@ -1,0 +1,433 @@
+
+==================== FINAL INTERFACE ====================
+2017-03-10 06:54:39.323885 UTC
+
+interface main@main:Main 8002
+  interface hash: 59ce8b7c8b12d079ba2a3802f0da6947
+  ABI hash: ec343f5cfaf2d112c2fcbe261cb05d27
+  export-list hash: c046038bd137eb406a6dbbf676ce7ed8
+  orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
+  flag hash: b94adc30f072901c98d082bf915f152c
+  sig of: Nothing
+  used TH splices: False
+  where
+exports:
+  Main.main
+  Main.semigroupAssoc
+  Main.Trivial{Main.Trivial}
+  Main.TrivialAssoc
+module dependencies:
+package dependencies: QuickCheck-2.9.2@QuickCheck-2.9.2-Jyj4gc4JxkEIgGFLAsGhs9
+                      array-0.5.1.1@array-0.5.1.1 base-4.9.1.0*
+                      containers-0.5.7.1@containers-0.5.7.1
+                      deepseq-1.4.2.0@deepseq-1.4.2.0 ghc-boot-th-8.0.2@ghc-boot-th-8.0.2
+                      ghc-prim-0.5.0.0 integer-gmp-1.0.0.1 pretty-1.1.3.3@pretty-1.1.3.3
+                      primitive-0.6.1.0@primitive-0.6.1.0-6AbSTw9JXz141LE5p6LGH
+                      random-1.1@random-1.1-9tceXaeYIMZ4JrKq20Egog
+                      template-haskell-2.11.1.0
+                      tf-random-0.5@tf-random-0.5-BGjMgO8m67W8CHiEl15kZ7
+                      time-1.6.0.1@time-1.6.0.1 transformers-0.5.2.0@transformers-0.5.2.0
+orphans: base-4.9.1.0:GHC.Base base-4.9.1.0:GHC.Float
+         time-1.6.0.1@time-1.6.0.1:Data.Time.Calendar.Gregorian
+         time-1.6.0.1@time-1.6.0.1:Data.Time.Format.Parse
+         time-1.6.0.1@time-1.6.0.1:Data.Time.LocalTime.LocalTime
+         transformers-0.5.2.0@transformers-0.5.2.0:Control.Monad.Trans.Error
+family instance modules: base-4.9.1.0:Control.Applicative
+                         base-4.9.1.0:Data.Complex base-4.9.1.0:Data.Either
+                         base-4.9.1.0:Data.Functor.Const base-4.9.1.0:Data.Functor.Identity
+                         base-4.9.1.0:Data.List.NonEmpty base-4.9.1.0:Data.Monoid
+                         base-4.9.1.0:Data.Semigroup base-4.9.1.0:Data.Type.Equality
+                         base-4.9.1.0:Data.Version base-4.9.1.0:Data.Void
+                         base-4.9.1.0:GHC.Exts base-4.9.1.0:GHC.Generics
+                         base-4.9.1.0:GHC.IO.Exception base-4.9.1.0:GHC.TypeLits
+                         containers-0.5.7.1@containers-0.5.7.1:Data.IntMap.Base
+                         containers-0.5.7.1@containers-0.5.7.1:Data.IntSet.Base
+                         containers-0.5.7.1@containers-0.5.7.1:Data.Map.Base
+                         containers-0.5.7.1@containers-0.5.7.1:Data.Sequence
+                         containers-0.5.7.1@containers-0.5.7.1:Data.Set.Base
+                         ghc-boot-th-8.0.2@ghc-boot-th-8.0.2:GHC.LanguageExtensions.Type
+                         pretty-1.1.3.3@pretty-1.1.3.3:Text.PrettyPrint.Annotated.HughesPJ
+                         pretty-1.1.3.3@pretty-1.1.3.3:Text.PrettyPrint.HughesPJ
+                         primitive-0.6.1.0@primitive-0.6.1.0-6AbSTw9JXz141LE5p6LGH:Control.Monad.Primitive
+                         template-haskell-2.11.1.0:Language.Haskell.TH.Syntax
+import  -/  QuickCheck-2.9.2@QuickCheck-2.9.2-Jyj4gc4JxkEIgGFLAsGhs9:Test.QuickCheck 5d7cb5b36e5406469ab226c41cc67877
+import  -/  QuickCheck-2.9.2@QuickCheck-2.9.2-Jyj4gc4JxkEIgGFLAsGhs9:Test.QuickCheck.Arbitrary 23d5e13e5df273f2d4aff38bd8911bef
+import  -/  QuickCheck-2.9.2@QuickCheck-2.9.2-Jyj4gc4JxkEIgGFLAsGhs9:Test.QuickCheck.Test b10469d3ca677e9f6167afd5fc110985
+import  -/  base-4.9.1.0:Data.Monoid 51cc9cd8c130d49ba96b7c2c2406022b
+import  -/  base-4.9.1.0:Data.Semigroup fc55c71ff629dcbd821309c310055959
+import  -/  base-4.9.1.0:GHC.Base c4231c43c07e46080a26bf94094c7aa1
+import  -/  base-4.9.1.0:GHC.Err 3bba35a16538d33d424682ce66876cdd
+import  -/  base-4.9.1.0:GHC.Show a027f5ac24879eaba752f44aa90fe511
+import  -/  base-4.9.1.0:Prelude 22dd289b8469a8fa8dc81cab7b237771
+import  -/  ghc-prim-0.5.0.0:GHC.Classes 0bdf3d057a415ec1b84a7b1994efbe47
+import  -/  ghc-prim-0.5.0.0:GHC.Types 89f8de4f08018c9177c98d979eae0e45
+d99be5dc780b3e37f2d21f11fcf06af1
+  $fArbitraryTrivial ::
+    Test.QuickCheck.Arbitrary.Arbitrary Main.Trivial
+  DFunId
+  {- HasNoCafRefs, Strictness: m, Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun:.
+                  @ Main.Trivial
+                  Main.$fArbitraryTrivial_$carbitrary
+                  Main.$fArbitraryTrivial_$s$dmshrink -}
+d99be5dc780b3e37f2d21f11fcf06af1
+  $fArbitraryTrivial1 ::
+    Test.QuickCheck.Random.QCGen -> GHC.Types.Int -> Main.Trivial
+  {- Arity: 2, HasNoCafRefs, Strictness: <L,A><L,A>,
+     Unfolding: InlineRule (2, True, True)
+                (\ (ds :: Test.QuickCheck.Random.QCGen) (ds1 :: GHC.Types.Int) ->
+                 Main.Trivial) -}
+d99be5dc780b3e37f2d21f11fcf06af1
+  $fArbitraryTrivial_$carbitrary ::
+    Test.QuickCheck.Gen.Gen Main.Trivial
+  {- Arity: 2, HasNoCafRefs, Strictness: <L,A><L,A>,
+     Unfolding: InlineRule (0, True, True)
+                Main.$fArbitraryTrivial1
+                  `cast`
+                (Sym (Test.QuickCheck.Gen.N:Gen[0] <Main.Trivial>_R)) -}
+d99be5dc780b3e37f2d21f11fcf06af1
+  $fArbitraryTrivial_$s$dmshrink :: Main.Trivial -> [Main.Trivial]
+  {- Arity: 1, HasNoCafRefs, Strictness: <L,A>,
+     Unfolding: InlineRule (-1, True, True)
+                (\ (ds1 :: Main.Trivial) -> GHC.Types.[] @ Main.Trivial) -}
+d99be5dc780b3e37f2d21f11fcf06af1
+  $fEqTrivial :: GHC.Classes.Eq Main.Trivial
+  DFunId
+  {- HasNoCafRefs, Strictness: m, Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun:.
+                  @ Main.Trivial Main.$fEqTrivial_$c== Main.$fEqTrivial_$c/= -}
+d99be5dc780b3e37f2d21f11fcf06af1
+  $fEqTrivial_$c/= :: Main.Trivial -> Main.Trivial -> GHC.Types.Bool
+  {- Arity: 2, HasNoCafRefs, Strictness: <S,1*H><S,1*H>,
+     Unfolding: InlineRule (2, True, False)
+                (\ (a :: Main.Trivial) (b :: Main.Trivial) ->
+                 case a of wild { Main.Trivial ->
+                 case b of wild1 { Main.Trivial -> GHC.Types.False } }) -}
+d99be5dc780b3e37f2d21f11fcf06af1
+  $fEqTrivial_$c== :: Main.Trivial -> Main.Trivial -> GHC.Types.Bool
+  {- Arity: 2, HasNoCafRefs, Strictness: <S,1*H><S,1*H>,
+     Unfolding: InlineRule (2, True, False)
+                (\ (ds :: Main.Trivial) (ds1 :: Main.Trivial) ->
+                 case ds of wild { Main.Trivial ->
+                 case ds1 of wild1 { Main.Trivial -> GHC.Types.True } }) -}
+d99be5dc780b3e37f2d21f11fcf06af1
+  $fSemigroupTrivial :: Data.Semigroup.Semigroup Main.Trivial
+  DFunId
+  {- Strictness: m, Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun:.
+                  @ Main.Trivial
+                  Main.$fSemigroupTrivial_$c<>
+                  Main.$fSemigroupTrivial_$csconcat
+                  Main.$fSemigroupTrivial_$cstimes -}
+d99be5dc780b3e37f2d21f11fcf06af1
+  $fSemigroupTrivial1 :: Main.Trivial
+  {- Strictness: x -}
+d99be5dc780b3e37f2d21f11fcf06af1
+  $fSemigroupTrivial_$c<> ::
+    Main.Trivial -> Main.Trivial -> Main.Trivial
+  {- Arity: 2, Strictness: <B,A><B,A>x,
+     Unfolding: InlineRule (2, True, True)
+                (\ (ds :: Main.Trivial) (ds1 :: Main.Trivial) ->
+                 Main.$fSemigroupTrivial1) -}
+d99be5dc780b3e37f2d21f11fcf06af1
+  $fSemigroupTrivial_$csconcat ::
+    Data.List.NonEmpty.NonEmpty Main.Trivial -> Main.Trivial
+  {- Arity: 1, Strictness: <S(SS),1*U(1*U(),1*U)>m,
+     Unfolding: InlineRule (1, True, False)
+                (\ (ds :: Data.List.NonEmpty.NonEmpty Main.Trivial) ->
+                 case ds of wild { Data.List.NonEmpty.:| a1 as ->
+                 case as of wild1 {
+                   [] -> a1 : c cs -> Main.$fSemigroupTrivial1 } }) -}
+d99be5dc780b3e37f2d21f11fcf06af1
+  $fSemigroupTrivial_$cstimes ::
+    GHC.Real.Integral b => b -> Main.Trivial -> Main.Trivial
+  {- Arity: 3,
+     Strictness: <S(SLLLLLLLL),U(U,U,C(C1(U)),C(C1(U)),A,A,A,A,A)><L,U><S,1*U()>m,
+     Inline: INLINE[0],
+     Unfolding: InlineRule (3, True, False)
+                (\ @ b (w :: GHC.Real.Integral b) (w1 :: b) (w2 :: Main.Trivial) ->
+                 case w2 of ww { Main.Trivial ->
+                 case Main.$w$cstimes @ b w w1 of ww1 { (##) -> Main.Trivial } }) -}
+d99be5dc780b3e37f2d21f11fcf06af1
+  $fShowTrivial :: GHC.Show.Show Main.Trivial
+  DFunId
+  {- Strictness: m, Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun:.
+                  @ Main.Trivial
+                  Main.$fShowTrivial_$cshowsPrec
+                  Main.$fShowTrivial_$cshow
+                  Main.$fShowTrivial_$cshowList -}
+d99be5dc780b3e37f2d21f11fcf06af1
+  $fShowTrivial1 :: Main.Trivial -> GHC.Show.ShowS
+  {- Arity: 2, Strictness: <S,1*H><L,1*U>,
+     Unfolding: InlineRule (2, True, False)
+                (\ (ds :: Main.Trivial) (eta :: GHC.Base.String) ->
+                 case ds of wild { Main.Trivial ->
+                 GHC.Base.augment
+                   @ GHC.Types.Char
+                   (\ @ b
+                      (c :: GHC.Types.Char -> b -> b)[OneShot]
+                      (n :: b)[OneShot] ->
+                    GHC.Base.foldr @ GHC.Types.Char @ b c n Main.$fShowTrivial2)
+                   eta }) -}
+130a9a5e4a6ebcef7c6093e1d77b9929
+  $fShowTrivial2 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "Trivial"#) -}
+d99be5dc780b3e37f2d21f11fcf06af1
+  $fShowTrivial_$cshow :: Main.Trivial -> GHC.Base.String
+  {- Arity: 1, Strictness: <S,1*H>,
+     Unfolding: InlineRule (1, True, False)
+                (\ (x :: Main.Trivial) ->
+                 case x of wild { Main.Trivial -> Main.$fShowTrivial2 }) -}
+d99be5dc780b3e37f2d21f11fcf06af1
+  $fShowTrivial_$cshowList :: [Main.Trivial] -> GHC.Show.ShowS
+  {- Arity: 2,
+     Unfolding: (GHC.Show.showList__
+                   @ Main.Trivial
+                   Main.$fShowTrivial1) -}
+d99be5dc780b3e37f2d21f11fcf06af1
+  $fShowTrivial_$cshowsPrec ::
+    GHC.Types.Int -> Main.Trivial -> GHC.Show.ShowS
+  {- Arity: 3, Strictness: <L,A><S,1*H><L,1*U>,
+     Unfolding: InlineRule (3, True, False)
+                (\ (ds :: GHC.Types.Int)
+                   (ds1 :: Main.Trivial)
+                   (eta :: GHC.Base.String) ->
+                 case ds1 of wild { Main.Trivial ->
+                 GHC.Base.augment
+                   @ GHC.Types.Char
+                   (\ @ b
+                      (c :: GHC.Types.Char -> b -> b)[OneShot]
+                      (n :: b)[OneShot] ->
+                    GHC.Base.foldr @ GHC.Types.Char @ b c n Main.$fShowTrivial2)
+                   eta }) -}
+47a3bdf041526bc93d7c61295b9f3eff
+  $tc'Trivial :: GHC.Types.TyCon
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.TyCon
+                   12373600294482878254##
+                   17133399453771763490##
+                   Main.$trModule
+                   Main.$tc'Trivial1) -}
+12ccf90ff33853ea192be952e85f3f3a
+  $tc'Trivial1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS "'Trivial"#) -}
+be3aefdfa088a130def86addf81b4a99
+  $tcTrivial :: GHC.Types.TyCon
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.TyCon
+                   12695646767575594229##
+                   3034266354664355023##
+                   Main.$trModule
+                   Main.$tcTrivial1) -}
+8994f33c389d8b42576823513969781e
+  $tcTrivial1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS "Trivial"#) -}
+d6831ef04cb9301b090dfae6f7bb7ec7
+  $trModule :: GHC.Types.Module
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.Module Main.$trModule2 Main.$trModule1) -}
+847d9fc3b8e6f0b424199f36b4999bb2
+  $trModule1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS "Main"#) -}
+24ef6042833e75ffd7aa98b83ecca98d
+  $trModule2 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS "main"#) -}
+2d9487f537c8f877162252f5e3f8a960
+  $w$cstimes :: GHC.Real.Integral b => b -> (# #)
+  {- Arity: 2,
+     Strictness: <S(SLLLLLLLL),U(U,U,C(C1(U)),C(C1(U)),A,A,A,A,A)><L,U>,
+     Inline: [0] -}
+d99be5dc780b3e37f2d21f11fcf06af1
+  data Trivial = Trivial
+ac56ecb1b8b91d63a0bf18a5600ff9f4
+  type TrivialAssoc =
+    Main.Trivial -> Main.Trivial -> Main.Trivial -> GHC.Types.Bool
+314f33012a78d4bf3f3a8e5f7192a48b
+  main :: GHC.Types.IO ()
+  {- Arity: 1, Strictness: <S,U>,
+     Unfolding: InlineRule (0, True, True)
+                Main.main1 `cast` (Sym (GHC.Types.N:IO[0] <()>_R)) -}
+f8f2d5ee38d025f31b7d950f6df9de7a
+  main1 ::
+    GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
+  {- Arity: 1, Strictness: <S,U>,
+     Unfolding: (\ (s :: GHC.Prim.State# GHC.Prim.RealWorld)[OneShot] ->
+                 case Test.QuickCheck.Test.$wquickCheckWithResult
+                        @ Main.TrivialAssoc
+                        Main.main2
+                          `cast`
+                        (Trans
+                             (<Main.Trivial -> Main.Trivial -> Main.Trivial -> GHC.Types.Bool>_R
+                              ->_R Trans
+                                       (Sym (Test.QuickCheck.Gen.N:Gen[0]
+                                                 (Test.QuickCheck.Property.N:Prop[0])))
+                                       (Sym (Test.QuickCheck.Property.N:Property[0])))
+                             (Sym (Test.QuickCheck.Property.N:Testable[0]
+                                       <Main.Trivial
+                                        -> Main.Trivial -> Main.Trivial -> GHC.Types.Bool>_N)))
+                        (GHC.Base.Nothing @ (Test.QuickCheck.Random.QCGen, GHC.Types.Int))
+                        Test.QuickCheck.Test.stdArgs2
+                        Test.QuickCheck.Test.stdArgs1
+                        Test.QuickCheck.Test.stdArgs2
+                        GHC.Types.True
+                        Main.main_$ssemigroupAssoc
+                        s of ds1 { (#,#) ipv ipv1 ->
+                 (# ipv, GHC.Tuple.() #) }) -}
+3beea5db333a699763e9e64a983c4ae2
+  main2 ::
+    (Main.Trivial -> Main.Trivial -> Main.Trivial -> GHC.Types.Bool)
+    -> Test.QuickCheck.Random.QCGen
+    -> GHC.Types.Int
+    -> Test.QuickCheck.Property.Rose Test.QuickCheck.Property.Result
+  {- Arity: 3,
+     Unfolding: (\ (f :: Main.Trivial
+                         -> Main.Trivial -> Main.Trivial -> GHC.Types.Bool)[OneShot]
+                   (eta :: Test.QuickCheck.Random.QCGen)
+                   (eta1 :: GHC.Types.Int) ->
+                 Test.QuickCheck.Property.$fTestable(->)2
+                   @ Main.Trivial
+                   @ (Main.Trivial -> Main.Trivial -> GHC.Types.Bool)
+                   Main.$fShowTrivial
+                   Main.main3
+                     `cast`
+                   (Trans
+                        (<Main.Trivial -> Main.Trivial -> GHC.Types.Bool>_R
+                         ->_R Trans
+                                  (Sym (Test.QuickCheck.Gen.N:Gen[0]
+                                            (Test.QuickCheck.Property.N:Prop[0])))
+                                  (Sym (Test.QuickCheck.Property.N:Property[0])))
+                        (Sym (Test.QuickCheck.Property.N:Testable[0]
+                                  <Main.Trivial -> Main.Trivial -> GHC.Types.Bool>_N)))
+                   Main.$fArbitraryTrivial1
+                     `cast`
+                   (Sym (Test.QuickCheck.Gen.N:Gen[0] <Main.Trivial>_R))
+                   (\ (ds1 :: Main.Trivial) -> GHC.Types.[] @ Main.Trivial)
+                   f
+                   eta
+                   eta1) -}
+640994e7a1aa7654988e004b3bc95263
+  main3 ::
+    (Main.Trivial -> Main.Trivial -> GHC.Types.Bool)
+    -> Test.QuickCheck.Random.QCGen
+    -> GHC.Types.Int
+    -> Test.QuickCheck.Property.Rose Test.QuickCheck.Property.Result
+  {- Arity: 3, Strictness: <L,C(U)><L,U(U,U,U,U,A,A)><L,U>,
+     Unfolding: InlineRule (3, True, False)
+                (\ (f :: Main.Trivial -> Main.Trivial -> GHC.Types.Bool)
+                   (eta :: Test.QuickCheck.Random.QCGen)
+                   (eta1 :: GHC.Types.Int) ->
+                 Test.QuickCheck.Property.$fTestable(->)2
+                   @ Main.Trivial
+                   @ (Main.Trivial -> GHC.Types.Bool)
+                   Main.$fShowTrivial
+                   Main.main4
+                     `cast`
+                   (Trans
+                        (<Main.Trivial -> GHC.Types.Bool>_R
+                         ->_R Trans
+                                  (Sym (Test.QuickCheck.Gen.N:Gen[0]
+                                            (Test.QuickCheck.Property.N:Prop[0])))
+                                  (Sym (Test.QuickCheck.Property.N:Property[0])))
+                        (Sym (Test.QuickCheck.Property.N:Testable[0]
+                                  <Main.Trivial -> GHC.Types.Bool>_N)))
+                   Main.$fArbitraryTrivial1
+                     `cast`
+                   (Sym (Test.QuickCheck.Gen.N:Gen[0] <Main.Trivial>_R))
+                   Main.$fArbitraryTrivial_$s$dmshrink
+                   f
+                   eta
+                   eta1) -}
+152e2573f76b9f806ccfd27beae6d2b5
+  main4 ::
+    (Main.Trivial -> GHC.Types.Bool)
+    -> Test.QuickCheck.Random.QCGen
+    -> GHC.Types.Int
+    -> Test.QuickCheck.Property.Rose Test.QuickCheck.Property.Result
+  {- Arity: 3, Strictness: <L,C(U)><L,U(U,U,U,U,A,A)><L,U>,
+     Unfolding: InlineRule (3, True, False)
+                (\ (f :: Main.Trivial -> GHC.Types.Bool)
+                   (eta :: Test.QuickCheck.Random.QCGen)
+                   (eta1 :: GHC.Types.Int) ->
+                 Test.QuickCheck.Property.$fTestable(->)2
+                   @ Main.Trivial
+                   @ GHC.Types.Bool
+                   Main.$fShowTrivial
+                   Test.QuickCheck.Property.$fTestableBool_$cproperty
+                     `cast`
+                   (Sym (Test.QuickCheck.Property.N:Testable[0] <GHC.Types.Bool>_N))
+                   Main.$fArbitraryTrivial1
+                     `cast`
+                   (Sym (Test.QuickCheck.Gen.N:Gen[0] <Main.Trivial>_R))
+                   Main.$fArbitraryTrivial_$s$dmshrink
+                   f
+                   eta
+                   eta1) -}
+57de62bf227db4564d16a7938c78a979
+  main5 ::
+    GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
+  {- Arity: 1,
+     Unfolding: (GHC.TopHandler.runMainIO1
+                   @ ()
+                   Main.main1 `cast` (Sym (GHC.Types.N:IO[0] <()>_R))) -}
+95cb7b32f42257161237180e35ba839d
+  main_$ssemigroupAssoc ::
+    Main.Trivial -> Main.Trivial -> Main.Trivial -> GHC.Types.Bool
+  {- Arity: 3, Strictness: <B,A><B,A><B,A>b,
+     Unfolding: InlineRule (3, True, False)
+                (\ (a :: Main.Trivial) (b :: Main.Trivial) (c :: Main.Trivial) ->
+                 case Main.$fSemigroupTrivial1 ret_ty GHC.Types.Bool of {}) -}
+f44ba632661824b9037f7f52bcb09c79
+  semigroupAssoc ::
+    (GHC.Classes.Eq m, Data.Semigroup.Semigroup m) =>
+    m -> m -> m -> GHC.Types.Bool
+  {- Arity: 5, HasNoCafRefs,
+     Strictness: <S(C(C(S))L),1*U(1*C1(C1(U)),A)><L,U(C(C1(U)),A,A)><L,U><L,U><L,U>,
+     Unfolding: (\ @ m
+                   ($dEq :: GHC.Classes.Eq m)
+                   ($dSemigroup :: Data.Semigroup.Semigroup m)
+                   (a :: m)
+                   (b :: m)
+                   (c :: m) ->
+                 GHC.Classes.==
+                   @ m
+                   $dEq
+                   (Data.Semigroup.<>
+                      @ m
+                      $dSemigroup
+                      a
+                      (Data.Semigroup.<> @ m $dSemigroup b c))
+                   (Data.Semigroup.<>
+                      @ m
+                      $dSemigroup
+                      (Data.Semigroup.<> @ m $dSemigroup a b)
+                      c)) -}
+instance [safe] Test.QuickCheck.Arbitrary.Arbitrary [Main.Trivial]
+  = Main.$fArbitraryTrivial
+instance [safe] GHC.Classes.Eq [Main.Trivial] = Main.$fEqTrivial
+instance [safe] Data.Semigroup.Semigroup [Main.Trivial]
+  = Main.$fSemigroupTrivial
+instance [safe] GHC.Show.Show [Main.Trivial] = Main.$fShowTrivial
+"SPEC semigroupAssoc @ Trivial" [ALWAYS] forall ($dSemigroup :: Data.Semigroup.Semigroup
+                                                                  Main.Trivial)
+                                                ($dEq :: GHC.Classes.Eq Main.Trivial)
+  Main.semigroupAssoc @ Main.Trivial $dEq $dSemigroup
+  = Main.main_$ssemigroupAssoc
+"SPEC/Main $dmshrink @ Trivial" [ALWAYS] forall ($dArbitrary :: Test.QuickCheck.Arbitrary.Arbitrary
+                                                                  Main.Trivial)
+  Test.QuickCheck.Arbitrary.$dmshrink @ Main.Trivial $dArbitrary
+  = Main.$fArbitraryTrivial_$s$dmshrink
+vectorised variables:
+vectorised tycons:
+vectorised reused tycons:
+parallel variables:
+parallel tycons:
+trusted: safe
+require own pkg trusted: False
+
