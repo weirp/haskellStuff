@@ -75,14 +75,21 @@ instance Functor m => Functor (EitherT e m) where
   fmap f (EitherT ema) = EitherT $ (fmap . fmap) f ema
 
 instance Applicative m => Applicative (EitherT e m) where
-  pure = undefined
-  f <*> a = undefined
+  pure x = EitherT (pure (pure x))
+  (EitherT f) <*> (EitherT a) = EitherT $ (<*>) <$> f <*> a
+
 instance Monad m => Monad (EitherT e m) where
   return = pure
-  v >>= f = undefined
+  (EitherT ma) >>= f =
+    EitherT $ do
+    v <- ma
+    case v of
+      Left x -> return $ Left x
+      Right y -> runEitherT (f y)
+
 swapEitherT :: (Functor m) => EitherT e m a
   -> EitherT a m e
-swapEitherT = undefined
+swapEitherT (EitherT e m a) = undefined
 
 
 main :: IO ()
