@@ -1,0 +1,1154 @@
+
+==================== FINAL INTERFACE ====================
+2017-03-29 22:15:02.128035 UTC
+
+interface main@main:Main 8002
+  interface hash: 53a9149a1a4b6b25cc466ecd032fc41c
+  ABI hash: 792f8e65b1642dd480922aedad3d6499
+  export-list hash: 9ae6f28e1c6c8633e0dc4ef8022fb402
+  orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
+  flag hash: f604d8475e08efbf72c4cf84df711daf
+  sig of: Nothing
+  used TH splices: False
+  where
+exports:
+  Main.decodeFn
+  Main.fetchFn
+  Main.main
+  Main.makeIoOnlyObj
+  Main.pipelineFn
+  Main.pipelineFn'
+  Main.pipelineFn''
+  Main.Either'{Main.Left' Main.Right'}
+  Main.Err{Main.Err}
+  Main.IoOnlyObj{Main.IoOnlyObj}
+  Main.Query{Main.Query}
+  Main.SomeObj{Main.SomeObj}
+module dependencies:
+package dependencies: base-4.9.1.0* ghc-prim-0.5.0.0
+                      integer-gmp-1.0.0.1
+orphans: base-4.9.1.0:GHC.Base base-4.9.1.0:GHC.Float
+family instance modules: base-4.9.1.0:Control.Applicative
+                         base-4.9.1.0:Data.Either base-4.9.1.0:Data.Functor.Const
+                         base-4.9.1.0:Data.Monoid base-4.9.1.0:Data.Type.Equality
+                         base-4.9.1.0:GHC.Generics base-4.9.1.0:GHC.IO.Exception
+                         base-4.9.1.0:GHC.TypeLits
+import  -/  base-4.9.1.0:Data.Either 20b09ef8d0a5b74fdec011c40c1587f5
+import  -/  base-4.9.1.0:Data.Foldable 3e0b6967a1da89945d0e2d47266337a2
+import  -/  base-4.9.1.0:Data.Functor 5ab1dc703df5b482e77efb697833ca3c
+import  -/  base-4.9.1.0:Data.Traversable 556020d7cf3c4a34a774600512918a37
+import  -/  base-4.9.1.0:GHC.Base c4231c43c07e46080a26bf94094c7aa1
+import  -/  base-4.9.1.0:GHC.Err 3bba35a16538d33d424682ce66876cdd
+import  -/  base-4.9.1.0:GHC.Show a027f5ac24879eaba752f44aa90fe511
+import  -/  base-4.9.1.0:Prelude 22dd289b8469a8fa8dc81cab7b237771
+import  -/  base-4.9.1.0:System.IO e4a64a8e3dce8616da54f0ee7104f7db
+import  -/  ghc-prim-0.5.0.0:GHC.Classes 0bdf3d057a415ec1b84a7b1994efbe47
+import  -/  ghc-prim-0.5.0.0:GHC.Types 89f8de4f08018c9177c98d979eae0e45
+ff797797c2a9b926f7c905449139b0c3
+  $fApplicativeEither' :: GHC.Base.Applicative (Main.Either' e)
+  DFunId
+  {- HasNoCafRefs, Strictness: m, Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun: @ e.
+                  @ (Main.Either' e)
+                  (Main.$fFunctorEither' @ e)
+                  (Main.Right' @ e)
+                  (Main.$fApplicativeEither'_$c<*> @ e)
+                  (Main.$fApplicativeEither'_$c*> @ e)
+                  (Main.$fApplicativeEither'_$c<* @ e) -}
+ff797797c2a9b926f7c905449139b0c3
+  $fApplicativeEither'_$c*> ::
+    Main.Either' e a -> Main.Either' e b -> Main.Either' e b
+  {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><L,1*U>,
+     Unfolding: InlineRule (2, True, False)
+                (\ @ e
+                   @ a
+                   @ b
+                   (eta :: Main.Either' e a)
+                   (eta1 :: Main.Either' e b) ->
+                 case eta of wild {
+                   Main.Left' x -> Main.Left' @ e @ b x Main.Right' y -> eta1 }) -}
+ff797797c2a9b926f7c905449139b0c3
+  $fApplicativeEither'_$c<* ::
+    Main.Either' e a -> Main.Either' e b -> Main.Either' e a
+  {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><L,1*U>,
+     Unfolding: InlineRule (2, True, False)
+                (\ @ e
+                   @ a
+                   @ b
+                   (eta :: Main.Either' e a)
+                   (eta1 :: Main.Either' e b) ->
+                 case eta of wild {
+                   Main.Left' x -> Main.Left' @ e @ a x
+                   Main.Right' y
+                   -> case eta1 of wild1 {
+                        Main.Left' x -> Main.Left' @ e @ a x
+                        Main.Right' y1 -> Main.Right' @ e @ a y } }) -}
+ff797797c2a9b926f7c905449139b0c3
+  $fApplicativeEither'_$c<*> ::
+    Main.Either' e (a -> b) -> Main.Either' e a -> Main.Either' e b
+  {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><L,1*U>,
+     Unfolding: InlineRule (2, True, False)
+                (\ @ e
+                   @ a
+                   @ b
+                   (ds :: Main.Either' e (a -> b))
+                   (ds1 :: Main.Either' e a) ->
+                 case ds of wild {
+                   Main.Left' e1 -> Main.Left' @ e @ b e1
+                   Main.Right' f
+                   -> Main.$fApplicativeEither'_$cfmap @ e @ a @ b f ds1 }) -}
+ff797797c2a9b926f7c905449139b0c3
+  $fApplicativeEither'_$cfmap ::
+    (a1 -> b) -> Main.Either' a a1 -> Main.Either' a b
+  {- Arity: 2, HasNoCafRefs, Strictness: <L,1*C1(U)><S,1*U>,
+     Unfolding: InlineRule (2, True, False)
+                (\ @ a @ a1 @ b (ds :: a1 -> b) (ds1 :: Main.Either' a a1) ->
+                 case ds1 of wild {
+                   Main.Left' x -> Main.Left' @ a @ b x
+                   Main.Right' y -> Main.Right' @ a @ b (ds y) }) -}
+ff797797c2a9b926f7c905449139b0c3
+  $fEqEither' ::
+    (GHC.Classes.Eq b, GHC.Classes.Eq a) =>
+    GHC.Classes.Eq (Main.Either' a b)
+  DFunId
+  {- Arity: 2, HasNoCafRefs,
+     Strictness: <L,U(C(C1(U)),A)><L,U(C(C1(U)),A)>m,
+     Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun: @ a
+                      @ b
+                      ($dEq :: GHC.Classes.Eq b)
+                      ($dEq1 :: GHC.Classes.Eq a).
+                  @ (Main.Either' a b)
+                  (Main.$fEqEither'_$c== @ a @ b $dEq $dEq1)
+                  (Main.$fEqEither'_$c/= @ a @ b $dEq $dEq1) -}
+ff797797c2a9b926f7c905449139b0c3
+  $fEqEither'_$c/= ::
+    (GHC.Classes.Eq b, GHC.Classes.Eq a) =>
+    Main.Either' a b -> Main.Either' a b -> GHC.Types.Bool
+  {- Arity: 4, HasNoCafRefs,
+     Strictness: <L,1*U(1*C1(C1(U)),A)><L,1*U(1*C1(C1(U)),A)><S,1*U><S,1*U>,
+     Unfolding: (\ @ a
+                   @ b
+                   ($dEq :: GHC.Classes.Eq b)
+                   ($dEq1 :: GHC.Classes.Eq a)
+                   (a1 :: Main.Either' a b)
+                   (b1 :: Main.Either' a b) ->
+                 case a1 of wild {
+                   Main.Left' a2
+                   -> case b1 of wild1 {
+                        Main.Left' b2
+                        -> case GHC.Classes.== @ a $dEq1 a2 b2 of wild2 {
+                             GHC.Types.False -> GHC.Types.True
+                             GHC.Types.True -> GHC.Types.False }
+                        Main.Right' ipv -> GHC.Types.True }
+                   Main.Right' a2
+                   -> case b1 of wild1 {
+                        Main.Left' ipv -> GHC.Types.True
+                        Main.Right' b2
+                        -> case GHC.Classes.== @ b $dEq a2 b2 of wild2 {
+                             GHC.Types.False -> GHC.Types.True
+                             GHC.Types.True -> GHC.Types.False } } }) -}
+ff797797c2a9b926f7c905449139b0c3
+  $fEqEither'_$c== ::
+    (GHC.Classes.Eq b, GHC.Classes.Eq a) =>
+    Main.Either' a b -> Main.Either' a b -> GHC.Types.Bool
+  {- Arity: 4, HasNoCafRefs,
+     Strictness: <L,1*U(1*C1(C1(U)),A)><L,1*U(1*C1(C1(U)),A)><S,1*U><S,1*U>,
+     Unfolding: (\ @ a
+                   @ b
+                   ($dEq :: GHC.Classes.Eq b)
+                   ($dEq1 :: GHC.Classes.Eq a)
+                   (ds :: Main.Either' a b)
+                   (ds1 :: Main.Either' a b) ->
+                 case ds of wild {
+                   Main.Left' a1
+                   -> case ds1 of wild1 {
+                        Main.Left' b1 -> GHC.Classes.== @ a $dEq1 a1 b1
+                        Main.Right' ipv -> GHC.Types.False }
+                   Main.Right' a1
+                   -> case ds1 of wild1 {
+                        Main.Left' ipv -> GHC.Types.False
+                        Main.Right' b1 -> GHC.Classes.== @ b $dEq a1 b1 } }) -}
+ff797797c2a9b926f7c905449139b0c3
+  $fFoldableEither' :: Data.Foldable.Foldable (Main.Either' a)
+  DFunId
+  {- Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun: @ a.
+                  @ (Main.Either' a)
+                  (Main.$fFoldableEither'_$cfold @ a)
+                  (Main.$fFoldableEither'_$cfoldMap @ a)
+                  (Main.$fFoldableEither'_$cfoldr @ a)
+                  (Main.$fFoldableEither'_$cfoldr @ a)
+                  (Main.$fFoldableEither'_$cfoldl @ a)
+                  (Main.$fFoldableEither'_$cfoldl @ a)
+                  (Main.$fFoldableEither'_$cfoldr1 @ a)
+                  (Main.$fFoldableEither'_$cfoldl1 @ a)
+                  (Main.$fFoldableEither'_$ctoList @ a)
+                  (Main.$fFoldableEither'_$cnull @ a)
+                  (Main.$fFoldableEither'_$clength @ a)
+                  (Main.$fFoldableEither'_$celem @ a)
+                  (Main.$fFoldableEither'_$cmaximum @ a)
+                  (Main.$fFoldableEither'_$cminimum @ a)
+                  (Main.$fFoldableEither'_$csum @ a)
+                  (Main.$fFoldableEither'_$cproduct @ a) -}
+ff797797c2a9b926f7c905449139b0c3
+  $fFoldableEither'1 ::
+    GHC.Num.Num a1 => Main.Either' a a1 -> Data.Monoid.Product a1
+  {- Arity: 2, HasNoCafRefs,
+     Strictness: <L,1*U(A,A,A,A,A,A,1*C1(U))><S,1*U>,
+     Unfolding: InlineRule (2, True, False)
+                (\ @ a @ a1 ($dNum :: GHC.Num.Num a1) (ds :: Main.Either' a a1) ->
+                 case ds of wild {
+                   Main.Left' ds1
+                   -> (Data.Monoid.$fMonoidProduct2 @ a1 $dNum)
+                        `cast`
+                      (Sym (Data.Monoid.N:Product[0] <a1>_R))
+                   Main.Right' y
+                   -> y `cast` (Sym (Data.Monoid.N:Product[0] <a1>_R)) }) -}
+ff797797c2a9b926f7c905449139b0c3
+  $fFoldableEither'2 ::
+    GHC.Num.Num a1 => Main.Either' a a1 -> Data.Monoid.Sum a1
+  {- Arity: 2, HasNoCafRefs,
+     Strictness: <L,1*U(A,A,A,A,A,A,1*C1(U))><S,1*U>,
+     Unfolding: InlineRule (2, True, False)
+                (\ @ a @ a1 ($dNum :: GHC.Num.Num a1) (ds :: Main.Either' a a1) ->
+                 case ds of wild {
+                   Main.Left' ds1
+                   -> (Data.Monoid.$fMonoidSum2 @ a1 $dNum)
+                        `cast`
+                      (Sym (Data.Monoid.N:Sum[0] <a1>_R))
+                   Main.Right' y -> y `cast` (Sym (Data.Monoid.N:Sum[0] <a1>_R)) }) -}
+c61c59895b4ff2900e9347c77ce18171
+  $fFoldableEither'3 :: a
+  {- Strictness: x -}
+71de29dd0a14918e2659dda85353c6a2
+  $fFoldableEither'4 :: a
+  {- Strictness: x -}
+81c651643dc655a1961b73889d24e5c3
+  $fFoldableEither'5 :: GHC.Types.Int
+  {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.I# 0#) -}
+d1423f5331842099b33d1c76592ef8e5
+  $fFoldableEither'6 :: a
+  {- Strictness: x -}
+216386934786bb0274aa899ba6956213
+  $fFoldableEither'7 :: a
+  {- Strictness: x -}
+ff797797c2a9b926f7c905449139b0c3
+  $fFoldableEither'_$celem ::
+    GHC.Classes.Eq a1 => a1 -> Main.Either' a a1 -> GHC.Types.Bool
+  {- Arity: 2, HasNoCafRefs, Strictness: <L,1*U(1*C1(U),A)><L,U>,
+     Unfolding: InlineRule (2, True, False)
+                (\ @ a @ a1 ($dEq :: GHC.Classes.Eq a1) (eta :: a1) ->
+                 let {
+                   ds :: a1 -> GHC.Types.Bool = GHC.Classes.== @ a1 $dEq eta
+                 } in
+                 (\ (ds1 :: Main.Either' a a1) ->
+                  case ds1 of wild {
+                    Main.Left' ds2
+                    -> GHC.Types.False `cast` (Sym (Data.Monoid.N:Any[0]))
+                    Main.Right' y -> (ds y) `cast` (Sym (Data.Monoid.N:Any[0])) })
+                   `cast`
+                 (<Main.Either' a a1>_R ->_R Data.Monoid.N:Any[0])) -}
+ff797797c2a9b926f7c905449139b0c3
+  $fFoldableEither'_$cfold ::
+    GHC.Base.Monoid m => Main.Either' a m -> m
+  {- Arity: 2, HasNoCafRefs, Strictness: <L,1*U(1*U,A,A)><S,1*U>,
+     Unfolding: InlineRule (2, True, False)
+                (\ @ a
+                   @ m
+                   ($dMonoid :: GHC.Base.Monoid m)
+                   (ds :: Main.Either' a m) ->
+                 case ds of wild {
+                   Main.Left' ds1 -> GHC.Base.mempty @ m $dMonoid
+                   Main.Right' y -> y }) -}
+ff797797c2a9b926f7c905449139b0c3
+  $fFoldableEither'_$cfoldMap ::
+    GHC.Base.Monoid m => (a1 -> m) -> Main.Either' a a1 -> m
+  {- Arity: 3, HasNoCafRefs,
+     Strictness: <L,1*U(1*U,A,A)><L,1*C1(U)><S,1*U>,
+     Unfolding: InlineRule (3, True, False)
+                (\ @ a
+                   @ m
+                   @ a1
+                   ($dMonoid :: GHC.Base.Monoid m)
+                   (ds :: a1 -> m)
+                   (ds1 :: Main.Either' a a1) ->
+                 case ds1 of wild {
+                   Main.Left' ds2 -> GHC.Base.mempty @ m $dMonoid
+                   Main.Right' y -> ds y }) -}
+ff797797c2a9b926f7c905449139b0c3
+  $fFoldableEither'_$cfoldl ::
+    (b -> a1 -> b) -> b -> Main.Either' a a1 -> b
+  {- Arity: 3, HasNoCafRefs, Strictness: <L,1*C1(C1(U))><L,U><S,1*U>,
+     Unfolding: InlineRule (3, True, False)
+                (\ @ a
+                   @ b
+                   @ a1
+                   (f :: b -> a1 -> b)
+                   (z1 :: b)
+                   (t1 :: Main.Either' a a1) ->
+                 case t1 of wild { Main.Left' ds -> z1 Main.Right' y -> f z1 y }) -}
+ff797797c2a9b926f7c905449139b0c3
+  $fFoldableEither'_$cfoldl1 ::
+    (a1 -> a1 -> a1) -> Main.Either' a a1 -> a1
+  {- Arity: 2, Strictness: <L,A><S,1*U>, Inline: INLINE[0],
+     Unfolding: InlineRule (2, True, False)
+                (\ @ a @ a1 (w :: a1 -> a1 -> a1) (w1 :: Main.Either' a a1) ->
+                 case w1 of wild {
+                   Main.Left' ds -> Main.$fFoldableEither'6 @ a1
+                   Main.Right' y -> y }) -}
+ff797797c2a9b926f7c905449139b0c3
+  $fFoldableEither'_$cfoldr ::
+    (a1 -> b -> b) -> b -> Main.Either' a a1 -> b
+  {- Arity: 3, HasNoCafRefs, Strictness: <L,1*C1(C1(U))><L,U><S,1*U>,
+     Unfolding: InlineRule (3, True, False)
+                (\ @ a
+                   @ a1
+                   @ b
+                   (ds :: a1 -> b -> b)
+                   (z1 :: b)
+                   (ds1 :: Main.Either' a a1) ->
+                 case ds1 of wild {
+                   Main.Left' ds2 -> z1 Main.Right' y -> ds y z1 }) -}
+ff797797c2a9b926f7c905449139b0c3
+  $fFoldableEither'_$cfoldr1 ::
+    (a1 -> a1 -> a1) -> Main.Either' a a1 -> a1
+  {- Arity: 2, Strictness: <L,A><S,1*U>, Inline: INLINE[0],
+     Unfolding: InlineRule (2, True, False)
+                (\ @ a @ a1 (w :: a1 -> a1 -> a1) (w1 :: Main.Either' a a1) ->
+                 case w1 of wild {
+                   Main.Left' ds -> Main.$fFoldableEither'7 @ a1
+                   Main.Right' y -> y }) -}
+ff797797c2a9b926f7c905449139b0c3
+  $fFoldableEither'_$clength :: Main.Either' a a1 -> GHC.Types.Int
+  {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U>m,
+     Unfolding: InlineRule (1, True, False)
+                (\ @ a @ a1 (xs :: Main.Either' a a1) ->
+                 case xs of wild {
+                   Main.Left' ds -> Main.$fFoldableEither'5
+                   Main.Right' y -> GHC.Types.I# 1# }) -}
+ff797797c2a9b926f7c905449139b0c3
+  $fFoldableEither'_$cmaximum ::
+    GHC.Classes.Ord a1 => Main.Either' a a1 -> a1
+  {- Arity: 2, Strictness: <L,A><S,1*U>, Inline: INLINE[0],
+     Unfolding: InlineRule (2, True, False)
+                (\ @ a @ a1 (w :: GHC.Classes.Ord a1) (w1 :: Main.Either' a a1) ->
+                 case w1 of wild {
+                   Main.Left' ds -> Main.$fFoldableEither'4 @ a1
+                   Main.Right' y -> y }) -}
+ff797797c2a9b926f7c905449139b0c3
+  $fFoldableEither'_$cminimum ::
+    GHC.Classes.Ord a1 => Main.Either' a a1 -> a1
+  {- Arity: 2, Strictness: <L,A><S,1*U>, Inline: INLINE[0],
+     Unfolding: InlineRule (2, True, False)
+                (\ @ a @ a1 (w :: GHC.Classes.Ord a1) (w1 :: Main.Either' a a1) ->
+                 case w1 of wild {
+                   Main.Left' ds -> Main.$fFoldableEither'3 @ a1
+                   Main.Right' y -> y }) -}
+ff797797c2a9b926f7c905449139b0c3
+  $fFoldableEither'_$cnull :: Main.Either' a a1 -> GHC.Types.Bool
+  {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U>,
+     Unfolding: InlineRule (1, True, False)
+                (\ @ a @ a1 (ds :: Main.Either' a a1) ->
+                 case ds of wild {
+                   Main.Left' ds1 -> GHC.Types.True
+                   Main.Right' y -> GHC.Types.False }) -}
+ff797797c2a9b926f7c905449139b0c3
+  $fFoldableEither'_$cproduct ::
+    GHC.Num.Num a1 => Main.Either' a a1 -> a1
+  {- Arity: 2, HasNoCafRefs,
+     Strictness: <L,1*U(A,A,A,A,A,A,1*C1(U))><S,1*U>,
+     Unfolding: InlineRule (0, True, True)
+                Main.$fFoldableEither'1
+                  `cast`
+                (forall (a :: <*>_N) (a1 :: <*>_N).
+                 <GHC.Num.Num a1>_R
+                 ->_R <Main.Either' a a1>_R
+                 ->_R Data.Monoid.N:Product[0] <a1>_R) -}
+ff797797c2a9b926f7c905449139b0c3
+  $fFoldableEither'_$csum ::
+    GHC.Num.Num a1 => Main.Either' a a1 -> a1
+  {- Arity: 2, HasNoCafRefs,
+     Strictness: <L,1*U(A,A,A,A,A,A,1*C1(U))><S,1*U>,
+     Unfolding: InlineRule (0, True, True)
+                Main.$fFoldableEither'2
+                  `cast`
+                (forall (a :: <*>_N) (a1 :: <*>_N).
+                 <GHC.Num.Num a1>_R
+                 ->_R <Main.Either' a a1>_R
+                 ->_R Data.Monoid.N:Sum[0] <a1>_R) -}
+ff797797c2a9b926f7c905449139b0c3
+  $fFoldableEither'_$ctoList :: Main.Either' a a1 -> [a1]
+  {- Arity: 1, Strictness: <L,U>, Inline: INLINE (sat-args=1),
+     Unfolding: InlineRule (1, False, False)
+                (\ @ a @ a1 (t1 :: Main.Either' a a1) ->
+                 GHC.Base.build
+                   @ a1
+                   (\ @ b (c :: a1 -> b -> b)[OneShot] (n :: b)[OneShot] ->
+                    Main.$fFoldableEither'_$cfoldr @ a @ a1 @ b c n t1)) -}
+ff797797c2a9b926f7c905449139b0c3
+  $fFunctorEither' :: GHC.Base.Functor (Main.Either' a)
+  DFunId
+  {- HasNoCafRefs, Strictness: m, Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun: @ a.
+                  @ (Main.Either' a)
+                  (Main.$fApplicativeEither'_$cfmap @ a)
+                  (Main.$fFunctorEither'_$c<$ @ a) -}
+ff797797c2a9b926f7c905449139b0c3
+  $fFunctorEither'_$c<$ ::
+    a1 -> Main.Either' a b -> Main.Either' a a1
+  {- Arity: 2, HasNoCafRefs, Strictness: <L,U><S,1*U>,
+     Unfolding: InlineRule (2, True, False)
+                (\ @ a @ a1 @ b (eta :: a1) (ds :: Main.Either' a b) ->
+                 case ds of wild {
+                   Main.Left' x -> Main.Left' @ a @ a1 x
+                   Main.Right' y -> Main.Right' @ a @ a1 eta }) -}
+ff797797c2a9b926f7c905449139b0c3
+  $fOrdEither' ::
+    (GHC.Classes.Ord b, GHC.Classes.Ord a) =>
+    GHC.Classes.Ord (Main.Either' a b)
+  DFunId
+  {- Arity: 2, HasNoCafRefs,
+     Strictness: <L,U(1*U(C(C1(U)),A),C(C1(U)),C(C1(U)),C(C1(U)),C(C1(U)),C(C1(U)),A,A)><L,U(1*U(C(C1(U)),A),C(C1(U)),C(C1(U)),C(C1(U)),C(C1(U)),C(C1(U)),A,A)>m,
+     Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun: @ a
+                      @ b
+                      ($dOrd :: GHC.Classes.Ord b)
+                      ($dOrd1 :: GHC.Classes.Ord a).
+                  @ (Main.Either' a b)
+                  (Main.$fOrdEither'_$cp1Ord @ a @ b $dOrd $dOrd1)
+                  (Main.$fOrdEither'_$ccompare @ a @ b $dOrd $dOrd1)
+                  (Main.$fOrdEither'_$c< @ a @ b $dOrd $dOrd1)
+                  (Main.$fOrdEither'_$c<= @ a @ b $dOrd $dOrd1)
+                  (Main.$fOrdEither'_$c> @ a @ b $dOrd $dOrd1)
+                  (Main.$fOrdEither'_$c>= @ a @ b $dOrd $dOrd1)
+                  (Main.$fOrdEither'_$cmax @ a @ b $dOrd $dOrd1)
+                  (Main.$fOrdEither'_$cmin @ a @ b $dOrd $dOrd1) -}
+ff797797c2a9b926f7c905449139b0c3
+  $fOrdEither'_$c< ::
+    (GHC.Classes.Ord b, GHC.Classes.Ord a) =>
+    Main.Either' a b -> Main.Either' a b -> GHC.Types.Bool
+  {- Arity: 4, HasNoCafRefs,
+     Strictness: <L,1*U(A,A,1*C1(C1(U)),A,A,A,A,A)><L,1*U(A,A,1*C1(C1(U)),A,A,A,A,A)><S,1*U><S,1*U>,
+     Unfolding: (\ @ a
+                   @ b
+                   ($dOrd :: GHC.Classes.Ord b)
+                   ($dOrd1 :: GHC.Classes.Ord a)
+                   (a1 :: Main.Either' a b)
+                   (b1 :: Main.Either' a b) ->
+                 case a1 of wild {
+                   Main.Left' a2
+                   -> case b1 of wild1 {
+                        Main.Left' b2 -> GHC.Classes.< @ a $dOrd1 a2 b2
+                        Main.Right' ipv -> GHC.Types.True }
+                   Main.Right' a2
+                   -> case b1 of wild1 {
+                        Main.Left' ipv -> GHC.Types.False
+                        Main.Right' b2 -> GHC.Classes.< @ b $dOrd a2 b2 } }) -}
+ff797797c2a9b926f7c905449139b0c3
+  $fOrdEither'_$c<= ::
+    (GHC.Classes.Ord b, GHC.Classes.Ord a) =>
+    Main.Either' a b -> Main.Either' a b -> GHC.Types.Bool
+  {- Arity: 4, HasNoCafRefs,
+     Strictness: <L,1*U(A,A,A,1*C1(C1(U)),A,A,A,A)><L,1*U(A,A,A,1*C1(C1(U)),A,A,A,A)><S,1*U><S,1*U>,
+     Unfolding: (\ @ a
+                   @ b
+                   ($dOrd :: GHC.Classes.Ord b)
+                   ($dOrd1 :: GHC.Classes.Ord a)
+                   (a1 :: Main.Either' a b)
+                   (b1 :: Main.Either' a b) ->
+                 case a1 of wild {
+                   Main.Left' a2
+                   -> case b1 of wild1 {
+                        Main.Left' b2 -> GHC.Classes.<= @ a $dOrd1 a2 b2
+                        Main.Right' ipv -> GHC.Types.True }
+                   Main.Right' a2
+                   -> case b1 of wild1 {
+                        Main.Left' ipv -> GHC.Types.False
+                        Main.Right' b2 -> GHC.Classes.<= @ b $dOrd a2 b2 } }) -}
+ff797797c2a9b926f7c905449139b0c3
+  $fOrdEither'_$c> ::
+    (GHC.Classes.Ord b, GHC.Classes.Ord a) =>
+    Main.Either' a b -> Main.Either' a b -> GHC.Types.Bool
+  {- Arity: 4, HasNoCafRefs,
+     Strictness: <L,1*U(A,A,A,A,1*C1(C1(U)),A,A,A)><L,1*U(A,A,A,A,1*C1(C1(U)),A,A,A)><S,1*U><S,1*U>,
+     Unfolding: (\ @ a
+                   @ b
+                   ($dOrd :: GHC.Classes.Ord b)
+                   ($dOrd1 :: GHC.Classes.Ord a)
+                   (a1 :: Main.Either' a b)
+                   (b1 :: Main.Either' a b) ->
+                 case a1 of wild {
+                   Main.Left' a2
+                   -> case b1 of wild1 {
+                        Main.Left' b2 -> GHC.Classes.> @ a $dOrd1 a2 b2
+                        Main.Right' ipv -> GHC.Types.False }
+                   Main.Right' a2
+                   -> case b1 of wild1 {
+                        Main.Left' ipv -> GHC.Types.True
+                        Main.Right' b2 -> GHC.Classes.> @ b $dOrd a2 b2 } }) -}
+ff797797c2a9b926f7c905449139b0c3
+  $fOrdEither'_$c>= ::
+    (GHC.Classes.Ord b, GHC.Classes.Ord a) =>
+    Main.Either' a b -> Main.Either' a b -> GHC.Types.Bool
+  {- Arity: 4, HasNoCafRefs,
+     Strictness: <L,1*U(A,A,A,A,A,1*C1(C1(U)),A,A)><L,1*U(A,A,A,A,A,1*C1(C1(U)),A,A)><S,1*U><S,1*U>,
+     Unfolding: (\ @ a
+                   @ b
+                   ($dOrd :: GHC.Classes.Ord b)
+                   ($dOrd1 :: GHC.Classes.Ord a)
+                   (a1 :: Main.Either' a b)
+                   (b1 :: Main.Either' a b) ->
+                 case a1 of wild {
+                   Main.Left' a2
+                   -> case b1 of wild1 {
+                        Main.Left' b2 -> GHC.Classes.>= @ a $dOrd1 a2 b2
+                        Main.Right' ipv -> GHC.Types.False }
+                   Main.Right' a2
+                   -> case b1 of wild1 {
+                        Main.Left' ipv -> GHC.Types.True
+                        Main.Right' b2 -> GHC.Classes.>= @ b $dOrd a2 b2 } }) -}
+ff797797c2a9b926f7c905449139b0c3
+  $fOrdEither'_$ccompare ::
+    (GHC.Classes.Ord b, GHC.Classes.Ord a) =>
+    Main.Either' a b -> Main.Either' a b -> GHC.Types.Ordering
+  {- Arity: 4, HasNoCafRefs,
+     Strictness: <L,1*U(A,1*C1(C1(U)),A,A,A,A,A,A)><L,1*U(A,1*C1(C1(U)),A,A,A,A,A,A)><S,1*U><S,1*U>,
+     Unfolding: (\ @ a
+                   @ b
+                   ($dOrd :: GHC.Classes.Ord b)
+                   ($dOrd1 :: GHC.Classes.Ord a)
+                   (a1 :: Main.Either' a b)
+                   (b1 :: Main.Either' a b) ->
+                 case a1 of wild {
+                   Main.Left' a2
+                   -> case b1 of wild1 {
+                        Main.Left' b2 -> GHC.Classes.compare @ a $dOrd1 a2 b2
+                        Main.Right' ipv -> GHC.Types.LT }
+                   Main.Right' a2
+                   -> case b1 of wild1 {
+                        Main.Left' ipv -> GHC.Types.GT
+                        Main.Right' b2 -> GHC.Classes.compare @ b $dOrd a2 b2 } }) -}
+ff797797c2a9b926f7c905449139b0c3
+  $fOrdEither'_$cmax ::
+    (GHC.Classes.Ord b, GHC.Classes.Ord a) =>
+    Main.Either' a b -> Main.Either' a b -> Main.Either' a b
+  {- Arity: 4, HasNoCafRefs,
+     Strictness: <L,1*U(A,A,A,1*C1(C1(U)),A,A,A,A)><L,1*U(A,A,A,1*C1(C1(U)),A,A,A,A)><S,1*U><S,1*U>,
+     Unfolding: (\ @ a
+                   @ b
+                   ($dOrd :: GHC.Classes.Ord b)
+                   ($dOrd1 :: GHC.Classes.Ord a)
+                   (x :: Main.Either' a b)
+                   (y :: Main.Either' a b) ->
+                 case x of wild {
+                   Main.Left' a1
+                   -> case y of wild1 {
+                        Main.Left' b1
+                        -> case GHC.Classes.<= @ a $dOrd1 a1 b1 of wild2 {
+                             GHC.Types.False -> wild GHC.Types.True -> wild1 }
+                        Main.Right' ipv -> wild1 }
+                   Main.Right' a1
+                   -> case y of wild1 {
+                        Main.Left' ipv -> wild
+                        Main.Right' b1
+                        -> case GHC.Classes.<= @ b $dOrd a1 b1 of wild2 {
+                             GHC.Types.False -> wild GHC.Types.True -> wild1 } } }) -}
+ff797797c2a9b926f7c905449139b0c3
+  $fOrdEither'_$cmin ::
+    (GHC.Classes.Ord b, GHC.Classes.Ord a) =>
+    Main.Either' a b -> Main.Either' a b -> Main.Either' a b
+  {- Arity: 4, HasNoCafRefs,
+     Strictness: <L,1*U(A,A,A,1*C1(C1(U)),A,A,A,A)><L,1*U(A,A,A,1*C1(C1(U)),A,A,A,A)><S,1*U><S,1*U>,
+     Unfolding: (\ @ a
+                   @ b
+                   ($dOrd :: GHC.Classes.Ord b)
+                   ($dOrd1 :: GHC.Classes.Ord a)
+                   (x :: Main.Either' a b)
+                   (y :: Main.Either' a b) ->
+                 case x of wild {
+                   Main.Left' a1
+                   -> case y of wild1 {
+                        Main.Left' b1
+                        -> case GHC.Classes.<= @ a $dOrd1 a1 b1 of wild2 {
+                             GHC.Types.False -> wild1 GHC.Types.True -> wild }
+                        Main.Right' ipv -> wild }
+                   Main.Right' a1
+                   -> case y of wild1 {
+                        Main.Left' ipv -> wild1
+                        Main.Right' b1
+                        -> case GHC.Classes.<= @ b $dOrd a1 b1 of wild2 {
+                             GHC.Types.False -> wild1 GHC.Types.True -> wild } } }) -}
+ff797797c2a9b926f7c905449139b0c3
+  $fOrdEither'_$cp1Ord ::
+    (GHC.Classes.Ord b, GHC.Classes.Ord a) =>
+    GHC.Classes.Eq (Main.Either' a b)
+  {- Arity: 2, HasNoCafRefs,
+     Strictness: <L,1*U(1*U(C(C1(U)),A),A,A,A,A,A,A,A)><L,1*U(1*U(C(C1(U)),A),A,A,A,A,A,A,A)>m,
+     Unfolding: InlineRule (2, True, False)
+                (\ @ a
+                   @ b
+                   ($dOrd :: GHC.Classes.Ord b)
+                   ($dOrd1 :: GHC.Classes.Ord a) ->
+                 Main.$fEqEither'
+                   @ a
+                   @ b
+                   (GHC.Classes.$p1Ord @ b $dOrd)
+                   (GHC.Classes.$p1Ord @ a $dOrd1)) -}
+ff797797c2a9b926f7c905449139b0c3
+  $fShowEither' ::
+    (GHC.Show.Show b, GHC.Show.Show a) =>
+    GHC.Show.Show (Main.Either' a b)
+  DFunId
+  {- Arity: 2, Strictness: <L,U(C(C1(U)),A,A)><L,U(C(C1(U)),A,A)>m,
+     Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun: @ a
+                      @ b
+                      ($dShow :: GHC.Show.Show b)
+                      ($dShow1 :: GHC.Show.Show a).
+                  @ (Main.Either' a b)
+                  (Main.$fShowEither'_$cshowsPrec @ a @ b $dShow $dShow1)
+                  (Main.$fShowEither'_$cshow @ a @ b $dShow $dShow1)
+                  (Main.$fShowEither'_$cshowList @ a @ b $dShow $dShow1) -}
+30c86c686dab32c6fec9389902d06bdd
+  $fShowEither'1 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "Right' "#) -}
+d0e3eb5e5f9f75c46266de7e2140802d
+  $fShowEither'2 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "Left' "#) -}
+0faaae9afefbc75556ede595a68ebe6c
+  $fShowEither'3 :: GHC.Types.Int
+  {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.I# 11#) -}
+ff797797c2a9b926f7c905449139b0c3
+  $fShowEither'_$cshow ::
+    (GHC.Show.Show b, GHC.Show.Show a) =>
+    Main.Either' a b -> GHC.Base.String
+  {- Arity: 3,
+     Strictness: <L,1*U(1*C1(C1(C1(U))),A,A)><L,1*U(1*C1(C1(C1(U))),A,A)><S,1*U>,
+     Unfolding: (\ @ a
+                   @ b
+                   ($dShow :: GHC.Show.Show b)
+                   ($dShow1 :: GHC.Show.Show a)
+                   (x :: Main.Either' a b) ->
+                 case x of wild {
+                   Main.Left' b1
+                   -> GHC.Base.++
+                        @ GHC.Types.Char
+                        Main.$fShowEither'2
+                        (GHC.Show.showsPrec
+                           @ a
+                           $dShow1
+                           Main.$fShowEither'3
+                           b1
+                           (GHC.Types.[] @ GHC.Types.Char))
+                   Main.Right' b1
+                   -> GHC.Base.++
+                        @ GHC.Types.Char
+                        Main.$fShowEither'1
+                        (GHC.Show.showsPrec
+                           @ b
+                           $dShow
+                           Main.$fShowEither'3
+                           b1
+                           (GHC.Types.[] @ GHC.Types.Char)) }) -}
+ff797797c2a9b926f7c905449139b0c3
+  $fShowEither'_$cshowList ::
+    (GHC.Show.Show b, GHC.Show.Show a) =>
+    [Main.Either' a b] -> GHC.Show.ShowS
+  {- Arity: 4,
+     Strictness: <L,U(C(C1(U)),A,A)><L,U(C(C1(U)),A,A)><S,1*U><L,U>,
+     Unfolding: InlineRule (4, True, False)
+                (\ @ a
+                   @ b
+                   ($dShow :: GHC.Show.Show b)
+                   ($dShow1 :: GHC.Show.Show a)
+                   (eta :: [Main.Either' a b])
+                   (eta1 :: GHC.Base.String) ->
+                 GHC.Show.showList__
+                   @ (Main.Either' a b)
+                   (Main.$fShowEither'_$cshowsPrec
+                      @ a
+                      @ b
+                      $dShow
+                      $dShow1
+                      Main.$fFoldableEither'5)
+                   eta
+                   eta1) -}
+ff797797c2a9b926f7c905449139b0c3
+  $fShowEither'_$cshowsPrec ::
+    (GHC.Show.Show b, GHC.Show.Show a) =>
+    GHC.Types.Int -> Main.Either' a b -> GHC.Show.ShowS
+  {- Arity: 4,
+     Strictness: <L,1*U(1*C1(C1(U)),A,A)><L,1*U(1*C1(C1(U)),A,A)><S(S),1*U(U)><S,1*U>,
+     Inline: INLINE[0],
+     Unfolding: InlineRule (4, True, False)
+                (\ @ a
+                   @ b
+                   (w :: GHC.Show.Show b)
+                   (w1 :: GHC.Show.Show a)
+                   (w2 :: GHC.Types.Int)
+                   (w3 :: Main.Either' a b) ->
+                 case w2 of ww { GHC.Types.I# ww1 ->
+                 Main.$w$cshowsPrec @ a @ b w w1 ww1 w3 }) -}
+ff797797c2a9b926f7c905449139b0c3
+  $fTraversableEither' ::
+    Data.Traversable.Traversable (Main.Either' a)
+  DFunId
+  {- Strictness: m, Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun: @ a.
+                  @ (Main.Either' a)
+                  (Main.$fFunctorEither' @ a)
+                  (Main.$fFoldableEither' @ a)
+                  (Main.$fTraversableEither'_$ctraverse @ a)
+                  (Main.$fTraversableEither'_$csequenceA @ a)
+                  (Main.$fTraversableEither'_$cmapM @ a)
+                  (Main.$fTraversableEither'_$csequence @ a) -}
+ff797797c2a9b926f7c905449139b0c3
+  $fTraversableEither'_$cmapM ::
+    GHC.Base.Monad m =>
+    (a1 -> m b) -> Main.Either' a a1 -> m (Main.Either' a b)
+  {- Arity: 3, HasNoCafRefs,
+     Strictness: <S(SLLLL),1*U(1*U(1*U(1*C1(C1(U)),A),1*C1(U),A,A,A),A,A,A,A)><L,1*C1(U)><S,1*U>,
+     Unfolding: InlineRule (3, True, False)
+                (\ @ a
+                   @ (m :: * -> *)
+                   @ a1
+                   @ b
+                   ($dMonad :: GHC.Base.Monad m)
+                   (eta :: a1 -> m b)
+                   (eta1 :: Main.Either' a a1) ->
+                 Main.$fTraversableEither'_$ctraverse
+                   @ a
+                   @ m
+                   @ a1
+                   @ b
+                   (GHC.Base.$p1Monad @ m $dMonad)
+                   eta
+                   eta1) -}
+ff797797c2a9b926f7c905449139b0c3
+  $fTraversableEither'_$csequence ::
+    GHC.Base.Monad m => Main.Either' a (m a1) -> m (Main.Either' a a1)
+  {- Arity: 2, HasNoCafRefs,
+     Strictness: <S(SLLLL),1*U(1*U(1*U(1*C1(C1(U)),A),1*C1(U),A,A,A),A,A,A,A)><S,1*U>,
+     Unfolding: InlineRule (2, True, False)
+                (\ @ a
+                   @ (m :: * -> *)
+                   @ a1
+                   ($dMonad :: GHC.Base.Monad m)
+                   (eta :: Main.Either' a (m a1)) ->
+                 Main.$fTraversableEither'_$csequenceA
+                   @ a
+                   @ m
+                   @ a1
+                   (GHC.Base.$p1Monad @ m $dMonad)
+                   eta) -}
+ff797797c2a9b926f7c905449139b0c3
+  $fTraversableEither'_$csequenceA ::
+    GHC.Base.Applicative f =>
+    Main.Either' a (f a1) -> f (Main.Either' a a1)
+  {- Arity: 2, HasNoCafRefs,
+     Strictness: <S,1*U(1*U(1*C1(C1(U)),A),1*C1(U),A,A,A)><S,1*U>,
+     Unfolding: (\ @ a
+                   @ (f :: * -> *)
+                   @ a1
+                   ($dApplicative :: GHC.Base.Applicative f)
+                   (eta :: Main.Either' a (f a1)) ->
+                 case eta of wild {
+                   Main.Left' x
+                   -> GHC.Base.pure
+                        @ f
+                        $dApplicative
+                        @ (Main.Either' a a1)
+                        (Main.Left' @ a @ a1 x)
+                   Main.Right' y
+                   -> GHC.Base.fmap
+                        @ f
+                        (GHC.Base.$p1Applicative @ f $dApplicative)
+                        @ a1
+                        @ (Main.Either' a a1)
+                        (Main.Right' @ a @ a1)
+                        y }) -}
+ff797797c2a9b926f7c905449139b0c3
+  $fTraversableEither'_$ctraverse ::
+    GHC.Base.Applicative f =>
+    (a1 -> f b) -> Main.Either' a a1 -> f (Main.Either' a b)
+  {- Arity: 3, HasNoCafRefs,
+     Strictness: <S,1*U(1*U(1*C1(C1(U)),A),1*C1(U),A,A,A)><L,1*C1(U)><S,1*U>,
+     Unfolding: (\ @ a
+                   @ (f :: * -> *)
+                   @ a1
+                   @ b
+                   ($dApplicative :: GHC.Base.Applicative f)
+                   (eta :: a1 -> f b)
+                   (eta1 :: Main.Either' a a1) ->
+                 case eta1 of wild {
+                   Main.Left' x
+                   -> GHC.Base.pure
+                        @ f
+                        $dApplicative
+                        @ (Main.Either' a b)
+                        (Main.Left' @ a @ b x)
+                   Main.Right' y
+                   -> GHC.Base.fmap
+                        @ f
+                        (GHC.Base.$p1Applicative @ f $dApplicative)
+                        @ b
+                        @ (Main.Either' a b)
+                        (Main.Right' @ a @ b)
+                        (eta y) }) -}
+3574c1490a820e43b0a72378d9ce10c9
+  $tc'Err :: GHC.Types.TyCon
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.TyCon
+                   2248293433304688116##
+                   339036217675711987##
+                   Main.$trModule
+                   Main.$tc'Err1) -}
+786a11bb4836e47094d550f0c49fecb5
+  $tc'Err1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS "'Err"#) -}
+930512724ccb2b2c5b422dffaf7062e8
+  $tc'IoOnlyObj :: GHC.Types.TyCon
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.TyCon
+                   16749378928011102954##
+                   12365125619356704839##
+                   Main.$trModule
+                   Main.$tc'IoOnlyObj1) -}
+df7638f10fd7ddaf5096eb1552bcf9f7
+  $tc'IoOnlyObj1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS "'IoOnlyObj"#) -}
+1b8afe855dfc0d6806a910bb955aeb12
+  $tc'Left' :: GHC.Types.TyCon
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.TyCon
+                   11026254961918963272##
+                   9720675860203528879##
+                   Main.$trModule
+                   Main.$tc'Left'1) -}
+96726d2deb84bf3a655695ac1a9fd873
+  $tc'Left'1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS "'Left'"#) -}
+15d32acd4684551a4050d19c3ac3f4b6
+  $tc'Query :: GHC.Types.TyCon
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.TyCon
+                   348621512649953480##
+                   9671344263299761285##
+                   Main.$trModule
+                   Main.$tc'Query1) -}
+1ff3e018246944948a0b62c044ee1e0e
+  $tc'Query1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS "'Query"#) -}
+b851468702395c04049cf0b27d69be6e
+  $tc'Right' :: GHC.Types.TyCon
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.TyCon
+                   17616700951749041312##
+                   4261297096725451682##
+                   Main.$trModule
+                   Main.$tc'Right'1) -}
+9a40fcec015e56e6984418a2ff573f7a
+  $tc'Right'1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS "'Right'"#) -}
+7c3010f73e81c7c093d10ace36b3c6b7
+  $tc'SomeObj :: GHC.Types.TyCon
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.TyCon
+                   10204842443222998108##
+                   11678842337040863464##
+                   Main.$trModule
+                   Main.$tc'SomeObj1) -}
+0728f794ef24c6f7c22d85e7bf8d9af1
+  $tc'SomeObj1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS "'SomeObj"#) -}
+a5bb3e351a2f477554c2ee89fe0eb13f
+  $tcEither' :: GHC.Types.TyCon
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.TyCon
+                   17978743290736033117##
+                   14928871933697190257##
+                   Main.$trModule
+                   Main.$tcEither'1) -}
+37c268ce02f7945ff5265dadeb48d14e
+  $tcEither'1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS "Either'"#) -}
+8284072a5df64710ac8eadcb1c716c83
+  $tcErr :: GHC.Types.TyCon
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.TyCon
+                   8772543517547734994##
+                   7835375103370945010##
+                   Main.$trModule
+                   Main.$tcErr1) -}
+ff74e41e617f40fef01ed8c04dd540e0
+  $tcErr1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS "Err"#) -}
+27e25be0521dc51eb4f865e2101b76a5
+  $tcIoOnlyObj :: GHC.Types.TyCon
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.TyCon
+                   5713583794688001275##
+                   16529397248399006021##
+                   Main.$trModule
+                   Main.$tcIoOnlyObj1) -}
+62389c533978979b5e144d52025c2b63
+  $tcIoOnlyObj1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS "IoOnlyObj"#) -}
+89e7e4f0a0c9975276d37edaf8e61b07
+  $tcQuery :: GHC.Types.TyCon
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.TyCon
+                   3825803285288696306##
+                   7054781665848558109##
+                   Main.$trModule
+                   Main.$tcQuery1) -}
+a9a619eafd4f9c1e0fce7ca17161410c
+  $tcQuery1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS "Query"#) -}
+a58c5d12a649bdf7d95f97eda5e150b5
+  $tcSomeObj :: GHC.Types.TyCon
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.TyCon
+                   12491654296446532739##
+                   11530721658818259275##
+                   Main.$trModule
+                   Main.$tcSomeObj1) -}
+548be737a3ff49aa60b0e13d77508b8e
+  $tcSomeObj1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS "SomeObj"#) -}
+d6831ef04cb9301b090dfae6f7bb7ec7
+  $trModule :: GHC.Types.Module
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.Module Main.$trModule2 Main.$trModule1) -}
+847d9fc3b8e6f0b424199f36b4999bb2
+  $trModule1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS "Main"#) -}
+24ef6042833e75ffd7aa98b83ecca98d
+  $trModule2 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS "main"#) -}
+ff797797c2a9b926f7c905449139b0c3
+  $w$cshowsPrec ::
+    (GHC.Show.Show b, GHC.Show.Show a) =>
+    GHC.Prim.Int# -> Main.Either' a b -> GHC.Show.ShowS
+  {- Arity: 4,
+     Strictness: <L,1*U(1*C1(C1(U)),A,A)><L,1*U(1*C1(C1(U)),A,A)><S,U><S,1*U>,
+     Inline: [0],
+     Unfolding: (\ @ a
+                   @ b
+                   (w :: GHC.Show.Show b)
+                   (w1 :: GHC.Show.Show a)
+                   (ww :: GHC.Prim.Int#)
+                   (w2 :: Main.Either' a b) ->
+                 case w2 of wild {
+                   Main.Left' b1
+                   -> let {
+                        g :: GHC.Base.String -> GHC.Base.String
+                        = GHC.Show.showsPrec @ a w1 Main.$fShowEither'3 b1
+                      } in
+                      case GHC.Prim.tagToEnum#
+                             @ GHC.Types.Bool
+                             (GHC.Prim.>=# ww 11#) of wild1 {
+                        GHC.Types.False
+                        -> \ (x :: GHC.Base.String) ->
+                           GHC.Base.++ @ GHC.Types.Char Main.$fShowEither'2 (g x)
+                        GHC.Types.True
+                        -> \ (x :: GHC.Base.String) ->
+                           GHC.Types.:
+                             @ GHC.Types.Char
+                             GHC.Show.shows7
+                             (GHC.Base.++
+                                @ GHC.Types.Char
+                                Main.$fShowEither'2
+                                (g (GHC.Types.: @ GHC.Types.Char GHC.Show.shows4 x))) }
+                   Main.Right' b1
+                   -> let {
+                        g :: GHC.Base.String -> GHC.Base.String
+                        = GHC.Show.showsPrec @ b w Main.$fShowEither'3 b1
+                      } in
+                      case GHC.Prim.tagToEnum#
+                             @ GHC.Types.Bool
+                             (GHC.Prim.>=# ww 11#) of wild1 {
+                        GHC.Types.False
+                        -> \ (x :: GHC.Base.String) ->
+                           GHC.Base.++ @ GHC.Types.Char Main.$fShowEither'1 (g x)
+                        GHC.Types.True
+                        -> \ (x :: GHC.Base.String) ->
+                           GHC.Types.:
+                             @ GHC.Types.Char
+                             GHC.Show.shows7
+                             (GHC.Base.++
+                                @ GHC.Types.Char
+                                Main.$fShowEither'1
+                                (g (GHC.Types.: @ GHC.Types.Char GHC.Show.shows4 x))) } }) -}
+ffc364c9dd7d02d057441ac36f9629ad
+  $wpipelineFn ::
+    GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld,
+          Data.Either.Either Main.Err [(Main.SomeObj, Main.IoOnlyObj)] #)
+  {- Arity: 1, Strictness: <B,1*U>x, Inline: [0] -}
+979cdd8a4a60e30b08d66a657c1b1103
+  $wpipelineFn' ::
+    GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld,
+          Data.Either.Either Main.Err [(Main.SomeObj, Main.IoOnlyObj)] #)
+  {- Arity: 1, Strictness: <B,1*U>x, Inline: [0] -}
+a41f9251806eec6c1b8ddd89c2959cb1
+  $wpipelineFn'' ::
+    GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld,
+          Data.Either.Either Main.Err [(Main.SomeObj, Main.IoOnlyObj)] #)
+  {- Arity: 1, Strictness: <B,1*U>x, Inline: [0] -}
+ff797797c2a9b926f7c905449139b0c3
+  data Either' a b = Left' a | Right' b
+6bb0f2cab4abeb79a7984e679049c0e3
+  data Err = Err
+ba17b350dc5d7bd75f01ce3212bcdf57
+  data IoOnlyObj = IoOnlyObj
+0327d7fb6943a6beb02c3e58a38b1454
+  data Query = Query
+2f32871dfd68e10c7b227e111f8519bf
+  data SomeObj = SomeObj
+401148f048375ba7b007dca41f70631d
+  decodeFn ::
+    GHC.Base.String -> Data.Either.Either Main.Err Main.SomeObj
+  {- Strictness: x -}
+6b33d54a91804f183496feccfde64e56
+  fetchFn :: Main.Query -> GHC.Types.IO [GHC.Base.String]
+  {- Strictness: x -}
+549e997b77251cffa539541e3fca551d
+  main :: GHC.Types.IO ()
+  {- Arity: 1, Strictness: <S,U>,
+     Unfolding: InlineRule (0, True, True)
+                Main.main1 `cast` (Sym (GHC.Types.N:IO[0] <()>_R)) -}
+12f13e20d189575a2f38fa0188d46990
+  main1 ::
+    GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
+  {- Arity: 1, Strictness: <S,U>,
+     Unfolding: (\ (eta :: GHC.Prim.State#
+                             GHC.Prim.RealWorld)[OneShot] ->
+                 GHC.IO.Handle.Text.hPutStr2
+                   GHC.IO.Handle.FD.stdout
+                   Main.main2
+                   GHC.Types.True
+                   eta) -}
+5ca9aae8b1fa510e4d7ba6c699a49ec7
+  main2 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "hello world"#) -}
+eaf959ce78010a9f5591044b85b85e4b
+  main3 ::
+    GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
+  {- Arity: 1,
+     Unfolding: (GHC.TopHandler.runMainIO1
+                   @ ()
+                   Main.main1 `cast` (Sym (GHC.Types.N:IO[0] <()>_R))) -}
+93e85a2c5d8e86f5263fba3e3e6fdd15
+  makeIoOnlyObj ::
+    [Main.SomeObj] -> GHC.Types.IO [(Main.SomeObj, Main.IoOnlyObj)]
+  {- Strictness: x -}
+21064ddc2863b3916fe8eec2d41cfe41
+  pipelineFn ::
+    Main.Query
+    -> GHC.Types.IO
+         (Data.Either.Either Main.Err [(Main.SomeObj, Main.IoOnlyObj)])
+  {- Arity: 2, Strictness: <B,A><B,1*U>x,
+     Unfolding: InlineRule (0, True, True)
+                Main.pipelineFn1
+                  `cast`
+                (<Main.Query>_R
+                 ->_R Sym (GHC.Types.N:IO[0]
+                               <Data.Either.Either
+                                  Main.Err [(Main.SomeObj, Main.IoOnlyObj)]>_R)) -}
+8da0b138e3dc400cf5fca753c954734a
+  pipelineFn' ::
+    Main.Query
+    -> GHC.Types.IO
+         (Data.Either.Either Main.Err [(Main.SomeObj, Main.IoOnlyObj)])
+  {- Arity: 2, Strictness: <B,A><B,1*U>x,
+     Unfolding: InlineRule (0, True, True)
+                Main.pipelineFn'1
+                  `cast`
+                (<Main.Query>_R
+                 ->_R Sym (GHC.Types.N:IO[0]
+                               <Data.Either.Either
+                                  Main.Err [(Main.SomeObj, Main.IoOnlyObj)]>_R)) -}
+b9186f21ce386279f7fe9a2f080fbe29
+  pipelineFn'' ::
+    Main.Query
+    -> GHC.Types.IO
+         (Data.Either.Either Main.Err [(Main.SomeObj, Main.IoOnlyObj)])
+  {- Arity: 2, Strictness: <B,A><B,1*U>x,
+     Unfolding: InlineRule (0, True, True)
+                Main.pipelineFn''1
+                  `cast`
+                (<Main.Query>_R
+                 ->_R Sym (GHC.Types.N:IO[0]
+                               <Data.Either.Either
+                                  Main.Err [(Main.SomeObj, Main.IoOnlyObj)]>_R)) -}
+e3dcf5adc1b17db462afc6c004bd2eaa
+  pipelineFn''1 ::
+    Main.Query
+    -> GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld,
+          Data.Either.Either Main.Err [(Main.SomeObj, Main.IoOnlyObj)] #)
+  {- Arity: 2, Strictness: <B,A><B,1*U>x, Inline: INLINE[0],
+     Unfolding: InlineRule (2, True, True)
+                (\ (w :: Main.Query)
+                   (w1 :: GHC.Prim.State# GHC.Prim.RealWorld)[OneShot] ->
+                 Main.$wpipelineFn'' w1) -}
+199022944bc9536be1f217345dfc0bbd
+  pipelineFn'1 ::
+    Main.Query
+    -> GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld,
+          Data.Either.Either Main.Err [(Main.SomeObj, Main.IoOnlyObj)] #)
+  {- Arity: 2, Strictness: <B,A><B,1*U>x, Inline: INLINE[0],
+     Unfolding: InlineRule (2, True, True)
+                (\ (w :: Main.Query)
+                   (w1 :: GHC.Prim.State# GHC.Prim.RealWorld)[OneShot] ->
+                 Main.$wpipelineFn' w1) -}
+632420ff2b4d847896d3b2700c32cfc7
+  pipelineFn1 ::
+    Main.Query
+    -> GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld,
+          Data.Either.Either Main.Err [(Main.SomeObj, Main.IoOnlyObj)] #)
+  {- Arity: 2, Strictness: <B,A><B,1*U>x, Inline: INLINE[0],
+     Unfolding: InlineRule (2, True, True)
+                (\ (w :: Main.Query)
+                   (w1 :: GHC.Prim.State# GHC.Prim.RealWorld)[OneShot] ->
+                 Main.$wpipelineFn w1) -}
+instance [safe] GHC.Base.Applicative [Main.Either']
+  = Main.$fApplicativeEither'
+instance [safe] GHC.Classes.Eq [Main.Either'] = Main.$fEqEither'
+instance [safe] Data.Foldable.Foldable [Main.Either']
+  = Main.$fFoldableEither'
+instance [safe] GHC.Base.Functor [Main.Either']
+  = Main.$fFunctorEither'
+instance [safe] GHC.Classes.Ord [Main.Either'] = Main.$fOrdEither'
+instance [safe] GHC.Show.Show [Main.Either'] = Main.$fShowEither'
+instance [safe] Data.Traversable.Traversable [Main.Either']
+  = Main.$fTraversableEither'
+vectorised variables:
+vectorised tycons:
+vectorised reused tycons:
+parallel variables:
+parallel tycons:
+trusted: safe
+require own pkg trusted: False
+

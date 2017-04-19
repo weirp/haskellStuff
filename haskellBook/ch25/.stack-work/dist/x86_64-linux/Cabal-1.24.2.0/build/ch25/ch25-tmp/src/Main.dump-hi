@@ -1,0 +1,2336 @@
+
+==================== FINAL INTERFACE ====================
+2017-04-16 10:24:51.645189 UTC
+
+interface main@main:Main 8002
+  interface hash: c236f2347fd0ae0794913e76752e8f62
+  ABI hash: e27efc15035ccd73d843a02a4e7c8c62
+  export-list hash: 2a88017993e6a668e963fc3a46326a31
+  orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
+  flag hash: b5fd6b89bad80b320df4bde849a0f2d2
+  sig of: Nothing
+  used TH splices: False
+  where
+exports:
+  Main.main
+  Main.Compose{Main.Compose getCompose}
+  Main.Identity{Main.Identity runIdentity}
+  Main.One{Main.One}
+  Main.Three{Main.Three}
+module dependencies:
+package dependencies: base-4.9.1.0* ghc-prim-0.5.0.0
+                      integer-gmp-1.0.0.1
+orphans: base-4.9.1.0:GHC.Base base-4.9.1.0:GHC.Float
+family instance modules: base-4.9.1.0:Control.Applicative
+                         base-4.9.1.0:Data.Either base-4.9.1.0:Data.Functor.Const
+                         base-4.9.1.0:Data.Monoid base-4.9.1.0:Data.Type.Equality
+                         base-4.9.1.0:GHC.Generics base-4.9.1.0:GHC.IO.Exception
+                         base-4.9.1.0:GHC.TypeLits
+import  -/  base-4.9.1.0:Data.Foldable 3e0b6967a1da89945d0e2d47266337a2
+import  -/  base-4.9.1.0:Data.Functor 5ab1dc703df5b482e77efb697833ca3c
+import  -/  base-4.9.1.0:Data.Traversable 556020d7cf3c4a34a774600512918a37
+import  -/  base-4.9.1.0:GHC.Base c4231c43c07e46080a26bf94094c7aa1
+import  -/  base-4.9.1.0:GHC.Show a027f5ac24879eaba752f44aa90fe511
+import  -/  base-4.9.1.0:Prelude 22dd289b8469a8fa8dc81cab7b237771
+import  -/  base-4.9.1.0:System.IO e4a64a8e3dce8616da54f0ee7104f7db
+import  -/  ghc-prim-0.5.0.0:GHC.Classes 0bdf3d057a415ec1b84a7b1994efbe47
+import  -/  ghc-prim-0.5.0.0:GHC.Types 89f8de4f08018c9177c98d979eae0e45
+2d77e5f68a0263d70283b40a5e9e020c
+  $fApplicativeCompose ::
+    (GHC.Base.Applicative f, GHC.Base.Applicative g) =>
+    GHC.Base.Applicative (Main.Compose f g)
+  DFunId
+  {- Arity: 2, HasNoCafRefs,
+     Strictness: <L,U(U(C(C1(U)),A),C(U),C(C1(U)),A,A)><L,U(U(C(U),A),C(U),U,A,A)>m,
+     Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun: @ (f :: * -> *)
+                      @ (g :: * -> *)
+                      ($dApplicative :: GHC.Base.Applicative f)
+                      ($dApplicative1 :: GHC.Base.Applicative g).
+                  @ (Main.Compose f g)
+                  (Main.$fApplicativeCompose_$cp1Applicative
+                     @ f
+                     @ g
+                     $dApplicative
+                     $dApplicative1)
+                  (Main.$fApplicativeCompose_$cpure
+                     @ f
+                     @ g
+                     $dApplicative
+                     $dApplicative1)
+                  (Main.$fApplicativeCompose_$c<*>
+                     @ f
+                     @ g
+                     $dApplicative
+                     $dApplicative1)
+                  (Main.$fApplicativeCompose_$c*>
+                     @ f
+                     @ g
+                     $dApplicative
+                     $dApplicative1)
+                  (Main.$fApplicativeCompose_$c<*
+                     @ f
+                     @ g
+                     $dApplicative
+                     $dApplicative1) -}
+2d77e5f68a0263d70283b40a5e9e020c
+  $fApplicativeCompose1 ::
+    (GHC.Base.Applicative f, GHC.Base.Applicative g) =>
+    forall a b. Main.Compose f g a -> Main.Compose f g b -> f (g a)
+  {- Arity: 4, HasNoCafRefs,
+     Strictness: <S(LLC(C(S))LL),U(U(C(C1(U)),A),A,1*C1(C1(U)),A,A)><L,U(1*U(1*C1(U),A),A,1*U,A,A)><L,U><L,U>,
+     Unfolding: (\ @ (f :: * -> *)
+                   @ (g :: * -> *)
+                   ($dApplicative :: GHC.Base.Applicative f)
+                   ($dApplicative1 :: GHC.Base.Applicative g)
+                   @ a
+                   @ b
+                   (eta :: Main.Compose f g a)
+                   (eta1 :: Main.Compose f g b) ->
+                 GHC.Base.<*>
+                   @ f
+                   $dApplicative
+                   @ (g b)
+                   @ (g a)
+                   (GHC.Base.fmap
+                      @ f
+                      (GHC.Base.$p1Applicative @ f $dApplicative)
+                      @ (g (b -> a))
+                      @ (g b -> g a)
+                      (GHC.Base.<*> @ g $dApplicative1 @ b @ a)
+                      (GHC.Base.fmap
+                         @ f
+                         (GHC.Base.$p1Applicative @ f $dApplicative)
+                         @ (g a)
+                         @ (g (b -> a))
+                         (GHC.Base.fmap
+                            @ g
+                            (GHC.Base.$p1Applicative @ g $dApplicative1)
+                            @ a
+                            @ (b -> a)
+                            (GHC.Base.const @ a @ b))
+                         eta `cast` (Main.N:Compose[0] <f>_R <g>_N <a>_N)))
+                   eta1 `cast` (Main.N:Compose[0] <f>_R <g>_N <b>_N)) -}
+2d77e5f68a0263d70283b40a5e9e020c
+  $fApplicativeCompose2 ::
+    (GHC.Base.Applicative f, GHC.Base.Applicative g) =>
+    forall a b. Main.Compose f g a -> Main.Compose f g b -> f (g b)
+  {- Arity: 4, HasNoCafRefs,
+     Strictness: <S(LLC(C(S))LL),U(U(C(C1(U)),A),A,1*C1(C1(U)),A,A)><L,U(1*U(1*C1(U),A),A,1*U,A,A)><L,U><L,U>,
+     Unfolding: (\ @ (f :: * -> *)
+                   @ (g :: * -> *)
+                   ($dApplicative :: GHC.Base.Applicative f)
+                   ($dApplicative1 :: GHC.Base.Applicative g)
+                   @ a
+                   @ b
+                   (eta :: Main.Compose f g a)
+                   (eta1 :: Main.Compose f g b) ->
+                 GHC.Base.<*>
+                   @ f
+                   $dApplicative
+                   @ (g b)
+                   @ (g b)
+                   (GHC.Base.fmap
+                      @ f
+                      (GHC.Base.$p1Applicative @ f $dApplicative)
+                      @ (g (b -> b))
+                      @ (g b -> g b)
+                      (GHC.Base.<*> @ g $dApplicative1 @ b @ b)
+                      (GHC.Base.fmap
+                         @ f
+                         (GHC.Base.$p1Applicative @ f $dApplicative)
+                         @ (g a)
+                         @ (g (b -> b))
+                         (GHC.Base.fmap
+                            @ g
+                            (GHC.Base.$p1Applicative @ g $dApplicative1)
+                            @ a
+                            @ (b -> b)
+                            (Main.$fApplicativeCompose3 @ b @ a))
+                         eta `cast` (Main.N:Compose[0] <f>_R <g>_N <a>_N)))
+                   eta1 `cast` (Main.N:Compose[0] <f>_R <g>_N <b>_N)) -}
+3991b0be29668b93a13c7eb01c025fc4
+  $fApplicativeCompose3 :: a -> b -> b
+  {- Arity: 2, HasNoCafRefs,
+     Unfolding: (\ @ b @ a (ds :: a) (eta :: b) -> eta) -}
+2d77e5f68a0263d70283b40a5e9e020c
+  $fApplicativeCompose4 ::
+    (GHC.Base.Applicative f, GHC.Base.Applicative g) =>
+    forall a b.
+    Main.Compose f g (a -> b) -> Main.Compose f g a -> f (g b)
+  {- Arity: 4, HasNoCafRefs,
+     Strictness: <S(LLC(C(S))LL),U(1*U(1*C1(C1(U)),A),A,1*C1(C1(U)),A,A)><L,1*U(A,A,1*U,A,A)><L,U><L,U>,
+     Unfolding: (\ @ (f :: * -> *)
+                   @ (g :: * -> *)
+                   ($dApplicative :: GHC.Base.Applicative f)
+                   ($dApplicative1 :: GHC.Base.Applicative g)
+                   @ a
+                   @ b
+                   (eta :: Main.Compose f g (a -> b))
+                   (eta1 :: Main.Compose f g a) ->
+                 GHC.Base.<*>
+                   @ f
+                   $dApplicative
+                   @ (g a)
+                   @ (g b)
+                   (GHC.Base.fmap
+                      @ f
+                      (GHC.Base.$p1Applicative @ f $dApplicative)
+                      @ (g (a -> b))
+                      @ (g a -> g b)
+                      (GHC.Base.<*> @ g $dApplicative1 @ a @ b)
+                      eta `cast` (Main.N:Compose[0] <f>_R <g>_N <a -> b>_N))
+                   eta1 `cast` (Main.N:Compose[0] <f>_R <g>_N <a>_N)) -}
+8148264b5e476f99f9f48ca1f85aa4fe
+  $fApplicativeCompose5 ::
+    (GHC.Base.Applicative f, GHC.Base.Applicative g) =>
+    forall a. a -> f (g a)
+  {- Arity: 3, HasNoCafRefs,
+     Strictness: <S(LC(S)LLL),1*U(A,1*C1(U),A,A,A)><L,1*U(A,1*C1(U),A,A,A)><L,U>,
+     Unfolding: InlineRule (3, True, False)
+                (\ @ (f :: * -> *)
+                   @ (g :: * -> *)
+                   ($dApplicative :: GHC.Base.Applicative f)
+                   ($dApplicative1 :: GHC.Base.Applicative g)
+                   @ a
+                   (x :: a) ->
+                 GHC.Base.pure
+                   @ f
+                   $dApplicative
+                   @ (g a)
+                   (GHC.Base.pure @ g $dApplicative1 @ a x)) -}
+2d77e5f68a0263d70283b40a5e9e020c
+  $fApplicativeCompose_$c*> ::
+    (GHC.Base.Applicative f, GHC.Base.Applicative g) =>
+    forall a b.
+    Main.Compose f g a -> Main.Compose f g b -> Main.Compose f g b
+  {- Arity: 4, HasNoCafRefs,
+     Strictness: <S(LLC(C(S))LL),U(U(C(C1(U)),A),A,1*C1(C1(U)),A,A)><L,U(1*U(1*C1(U),A),A,1*U,A,A)><L,U><L,U>,
+     Unfolding: InlineRule (0, True, True)
+                Main.$fApplicativeCompose2
+                  `cast`
+                (forall (f :: <* -> *>_N) (g :: <* -> *>_N).
+                 <GHC.Base.Applicative f>_R
+                 ->_R <GHC.Base.Applicative g>_R
+                 ->_R forall (a :: <*>_N) (b :: <*>_N).
+                      <Main.Compose f g a>_R
+                      ->_R <Main.Compose f g b>_R
+                      ->_R Sym (Main.N:Compose[0] <f>_R <g>_N <b>_N)) -}
+2d77e5f68a0263d70283b40a5e9e020c
+  $fApplicativeCompose_$c<* ::
+    (GHC.Base.Applicative f, GHC.Base.Applicative g) =>
+    forall a b.
+    Main.Compose f g a -> Main.Compose f g b -> Main.Compose f g a
+  {- Arity: 4, HasNoCafRefs,
+     Strictness: <S(LLC(C(S))LL),U(U(C(C1(U)),A),A,1*C1(C1(U)),A,A)><L,U(1*U(1*C1(U),A),A,1*U,A,A)><L,U><L,U>,
+     Unfolding: InlineRule (0, True, True)
+                Main.$fApplicativeCompose1
+                  `cast`
+                (forall (f :: <* -> *>_N) (g :: <* -> *>_N).
+                 <GHC.Base.Applicative f>_R
+                 ->_R <GHC.Base.Applicative g>_R
+                 ->_R forall (a :: <*>_N) (b :: <*>_N).
+                      <Main.Compose f g a>_R
+                      ->_R <Main.Compose f g b>_R
+                      ->_R Sym (Main.N:Compose[0] <f>_R <g>_N <a>_N)) -}
+2d77e5f68a0263d70283b40a5e9e020c
+  $fApplicativeCompose_$c<*> ::
+    (GHC.Base.Applicative f, GHC.Base.Applicative g) =>
+    forall a b.
+    Main.Compose f g (a -> b)
+    -> Main.Compose f g a -> Main.Compose f g b
+  {- Arity: 4, HasNoCafRefs,
+     Strictness: <S(LLC(C(S))LL),U(1*U(1*C1(C1(U)),A),A,1*C1(C1(U)),A,A)><L,1*U(A,A,1*U,A,A)><L,U><L,U>,
+     Unfolding: InlineRule (0, True, True)
+                Main.$fApplicativeCompose4
+                  `cast`
+                (forall (f :: <* -> *>_N) (g :: <* -> *>_N).
+                 <GHC.Base.Applicative f>_R
+                 ->_R <GHC.Base.Applicative g>_R
+                 ->_R forall (a :: <*>_N) (b :: <*>_N).
+                      <Main.Compose f g (a -> b)>_R
+                      ->_R <Main.Compose f g a>_R
+                      ->_R Sym (Main.N:Compose[0] <f>_R <g>_N <b>_N)) -}
+2d77e5f68a0263d70283b40a5e9e020c
+  $fApplicativeCompose_$cp1Applicative ::
+    (GHC.Base.Applicative f, GHC.Base.Applicative g) =>
+    GHC.Base.Functor (Main.Compose f g)
+  {- Arity: 2, HasNoCafRefs,
+     Strictness: <L,1*U(1*U(C(C1(U)),A),A,A,A,A)><L,1*U(1*U(C(U),A),A,A,A,A)>m,
+     Unfolding: InlineRule (2, True, False)
+                (\ @ (f :: * -> *)
+                   @ (g :: * -> *)
+                   ($dApplicative :: GHC.Base.Applicative f)
+                   ($dApplicative1 :: GHC.Base.Applicative g) ->
+                 Main.$fFunctorCompose
+                   @ f
+                   @ g
+                   (GHC.Base.$p1Applicative @ f $dApplicative)
+                   (GHC.Base.$p1Applicative @ g $dApplicative1)) -}
+2d77e5f68a0263d70283b40a5e9e020c
+  $fApplicativeCompose_$cpure ::
+    (GHC.Base.Applicative f, GHC.Base.Applicative g) =>
+    forall a. a -> Main.Compose f g a
+  {- Arity: 3, HasNoCafRefs,
+     Strictness: <S(LC(S)LLL),1*U(A,1*C1(U),A,A,A)><L,1*U(A,1*C1(U),A,A,A)><L,U>,
+     Unfolding: InlineRule (0, True, True)
+                Main.$fApplicativeCompose5
+                  `cast`
+                (forall (f :: <* -> *>_N) (g :: <* -> *>_N).
+                 <GHC.Base.Applicative f>_R
+                 ->_R <GHC.Base.Applicative g>_R
+                 ->_R forall (a :: <*>_N).
+                      <a>_R ->_R Sym (Main.N:Compose[0] <f>_R <g>_N <a>_N)) -}
+2d77e5f68a0263d70283b40a5e9e020c
+  $fEqCompose ::
+    GHC.Classes.Eq (f (g a)) => GHC.Classes.Eq (Main.Compose f g a)
+  DFunId
+  {- Arity: 1, HasNoCafRefs, Strictness: <L,U(1*U,1*U)>m,
+     Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun: @ (f :: * -> *)
+                      @ (g :: * -> *)
+                      @ a
+                      ($dEq :: GHC.Classes.Eq (f (g a))).
+                  @ (Main.Compose f g a)
+                  (Main.$fEqCompose_$c== @ f @ g @ a $dEq)
+                  (Main.$fEqCompose_$c/= @ f @ g @ a $dEq) -}
+886ca369654c50c1629a54c4b74633a4
+  $fEqCompose1 ::
+    GHC.Classes.Eq (f (g a)) => f (g a) -> f (g a) -> GHC.Types.Bool
+  {- Arity: 1, HasNoCafRefs, Strictness: <S(LS),1*U(A,1*U)>,
+     Unfolding: InlineRule (1, True, True)
+                (\ @ (f :: * -> *)
+                   @ (g :: * -> *)
+                   @ a
+                   ($dEq :: GHC.Classes.Eq (f (g a))) ->
+                 GHC.Classes./= @ (f (g a)) $dEq) -}
+642591a3f9e4a88909b51919dcaef456
+  $fEqCompose2 ::
+    GHC.Classes.Eq (f (g a)) => f (g a) -> f (g a) -> GHC.Types.Bool
+  {- Arity: 1, HasNoCafRefs, Strictness: <S(SL),1*U(1*U,A)>,
+     Unfolding: InlineRule (1, True, True)
+                (\ @ (f :: * -> *)
+                   @ (g :: * -> *)
+                   @ a
+                   ($dEq :: GHC.Classes.Eq (f (g a))) ->
+                 GHC.Classes.== @ (f (g a)) $dEq) -}
+2d77e5f68a0263d70283b40a5e9e020c
+  $fEqCompose_$c/= ::
+    GHC.Classes.Eq (f (g a)) =>
+    Main.Compose f g a -> Main.Compose f g a -> GHC.Types.Bool
+  {- Arity: 1, HasNoCafRefs, Strictness: <S(LS),1*U(A,1*U)>,
+     Unfolding: InlineRule (0, True, True)
+                Main.$fEqCompose1
+                  `cast`
+                (forall (f :: <* -> *>_N) (g :: <* -> *>_N) (a :: <*>_N).
+                 <GHC.Classes.Eq (f (g a))>_R
+                 ->_R Sym (Main.N:Compose[0] <f>_R <g>_N <a>_N)
+                 ->_R Sym (Main.N:Compose[0] <f>_R <g>_N <a>_N)
+                 ->_R <GHC.Types.Bool>_R) -}
+2d77e5f68a0263d70283b40a5e9e020c
+  $fEqCompose_$c== ::
+    GHC.Classes.Eq (f (g a)) =>
+    Main.Compose f g a -> Main.Compose f g a -> GHC.Types.Bool
+  {- Arity: 1, HasNoCafRefs, Strictness: <S(SL),1*U(1*U,A)>,
+     Unfolding: InlineRule (0, True, True)
+                Main.$fEqCompose2
+                  `cast`
+                (forall (f :: <* -> *>_N) (g :: <* -> *>_N) (a :: <*>_N).
+                 <GHC.Classes.Eq (f (g a))>_R
+                 ->_R Sym (Main.N:Compose[0] <f>_R <g>_N <a>_N)
+                 ->_R Sym (Main.N:Compose[0] <f>_R <g>_N <a>_N)
+                 ->_R <GHC.Types.Bool>_R) -}
+a6d3d18222e4089804e21ceadcbc7ab4
+  $fEqIdentity ::
+    GHC.Classes.Eq a => GHC.Classes.Eq (Main.Identity a)
+  DFunId
+  {- Arity: 1, HasNoCafRefs, Strictness: <L,U(1*U,1*U)>m,
+     Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun: @ a ($dEq :: GHC.Classes.Eq a).
+                  @ (Main.Identity a)
+                  (Main.$fEqIdentity_$c== @ a $dEq)
+                  (Main.$fEqIdentity_$c/= @ a $dEq) -}
+a6d3d18222e4089804e21ceadcbc7ab4
+  $fEqIdentity_$c/= ::
+    GHC.Classes.Eq a =>
+    Main.Identity a -> Main.Identity a -> GHC.Types.Bool
+  {- Arity: 1, HasNoCafRefs, Strictness: <S(LS),U(A,U)>,
+     Unfolding: InlineRule (0, True, True)
+                GHC.Classes./=
+                  `cast`
+                (forall (a :: <*>_N).
+                 <GHC.Classes.Eq a>_R
+                 ->_R Sym (Main.N:Identity[0] <a>_R)
+                 ->_R Sym (Main.N:Identity[0] <a>_R)
+                 ->_R <GHC.Types.Bool>_R) -}
+a6d3d18222e4089804e21ceadcbc7ab4
+  $fEqIdentity_$c== ::
+    GHC.Classes.Eq a =>
+    Main.Identity a -> Main.Identity a -> GHC.Types.Bool
+  {- Arity: 1, HasNoCafRefs, Strictness: <S(SL),U(U,A)>,
+     Unfolding: InlineRule (0, True, True)
+                GHC.Classes.==
+                  `cast`
+                (forall (a :: <*>_N).
+                 <GHC.Classes.Eq a>_R
+                 ->_R Sym (Main.N:Identity[0] <a>_R)
+                 ->_R Sym (Main.N:Identity[0] <a>_R)
+                 ->_R <GHC.Types.Bool>_R) -}
+0c72a90c50063d3044bbeba29c6d37d6
+  $fEqOne :: GHC.Classes.Eq (f a) => GHC.Classes.Eq (Main.One f a)
+  DFunId
+  {- Arity: 1, HasNoCafRefs, Strictness: <L,U(1*U,1*U)>m,
+     Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun: @ (f :: * -> *)
+                      @ a
+                      ($dEq :: GHC.Classes.Eq (f a)).
+                  @ (Main.One f a)
+                  (Main.$fEqOne_$c== @ f @ a $dEq)
+                  (Main.$fEqOne_$c/= @ f @ a $dEq) -}
+ffae619ce277d1d8301bc6f872e0a452
+  $fEqOne1 :: GHC.Classes.Eq (f a) => f a -> f a -> GHC.Types.Bool
+  {- Arity: 1, HasNoCafRefs, Strictness: <S(LS),1*U(A,1*U)>,
+     Unfolding: InlineRule (1, True, True)
+                (\ @ (f :: * -> *) @ a ($dEq :: GHC.Classes.Eq (f a)) ->
+                 GHC.Classes./= @ (f a) $dEq) -}
+dd7af3b27f3ca31d368e645f487ff9fb
+  $fEqOne2 :: GHC.Classes.Eq (f a) => f a -> f a -> GHC.Types.Bool
+  {- Arity: 1, HasNoCafRefs, Strictness: <S(SL),1*U(1*U,A)>,
+     Unfolding: InlineRule (1, True, True)
+                (\ @ (f :: * -> *) @ a ($dEq :: GHC.Classes.Eq (f a)) ->
+                 GHC.Classes.== @ (f a) $dEq) -}
+0c72a90c50063d3044bbeba29c6d37d6
+  $fEqOne_$c/= ::
+    GHC.Classes.Eq (f a) =>
+    Main.One f a -> Main.One f a -> GHC.Types.Bool
+  {- Arity: 1, HasNoCafRefs, Strictness: <S(LS),1*U(A,1*U)>,
+     Unfolding: InlineRule (0, True, True)
+                Main.$fEqOne1
+                  `cast`
+                (forall (f :: <* -> *>_N) (a :: <*>_N).
+                 <GHC.Classes.Eq (f a)>_R
+                 ->_R Sym (Main.N:One[0] <f>_R) <a>_N
+                 ->_R Sym (Main.N:One[0] <f>_R) <a>_N
+                 ->_R <GHC.Types.Bool>_R) -}
+0c72a90c50063d3044bbeba29c6d37d6
+  $fEqOne_$c== ::
+    GHC.Classes.Eq (f a) =>
+    Main.One f a -> Main.One f a -> GHC.Types.Bool
+  {- Arity: 1, HasNoCafRefs, Strictness: <S(SL),1*U(1*U,A)>,
+     Unfolding: InlineRule (0, True, True)
+                Main.$fEqOne2
+                  `cast`
+                (forall (f :: <* -> *>_N) (a :: <*>_N).
+                 <GHC.Classes.Eq (f a)>_R
+                 ->_R Sym (Main.N:One[0] <f>_R) <a>_N
+                 ->_R Sym (Main.N:One[0] <f>_R) <a>_N
+                 ->_R <GHC.Types.Bool>_R) -}
+f3875a38da73f0f15443f9f6e56065ee
+  $fEqThree ::
+    GHC.Classes.Eq (f (g (h a))) => GHC.Classes.Eq (Main.Three f g h a)
+  DFunId
+  {- Arity: 1, HasNoCafRefs, Strictness: <L,U(1*U,1*U)>m,
+     Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun: @ (f :: * -> *)
+                      @ (g :: * -> *)
+                      @ (h :: * -> *)
+                      @ a
+                      ($dEq :: GHC.Classes.Eq (f (g (h a)))).
+                  @ (Main.Three f g h a)
+                  (Main.$fEqThree_$c== @ f @ g @ h @ a $dEq)
+                  (Main.$fEqThree_$c/= @ f @ g @ h @ a $dEq) -}
+6e9fee1ea7c5095aa8855d21e7f9ad98
+  $fEqThree1 ::
+    GHC.Classes.Eq (f (g (h a))) =>
+    f (g (h a)) -> f (g (h a)) -> GHC.Types.Bool
+  {- Arity: 1, HasNoCafRefs, Strictness: <S(LS),1*U(A,1*U)>,
+     Unfolding: InlineRule (1, True, True)
+                (\ @ (f :: * -> *)
+                   @ (g :: * -> *)
+                   @ (h :: * -> *)
+                   @ a
+                   ($dEq :: GHC.Classes.Eq (f (g (h a)))) ->
+                 GHC.Classes./= @ (f (g (h a))) $dEq) -}
+4359aacdf3533fba7c250d97331e3a7a
+  $fEqThree2 ::
+    GHC.Classes.Eq (f (g (h a))) =>
+    f (g (h a)) -> f (g (h a)) -> GHC.Types.Bool
+  {- Arity: 1, HasNoCafRefs, Strictness: <S(SL),1*U(1*U,A)>,
+     Unfolding: InlineRule (1, True, True)
+                (\ @ (f :: * -> *)
+                   @ (g :: * -> *)
+                   @ (h :: * -> *)
+                   @ a
+                   ($dEq :: GHC.Classes.Eq (f (g (h a)))) ->
+                 GHC.Classes.== @ (f (g (h a))) $dEq) -}
+f3875a38da73f0f15443f9f6e56065ee
+  $fEqThree_$c/= ::
+    GHC.Classes.Eq (f (g (h a))) =>
+    Main.Three f g h a -> Main.Three f g h a -> GHC.Types.Bool
+  {- Arity: 1, HasNoCafRefs, Strictness: <S(LS),1*U(A,1*U)>,
+     Unfolding: InlineRule (0, True, True)
+                Main.$fEqThree1
+                  `cast`
+                (forall (f :: <* -> *>_N) (g :: <* -> *>_N) (h :: <*
+                                                                   -> *>_N) (a :: <*>_N).
+                 <GHC.Classes.Eq (f (g (h a)))>_R
+                 ->_R Sym (Main.N:Three[0] <f>_R <g>_N <h>_N <a>_N)
+                 ->_R Sym (Main.N:Three[0] <f>_R <g>_N <h>_N <a>_N)
+                 ->_R <GHC.Types.Bool>_R) -}
+f3875a38da73f0f15443f9f6e56065ee
+  $fEqThree_$c== ::
+    GHC.Classes.Eq (f (g (h a))) =>
+    Main.Three f g h a -> Main.Three f g h a -> GHC.Types.Bool
+  {- Arity: 1, HasNoCafRefs, Strictness: <S(SL),1*U(1*U,A)>,
+     Unfolding: InlineRule (0, True, True)
+                Main.$fEqThree2
+                  `cast`
+                (forall (f :: <* -> *>_N) (g :: <* -> *>_N) (h :: <*
+                                                                   -> *>_N) (a :: <*>_N).
+                 <GHC.Classes.Eq (f (g (h a)))>_R
+                 ->_R Sym (Main.N:Three[0] <f>_R <g>_N <h>_N <a>_N)
+                 ->_R Sym (Main.N:Three[0] <f>_R <g>_N <h>_N <a>_N)
+                 ->_R <GHC.Types.Bool>_R) -}
+2d77e5f68a0263d70283b40a5e9e020c
+  $fFoldableCompose ::
+    (Data.Foldable.Foldable f, Data.Foldable.Foldable g) =>
+    Data.Foldable.Foldable (Main.Compose f g)
+  DFunId
+  {- Arity: 2,
+     Strictness: <L,U(A,C(C1(C1(U))),A,A,A,A,A,A,A,A,A,A,A,A,A,A)><L,U(A,C(C1(U)),A,A,A,A,A,A,A,A,A,A,A,A,A,A)>,
+     Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun: @ (f :: * -> *)
+                      @ (g :: * -> *)
+                      ($dFoldable :: Data.Foldable.Foldable f)
+                      ($dFoldable1 :: Data.Foldable.Foldable g).
+                  @ (Main.Compose f g)
+                  (Main.$fFoldableCompose_$cfold @ f @ g $dFoldable $dFoldable1)
+                  (Main.$fFoldableCompose_$cfoldMap @ f @ g $dFoldable $dFoldable1)
+                  (Main.$fFoldableCompose_$cfoldr @ f @ g $dFoldable $dFoldable1)
+                  (Main.$fFoldableCompose_$cfoldr' @ f @ g $dFoldable $dFoldable1)
+                  (Main.$fFoldableCompose_$cfoldl @ f @ g $dFoldable $dFoldable1)
+                  (Main.$fFoldableCompose_$cfoldl' @ f @ g $dFoldable $dFoldable1)
+                  (Main.$fFoldableCompose_$cfoldr1 @ f @ g $dFoldable $dFoldable1)
+                  (Main.$fFoldableCompose_$cfoldl1 @ f @ g $dFoldable $dFoldable1)
+                  (Main.$fFoldableCompose_$ctoList @ f @ g $dFoldable $dFoldable1)
+                  (Main.$fFoldableCompose_$cnull @ f @ g $dFoldable $dFoldable1)
+                  (Main.$fFoldableCompose_$clength @ f @ g $dFoldable $dFoldable1)
+                  (Main.$fFoldableCompose_$celem @ f @ g $dFoldable $dFoldable1)
+                  (Main.$fFoldableCompose_$cmaximum @ f @ g $dFoldable $dFoldable1)
+                  (Main.$fFoldableCompose_$cminimum @ f @ g $dFoldable $dFoldable1)
+                  (Main.$fFoldableCompose_$csum @ f @ g $dFoldable $dFoldable1)
+                  (Main.$fFoldableCompose_$cproduct
+                     @ f
+                     @ g
+                     $dFoldable
+                     $dFoldable1) -}
+8e7659c72a90516b9387ef324e83583f
+  $fFoldableCompose1 :: a -> a
+  {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U>,
+     Unfolding: (\ @ a (tpl :: a) -> tpl) -}
+bfa0257fafa2d7ba2ca09e5ad8627bda
+  $fFoldableCompose2 :: a
+  {- Strictness: x -}
+bf8de06b1be44715bbabb93a78fc46a4
+  $fFoldableCompose3 :: a
+  {- Strictness: x -}
+3155c854853576d5248f197e45ac1cab
+  $fFoldableCompose4 :: GHC.Types.Int
+  {- HasNoCafRefs, Unfolding: (GHC.Types.I# 0#) -}
+409cd653c07c2ee5a993b00cb02a8a2c
+  $fFoldableCompose5 ::
+    a
+    -> (GHC.Types.Int -> GHC.Types.Int)
+    -> GHC.Types.Int
+    -> GHC.Types.Int
+  {- Arity: 3, HasNoCafRefs,
+     Unfolding: (\ @ a
+                   (x :: a)
+                   (k :: GHC.Types.Int -> GHC.Types.Int)
+                   (z :: GHC.Types.Int) ->
+                 case z of wild { GHC.Types.I# x1 ->
+                 k (GHC.Types.I# (GHC.Prim.+# x1 1#)) }) -}
+ccb365b5012abd52e823b72728d003b0
+  $fFoldableCompose6 :: a -> GHC.Types.Bool -> GHC.Types.Bool
+  {- Arity: 2, HasNoCafRefs,
+     Unfolding: (\ @ a (ds :: a) (ds1 :: GHC.Types.Bool) ->
+                 GHC.Types.False) -}
+3cacf0b1b9b0e50d302ddb3565ccdde5
+  $fFoldableCompose7 :: a
+  {- Strictness: x -}
+bfac909eb3cebc345d2b43e71ebd8d2a
+  $fFoldableCompose8 ::
+    GHC.Base.Monoid (Data.Monoid.Dual (Data.Monoid.Endo b))
+  {- Unfolding: (\ @ b ->
+                 Data.Monoid.$fMonoidDual
+                   @ (Data.Monoid.Endo b)
+                   (Data.Monoid.$fMonoidEndo @ b)) -}
+7ad7efe39c1aaa9a63777f1ecac9d95a
+  $fFoldableCompose9 :: a
+  {- Strictness: x -}
+2d77e5f68a0263d70283b40a5e9e020c
+  $fFoldableCompose_$celem ::
+    (Data.Foldable.Foldable f, Data.Foldable.Foldable g) =>
+    forall a.
+    GHC.Classes.Eq a =>
+    a -> Main.Compose f g a -> GHC.Types.Bool
+  {- Arity: 4, HasNoCafRefs,
+     Strictness: <L,U(A,C(C1(C1(U))),A,A,A,A,A,A,A,A,A,A,A,A,A,A)><L,U(A,C(C1(U)),A,A,A,A,A,A,A,A,A,A,A,A,A,A)><L,1*U(1*C1(U),A)><L,U>,
+     Unfolding: (\ @ (f :: * -> *)
+                   @ (g :: * -> *)
+                   ($dFoldable :: Data.Foldable.Foldable f)
+                   ($dFoldable1 :: Data.Foldable.Foldable g)
+                   @ a
+                   ($dEq :: GHC.Classes.Eq a)
+                   (eta :: a) ->
+                 let {
+                   lvl4 :: g a -> Data.Monoid.Any
+                   = Data.Foldable.foldMap
+                       @ g
+                       $dFoldable1
+                       @ Data.Monoid.Any
+                       @ a
+                       Data.Monoid.$fMonoidAny
+                       (GHC.Classes.== @ a $dEq eta)
+                         `cast`
+                       (<a>_R ->_R Sym (Data.Monoid.N:Any[0]))
+                 } in
+                 (\ (ds :: Main.Compose f g a) ->
+                  Data.Foldable.foldMap
+                    @ f
+                    $dFoldable
+                    @ Data.Monoid.Any
+                    @ (g a)
+                    Data.Monoid.$fMonoidAny
+                    lvl4
+                    ds `cast` (Main.N:Compose[0] <f>_R <g>_N <a>_N))
+                   `cast`
+                 (<Main.Compose f g a>_R ->_R Data.Monoid.N:Any[0])) -}
+2d77e5f68a0263d70283b40a5e9e020c
+  $fFoldableCompose_$cfold ::
+    (Data.Foldable.Foldable f, Data.Foldable.Foldable g) =>
+    forall m. GHC.Base.Monoid m => Main.Compose f g m -> m
+  {- Arity: 4, HasNoCafRefs,
+     Strictness: <S(LC(C(C(S)))LLLLLLLLLLLLLL),1*U(A,1*C1(C1(C1(U))),A,A,A,A,A,A,A,A,A,A,A,A,A,A)><L,1*U(A,1*C1(C1(U)),A,A,A,A,A,A,A,A,A,A,A,A,A,A)><L,U><L,U>,
+     Unfolding: InlineRule (4, True, False)
+                (\ @ (f :: * -> *)
+                   @ (g :: * -> *)
+                   ($dFoldable :: Data.Foldable.Foldable f)
+                   ($dFoldable1 :: Data.Foldable.Foldable g)
+                   @ m
+                   ($dMonoid :: GHC.Base.Monoid m)
+                   (ds :: Main.Compose f g m) ->
+                 Data.Foldable.foldMap
+                   @ f
+                   $dFoldable
+                   @ m
+                   @ (g m)
+                   $dMonoid
+                   (Data.Foldable.foldMap
+                      @ g
+                      $dFoldable1
+                      @ m
+                      @ m
+                      $dMonoid
+                      (GHC.Base.id @ m))
+                   ds `cast` (Main.N:Compose[0] <f>_R <g>_N <m>_N)) -}
+2d77e5f68a0263d70283b40a5e9e020c
+  $fFoldableCompose_$cfoldMap ::
+    (Data.Foldable.Foldable f, Data.Foldable.Foldable g) =>
+    forall m a.
+    GHC.Base.Monoid m =>
+    (a -> m) -> Main.Compose f g a -> m
+  {- Arity: 5, HasNoCafRefs,
+     Strictness: <S(LC(C(C(S)))LLLLLLLLLLLLLL),1*U(A,1*C1(C1(C1(U))),A,A,A,A,A,A,A,A,A,A,A,A,A,A)><L,1*U(A,1*C1(C1(U)),A,A,A,A,A,A,A,A,A,A,A,A,A,A)><L,U><L,U><L,U>,
+     Unfolding: InlineRule (5, True, False)
+                (\ @ (f :: * -> *)
+                   @ (g :: * -> *)
+                   ($dFoldable :: Data.Foldable.Foldable f)
+                   ($dFoldable1 :: Data.Foldable.Foldable g)
+                   @ m
+                   @ a
+                   ($dMonoid :: GHC.Base.Monoid m)
+                   (f1 :: a -> m)
+                   (ds :: Main.Compose f g a) ->
+                 Data.Foldable.foldMap
+                   @ f
+                   $dFoldable
+                   @ m
+                   @ (g a)
+                   $dMonoid
+                   (Data.Foldable.foldMap @ g $dFoldable1 @ m @ a $dMonoid f1)
+                   ds `cast` (Main.N:Compose[0] <f>_R <g>_N <a>_N)) -}
+2d77e5f68a0263d70283b40a5e9e020c
+  $fFoldableCompose_$cfoldl ::
+    (Data.Foldable.Foldable f, Data.Foldable.Foldable g) =>
+    forall b a. (b -> a -> b) -> b -> Main.Compose f g a -> b
+  {- Arity: 5,
+     Strictness: <L,U(A,C(C1(C1(U))),A,A,A,A,A,A,A,A,A,A,A,A,A,A)><L,U(A,C(C1(U)),A,A,A,A,A,A,A,A,A,A,A,A,A,A)>,
+     Unfolding: (\ @ (f :: * -> *)
+                   @ (g :: * -> *)
+                   ($dFoldable :: Data.Foldable.Foldable f)
+                   ($dFoldable1 :: Data.Foldable.Foldable g)
+                   @ b
+                   @ a
+                   (f1 :: b -> a -> b)
+                   (z :: b)
+                   (t1 :: Main.Compose f g a) ->
+                 (Data.Foldable.foldMap
+                    @ f
+                    $dFoldable
+                    @ (Data.Monoid.Dual (Data.Monoid.Endo b))
+                    @ (g a)
+                    (Main.$fFoldableCompose8 @ b)
+                    (Data.Foldable.foldMap
+                       @ g
+                       $dFoldable1
+                       @ (Data.Monoid.Dual (Data.Monoid.Endo b))
+                       @ a
+                       (Main.$fFoldableCompose8 @ b)
+                       (\ (x :: a) (eta :: b) -> f1 eta x)
+                         `cast`
+                       (<a>_R
+                        ->_R Sym (Data.Monoid.N:Dual[0] (Data.Monoid.N:Endo[0] <b>_R))))
+                    t1 `cast` (Main.N:Compose[0] <f>_R <g>_N <a>_N))
+                   `cast`
+                 (Data.Monoid.N:Dual[0] (Data.Monoid.N:Endo[0] <b>_R))
+                   z) -}
+2d77e5f68a0263d70283b40a5e9e020c
+  $fFoldableCompose_$cfoldl' ::
+    (Data.Foldable.Foldable f, Data.Foldable.Foldable g) =>
+    forall b a. (b -> a -> b) -> b -> Main.Compose f g a -> b
+  {- Arity: 5, HasNoCafRefs,
+     Strictness: <S(LC(C(C(S)))LLLLLLLLLLLLLL),1*U(A,1*C1(C1(C1(U))),A,A,A,A,A,A,A,A,A,A,A,A,A,A)><L,1*U(A,1*C1(C1(U)),A,A,A,A,A,A,A,A,A,A,A,A,A,A)><L,C(C1(U))><L,U><L,U>,
+     Unfolding: (\ @ (f :: * -> *)
+                   @ (g :: * -> *)
+                   ($dFoldable :: Data.Foldable.Foldable f)
+                   ($dFoldable1 :: Data.Foldable.Foldable g)
+                   @ b
+                   @ a
+                   (f1 :: b -> a -> b)
+                   (z0 :: b)
+                   (xs :: Main.Compose f g a) ->
+                 (Data.Foldable.foldMap
+                    @ f
+                    $dFoldable
+                    @ (Data.Monoid.Endo (b -> b))
+                    @ (g a)
+                    (Data.Monoid.$fMonoidEndo @ (b -> b))
+                    (Data.Foldable.foldMap
+                       @ g
+                       $dFoldable1
+                       @ (Data.Monoid.Endo (b -> b))
+                       @ a
+                       (Data.Monoid.$fMonoidEndo @ (b -> b))
+                       (\ (x :: a) (k :: b -> b) (z :: b) ->
+                        case f1 z x of vx { DEFAULT -> k vx })
+                         `cast`
+                       (<a>_R ->_R Sym (Data.Monoid.N:Endo[0] <b -> b>_R)))
+                    xs `cast` (Main.N:Compose[0] <f>_R <g>_N <a>_N))
+                   `cast`
+                 (Data.Monoid.N:Endo[0] <b -> b>_R)
+                   (GHC.Base.id @ b)
+                   z0) -}
+2d77e5f68a0263d70283b40a5e9e020c
+  $fFoldableCompose_$cfoldl1 ::
+    (Data.Foldable.Foldable f, Data.Foldable.Foldable g) =>
+    forall a. (a -> a -> a) -> Main.Compose f g a -> a
+  {- Arity: 4,
+     Strictness: <L,U(A,C(C1(C1(U))),A,A,A,A,A,A,A,A,A,A,A,A,A,A)><L,U(A,C(C1(U)),A,A,A,A,A,A,A,A,A,A,A,A,A,A)><L,C(C1(U))><L,U>,
+     Unfolding: (\ @ (f :: * -> *)
+                   @ (g :: * -> *)
+                   ($dFoldable :: Data.Foldable.Foldable f)
+                   ($dFoldable1 :: Data.Foldable.Foldable g)
+                   @ a
+                   (f1 :: a -> a -> a)
+                   (xs :: Main.Compose f g a) ->
+                 case (Data.Foldable.foldMap
+                         @ f
+                         $dFoldable
+                         @ (Data.Monoid.Dual (Data.Monoid.Endo (GHC.Base.Maybe a)))
+                         @ (g a)
+                         (Main.$fFoldableCompose8 @ (GHC.Base.Maybe a))
+                         (Data.Foldable.foldMap
+                            @ g
+                            $dFoldable1
+                            @ (Data.Monoid.Dual (Data.Monoid.Endo (GHC.Base.Maybe a)))
+                            @ a
+                            (Main.$fFoldableCompose8 @ (GHC.Base.Maybe a))
+                            (\ (x :: a) (eta :: GHC.Base.Maybe a) ->
+                             GHC.Base.Just
+                               @ a
+                               (case eta of wild {
+                                  GHC.Base.Nothing -> x GHC.Base.Just x1 -> f1 x1 x }))
+                              `cast`
+                            (<a>_R
+                             ->_R Sym (Data.Monoid.N:Dual[0]
+                                           (Data.Monoid.N:Endo[0] <GHC.Base.Maybe a>_R))))
+                         xs `cast` (Main.N:Compose[0] <f>_R <g>_N <a>_N))
+                        `cast`
+                      (Data.Monoid.N:Dual[0]
+                           (Data.Monoid.N:Endo[0] <GHC.Base.Maybe a>_R))
+                        (GHC.Base.Nothing @ a) of wild {
+                   GHC.Base.Nothing -> Main.$fFoldableCompose7 @ a
+                   GHC.Base.Just v -> v }) -}
+2d77e5f68a0263d70283b40a5e9e020c
+  $fFoldableCompose_$cfoldr ::
+    (Data.Foldable.Foldable f, Data.Foldable.Foldable g) =>
+    forall a b. (a -> b -> b) -> b -> Main.Compose f g a -> b
+  {- Arity: 5, HasNoCafRefs,
+     Strictness: <S(LC(C(C(S)))LLLLLLLLLLLLLL),1*U(A,1*C1(C1(C1(U))),A,A,A,A,A,A,A,A,A,A,A,A,A,A)><L,1*U(A,1*C1(C1(U)),A,A,A,A,A,A,A,A,A,A,A,A,A,A)><L,U><L,U><L,U>,
+     Unfolding: InlineRule (5, True, False)
+                (\ @ (f :: * -> *)
+                   @ (g :: * -> *)
+                   ($dFoldable :: Data.Foldable.Foldable f)
+                   ($dFoldable1 :: Data.Foldable.Foldable g)
+                   @ a
+                   @ b
+                   (f1 :: a -> b -> b)
+                   (z :: b)
+                   (t1 :: Main.Compose f g a) ->
+                 (Data.Foldable.foldMap
+                    @ f
+                    $dFoldable
+                    @ (Data.Monoid.Endo b)
+                    @ (g a)
+                    (Data.Monoid.$fMonoidEndo @ b)
+                    (Data.Foldable.foldMap
+                       @ g
+                       $dFoldable1
+                       @ (Data.Monoid.Endo b)
+                       @ a
+                       (Data.Monoid.$fMonoidEndo @ b)
+                       f1 `cast` (<a>_R ->_R Sym (Data.Monoid.N:Endo[0] <b>_R)))
+                    t1 `cast` (Main.N:Compose[0] <f>_R <g>_N <a>_N))
+                   `cast`
+                 (Data.Monoid.N:Endo[0] <b>_R)
+                   z) -}
+2d77e5f68a0263d70283b40a5e9e020c
+  $fFoldableCompose_$cfoldr' ::
+    (Data.Foldable.Foldable f, Data.Foldable.Foldable g) =>
+    forall a b. (a -> b -> b) -> b -> Main.Compose f g a -> b
+  {- Arity: 5,
+     Strictness: <L,U(A,C(C1(C1(U))),A,A,A,A,A,A,A,A,A,A,A,A,A,A)><L,U(A,C(C1(U)),A,A,A,A,A,A,A,A,A,A,A,A,A,A)><L,C(C1(U))><L,U><L,U>,
+     Unfolding: (\ @ (f :: * -> *)
+                   @ (g :: * -> *)
+                   ($dFoldable :: Data.Foldable.Foldable f)
+                   ($dFoldable1 :: Data.Foldable.Foldable g)
+                   @ a
+                   @ b
+                   (f1 :: a -> b -> b)
+                   (z0 :: b)
+                   (xs :: Main.Compose f g a) ->
+                 (Data.Foldable.foldMap
+                    @ f
+                    $dFoldable
+                    @ (Data.Monoid.Dual (Data.Monoid.Endo (b -> b)))
+                    @ (g a)
+                    (Main.$fFoldableCompose8 @ (b -> b))
+                    (Data.Foldable.foldMap
+                       @ g
+                       $dFoldable1
+                       @ (Data.Monoid.Dual (Data.Monoid.Endo (b -> b)))
+                       @ a
+                       (Main.$fFoldableCompose8 @ (b -> b))
+                       (\ (x :: a) (eta :: b -> b) (z :: b) ->
+                        case f1 x z of vx { DEFAULT -> eta vx })
+                         `cast`
+                       (<a>_R
+                        ->_R Sym (Data.Monoid.N:Dual[0]
+                                      (Data.Monoid.N:Endo[0] <b -> b>_R))))
+                    xs `cast` (Main.N:Compose[0] <f>_R <g>_N <a>_N))
+                   `cast`
+                 (Data.Monoid.N:Dual[0] (Data.Monoid.N:Endo[0] <b -> b>_R))
+                   (GHC.Base.id @ b)
+                   z0) -}
+2d77e5f68a0263d70283b40a5e9e020c
+  $fFoldableCompose_$cfoldr1 ::
+    (Data.Foldable.Foldable f, Data.Foldable.Foldable g) =>
+    forall a. (a -> a -> a) -> Main.Compose f g a -> a
+  {- Arity: 4,
+     Strictness: <S(LC(C(C(S)))LLLLLLLLLLLLLL),1*U(A,1*C1(C1(C1(U))),A,A,A,A,A,A,A,A,A,A,A,A,A,A)><L,1*U(A,1*C1(C1(U)),A,A,A,A,A,A,A,A,A,A,A,A,A,A)><L,C(C1(U))><L,U>,
+     Unfolding: (\ @ (f :: * -> *)
+                   @ (g :: * -> *)
+                   ($dFoldable :: Data.Foldable.Foldable f)
+                   ($dFoldable1 :: Data.Foldable.Foldable g)
+                   @ a
+                   (f1 :: a -> a -> a)
+                   (xs :: Main.Compose f g a) ->
+                 case (Data.Foldable.foldMap
+                         @ f
+                         $dFoldable
+                         @ (Data.Monoid.Endo (GHC.Base.Maybe a))
+                         @ (g a)
+                         (Data.Monoid.$fMonoidEndo @ (GHC.Base.Maybe a))
+                         (Data.Foldable.foldMap
+                            @ g
+                            $dFoldable1
+                            @ (Data.Monoid.Endo (GHC.Base.Maybe a))
+                            @ a
+                            (Data.Monoid.$fMonoidEndo @ (GHC.Base.Maybe a))
+                            (\ (x :: a) (m :: GHC.Base.Maybe a) ->
+                             GHC.Base.Just
+                               @ a
+                               (case m of wild {
+                                  GHC.Base.Nothing -> x GHC.Base.Just y -> f1 x y }))
+                              `cast`
+                            (<a>_R ->_R Sym (Data.Monoid.N:Endo[0] <GHC.Base.Maybe a>_R)))
+                         xs `cast` (Main.N:Compose[0] <f>_R <g>_N <a>_N))
+                        `cast`
+                      (Data.Monoid.N:Endo[0] <GHC.Base.Maybe a>_R)
+                        (GHC.Base.Nothing @ a) of wild {
+                   GHC.Base.Nothing -> Main.$fFoldableCompose9 @ a
+                   GHC.Base.Just v -> v }) -}
+2d77e5f68a0263d70283b40a5e9e020c
+  $fFoldableCompose_$clength ::
+    (Data.Foldable.Foldable f, Data.Foldable.Foldable g) =>
+    forall a. Main.Compose f g a -> GHC.Types.Int
+  {- Arity: 3, HasNoCafRefs,
+     Strictness: <S(LC(C(C(S)))LLLLLLLLLLLLLL),1*U(A,1*C1(C1(C1(U))),A,A,A,A,A,A,A,A,A,A,A,A,A,A)><L,1*U(A,1*C1(C1(U)),A,A,A,A,A,A,A,A,A,A,A,A,A,A)><L,U>,
+     Unfolding: (\ @ (f :: * -> *)
+                   @ (g :: * -> *)
+                   ($dFoldable :: Data.Foldable.Foldable f)
+                   ($dFoldable1 :: Data.Foldable.Foldable g)
+                   @ a
+                   (eta :: Main.Compose f g a) ->
+                 (Data.Foldable.foldMap
+                    @ f
+                    $dFoldable
+                    @ (Data.Monoid.Endo (GHC.Types.Int -> GHC.Types.Int))
+                    @ (g a)
+                    (Data.Monoid.$fMonoidEndo @ (GHC.Types.Int -> GHC.Types.Int))
+                    (Data.Foldable.foldMap
+                       @ g
+                       $dFoldable1
+                       @ (Data.Monoid.Endo (GHC.Types.Int -> GHC.Types.Int))
+                       @ a
+                       (Data.Monoid.$fMonoidEndo @ (GHC.Types.Int -> GHC.Types.Int))
+                       (Main.$fFoldableCompose5 @ a)
+                         `cast`
+                       (<a>_R
+                        ->_R Sym (Data.Monoid.N:Endo[0]
+                                      <GHC.Types.Int -> GHC.Types.Int>_R)))
+                    eta `cast` (Main.N:Compose[0] <f>_R <g>_N <a>_N))
+                   `cast`
+                 (Data.Monoid.N:Endo[0] <GHC.Types.Int -> GHC.Types.Int>_R)
+                   (GHC.Base.id @ GHC.Types.Int)
+                   Main.$fFoldableCompose4) -}
+2d77e5f68a0263d70283b40a5e9e020c
+  $fFoldableCompose_$cmaximum ::
+    (Data.Foldable.Foldable f, Data.Foldable.Foldable g) =>
+    forall a. GHC.Classes.Ord a => Main.Compose f g a -> a
+  {- Arity: 3,
+     Strictness: <L,U(A,C(C1(C1(U))),A,A,A,A,A,A,A,A,A,A,A,A,A,A)><L,U(A,C(C1(U)),A,A,A,A,A,A,A,A,A,A,A,A,A,A)><L,U(A,A,A,A,A,C(C1(U)),A,A)>,
+     Unfolding: (\ @ (f :: * -> *)
+                   @ (g :: * -> *)
+                   ($dFoldable :: Data.Foldable.Foldable f)
+                   ($dFoldable1 :: Data.Foldable.Foldable g)
+                   @ a
+                   ($dOrd :: GHC.Classes.Ord a) ->
+                 let {
+                   $dMonoid :: GHC.Base.Monoid (Data.Foldable.Max a)
+                   = Data.Foldable.$fMonoidMax @ a $dOrd
+                 } in
+                 let {
+                   lvl4 :: g a -> Data.Foldable.Max a
+                   = Data.Foldable.foldMap
+                       @ g
+                       $dFoldable1
+                       @ (Data.Foldable.Max a)
+                       @ a
+                       $dMonoid
+                       (GHC.Base.Just @ a)
+                         `cast`
+                       (<a>_R ->_R Sym (Data.Foldable.N:Max[0]) <a>_N)
+                 } in
+                 \ (x :: Main.Compose f g a) ->
+                 case (Data.Foldable.foldMap
+                         @ f
+                         $dFoldable
+                         @ (Data.Foldable.Max a)
+                         @ (g a)
+                         $dMonoid
+                         lvl4
+                         x `cast` (Main.N:Compose[0] <f>_R <g>_N <a>_N))
+                        `cast`
+                      (Data.Foldable.N:Max[0] <a>_N) of wild {
+                   GHC.Base.Nothing -> Main.$fFoldableCompose3 @ a
+                   GHC.Base.Just v -> v }) -}
+2d77e5f68a0263d70283b40a5e9e020c
+  $fFoldableCompose_$cminimum ::
+    (Data.Foldable.Foldable f, Data.Foldable.Foldable g) =>
+    forall a. GHC.Classes.Ord a => Main.Compose f g a -> a
+  {- Arity: 3,
+     Strictness: <L,U(A,C(C1(C1(U))),A,A,A,A,A,A,A,A,A,A,A,A,A,A)><L,U(A,C(C1(U)),A,A,A,A,A,A,A,A,A,A,A,A,A,A)><L,U(A,A,A,C(C1(U)),A,A,A,A)>,
+     Unfolding: (\ @ (f :: * -> *)
+                   @ (g :: * -> *)
+                   ($dFoldable :: Data.Foldable.Foldable f)
+                   ($dFoldable1 :: Data.Foldable.Foldable g)
+                   @ a
+                   ($dOrd :: GHC.Classes.Ord a) ->
+                 let {
+                   $dMonoid :: GHC.Base.Monoid (Data.Foldable.Min a)
+                   = Data.Foldable.$fMonoidMin @ a $dOrd
+                 } in
+                 let {
+                   lvl4 :: g a -> Data.Foldable.Min a
+                   = Data.Foldable.foldMap
+                       @ g
+                       $dFoldable1
+                       @ (Data.Foldable.Min a)
+                       @ a
+                       $dMonoid
+                       (GHC.Base.Just @ a)
+                         `cast`
+                       (<a>_R ->_R Sym (Data.Foldable.N:Min[0]) <a>_N)
+                 } in
+                 \ (x :: Main.Compose f g a) ->
+                 case (Data.Foldable.foldMap
+                         @ f
+                         $dFoldable
+                         @ (Data.Foldable.Min a)
+                         @ (g a)
+                         $dMonoid
+                         lvl4
+                         x `cast` (Main.N:Compose[0] <f>_R <g>_N <a>_N))
+                        `cast`
+                      (Data.Foldable.N:Min[0] <a>_N) of wild {
+                   GHC.Base.Nothing -> Main.$fFoldableCompose2 @ a
+                   GHC.Base.Just v -> v }) -}
+2d77e5f68a0263d70283b40a5e9e020c
+  $fFoldableCompose_$cnull ::
+    (Data.Foldable.Foldable f, Data.Foldable.Foldable g) =>
+    forall a. Main.Compose f g a -> GHC.Types.Bool
+  {- Arity: 3, HasNoCafRefs,
+     Strictness: <S(LC(C(C(S)))LLLLLLLLLLLLLL),1*U(A,1*C1(C1(C1(U))),A,A,A,A,A,A,A,A,A,A,A,A,A,A)><L,1*U(A,1*C1(C1(U)),A,A,A,A,A,A,A,A,A,A,A,A,A,A)><L,U>,
+     Unfolding: (\ @ (f :: * -> *)
+                   @ (g :: * -> *)
+                   ($dFoldable :: Data.Foldable.Foldable f)
+                   ($dFoldable1 :: Data.Foldable.Foldable g)
+                   @ a
+                   (eta :: Main.Compose f g a) ->
+                 (Data.Foldable.foldMap
+                    @ f
+                    $dFoldable
+                    @ (Data.Monoid.Endo GHC.Types.Bool)
+                    @ (g a)
+                    (Data.Monoid.$fMonoidEndo @ GHC.Types.Bool)
+                    (Data.Foldable.foldMap
+                       @ g
+                       $dFoldable1
+                       @ (Data.Monoid.Endo GHC.Types.Bool)
+                       @ a
+                       (Data.Monoid.$fMonoidEndo @ GHC.Types.Bool)
+                       (Main.$fFoldableCompose6 @ a)
+                         `cast`
+                       (<a>_R ->_R Sym (Data.Monoid.N:Endo[0] <GHC.Types.Bool>_R)))
+                    eta `cast` (Main.N:Compose[0] <f>_R <g>_N <a>_N))
+                   `cast`
+                 (Data.Monoid.N:Endo[0] <GHC.Types.Bool>_R)
+                   GHC.Types.True) -}
+2d77e5f68a0263d70283b40a5e9e020c
+  $fFoldableCompose_$cproduct ::
+    (Data.Foldable.Foldable f, Data.Foldable.Foldable g) =>
+    forall a. GHC.Num.Num a => Main.Compose f g a -> a
+  {- Arity: 3, HasNoCafRefs,
+     Strictness: <L,U(A,C(C1(C1(U))),A,A,A,A,A,A,A,A,A,A,A,A,A,A)><L,U(A,C(C1(U)),A,A,A,A,A,A,A,A,A,A,A,A,A,A)><L,U(A,A,U,A,A,A,C(U))>,
+     Unfolding: (\ @ (f :: * -> *)
+                   @ (g :: * -> *)
+                   ($dFoldable :: Data.Foldable.Foldable f)
+                   ($dFoldable1 :: Data.Foldable.Foldable g)
+                   @ a
+                   ($dNum :: GHC.Num.Num a) ->
+                 let {
+                   $dMonoid :: GHC.Base.Monoid (Data.Monoid.Product a)
+                   = Data.Monoid.$fMonoidProduct @ a $dNum
+                 } in
+                 let {
+                   lvl4 :: g a -> Data.Monoid.Product a
+                   = Data.Foldable.foldMap
+                       @ g
+                       $dFoldable1
+                       @ (Data.Monoid.Product a)
+                       @ a
+                       $dMonoid
+                       (Main.$fFoldableCompose1 @ a)
+                         `cast`
+                       (<a>_R ->_R Sym (Data.Monoid.N:Product[0] <a>_R))
+                 } in
+                 (\ (ds :: Main.Compose f g a) ->
+                  Data.Foldable.foldMap
+                    @ f
+                    $dFoldable
+                    @ (Data.Monoid.Product a)
+                    @ (g a)
+                    $dMonoid
+                    lvl4
+                    ds `cast` (Main.N:Compose[0] <f>_R <g>_N <a>_N))
+                   `cast`
+                 (<Main.Compose f g a>_R ->_R Data.Monoid.N:Product[0] <a>_R)) -}
+2d77e5f68a0263d70283b40a5e9e020c
+  $fFoldableCompose_$csum ::
+    (Data.Foldable.Foldable f, Data.Foldable.Foldable g) =>
+    forall a. GHC.Num.Num a => Main.Compose f g a -> a
+  {- Arity: 3, HasNoCafRefs,
+     Strictness: <L,U(A,C(C1(C1(U))),A,A,A,A,A,A,A,A,A,A,A,A,A,A)><L,U(A,C(C1(U)),A,A,A,A,A,A,A,A,A,A,A,A,A,A)><L,U(U,A,A,A,A,A,C(U))>,
+     Unfolding: (\ @ (f :: * -> *)
+                   @ (g :: * -> *)
+                   ($dFoldable :: Data.Foldable.Foldable f)
+                   ($dFoldable1 :: Data.Foldable.Foldable g)
+                   @ a
+                   ($dNum :: GHC.Num.Num a) ->
+                 let {
+                   $dMonoid :: GHC.Base.Monoid (Data.Monoid.Sum a)
+                   = Data.Monoid.$fMonoidSum @ a $dNum
+                 } in
+                 let {
+                   lvl4 :: g a -> Data.Monoid.Sum a
+                   = Data.Foldable.foldMap
+                       @ g
+                       $dFoldable1
+                       @ (Data.Monoid.Sum a)
+                       @ a
+                       $dMonoid
+                       (Main.$fFoldableCompose1 @ a)
+                         `cast`
+                       (<a>_R ->_R Sym (Data.Monoid.N:Sum[0] <a>_R))
+                 } in
+                 (\ (ds :: Main.Compose f g a) ->
+                  Data.Foldable.foldMap
+                    @ f
+                    $dFoldable
+                    @ (Data.Monoid.Sum a)
+                    @ (g a)
+                    $dMonoid
+                    lvl4
+                    ds `cast` (Main.N:Compose[0] <f>_R <g>_N <a>_N))
+                   `cast`
+                 (<Main.Compose f g a>_R ->_R Data.Monoid.N:Sum[0] <a>_R)) -}
+2d77e5f68a0263d70283b40a5e9e020c
+  $fFoldableCompose_$ctoList ::
+    (Data.Foldable.Foldable f, Data.Foldable.Foldable g) =>
+    forall a. Main.Compose f g a -> [a]
+  {- Arity: 3,
+     Strictness: <L,U(A,C(C1(C1(U))),A,A,A,A,A,A,A,A,A,A,A,A,A,A)><L,U(A,C(C1(U)),A,A,A,A,A,A,A,A,A,A,A,A,A,A)><L,U>,
+     Inline: INLINE (sat-args=1),
+     Unfolding: InlineRule (3, False, False)
+                (\ @ (f :: * -> *)
+                   @ (g :: * -> *)
+                   ($dFoldable :: Data.Foldable.Foldable f)
+                   ($dFoldable1 :: Data.Foldable.Foldable g)
+                   @ a
+                   (t1 :: Main.Compose f g a) ->
+                 GHC.Base.build
+                   @ a
+                   (\ @ b (c :: a -> b -> b)[OneShot] (n :: b)[OneShot] ->
+                    Main.$fFoldableCompose_$cfoldr
+                      @ f
+                      @ g
+                      $dFoldable
+                      $dFoldable1
+                      @ a
+                      @ b
+                      c
+                      n
+                      t1)) -}
+2d77e5f68a0263d70283b40a5e9e020c
+  $fFunctorCompose ::
+    (GHC.Base.Functor f, GHC.Base.Functor g) =>
+    GHC.Base.Functor (Main.Compose f g)
+  DFunId
+  {- Arity: 2, HasNoCafRefs,
+     Strictness: <L,U(C(C1(U)),A)><L,U(C(U),A)>m,
+     Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun: @ (f :: * -> *)
+                      @ (g :: * -> *)
+                      ($dFunctor :: GHC.Base.Functor f)
+                      ($dFunctor1 :: GHC.Base.Functor g).
+                  @ (Main.Compose f g)
+                  (Main.$fFunctorCompose_$cfmap @ f @ g $dFunctor $dFunctor1)
+                  (Main.$fFunctorCompose_$c<$ @ f @ g $dFunctor $dFunctor1) -}
+2d77e5f68a0263d70283b40a5e9e020c
+  $fFunctorCompose1 ::
+    (GHC.Base.Functor f, GHC.Base.Functor g) =>
+    forall a b. a -> Main.Compose f g b -> f (g a)
+  {- Arity: 4, HasNoCafRefs,
+     Strictness: <S(C(C(S))L),1*U(1*C1(C1(U)),A)><L,1*U(1*C1(U),A)><L,U><L,U>,
+     Unfolding: InlineRule (4, True, False)
+                (\ @ (f :: * -> *)
+                   @ (g :: * -> *)
+                   ($dFunctor :: GHC.Base.Functor f)
+                   ($dFunctor1 :: GHC.Base.Functor g)
+                   @ a
+                   @ b
+                   (eta :: a)
+                   (eta1 :: Main.Compose f g b) ->
+                 GHC.Base.fmap
+                   @ f
+                   $dFunctor
+                   @ (g b)
+                   @ (g a)
+                   (GHC.Base.fmap @ g $dFunctor1 @ b @ a (\ (ds :: b) -> eta))
+                   eta1 `cast` (Main.N:Compose[0] <f>_R <g>_N <b>_N)) -}
+2d77e5f68a0263d70283b40a5e9e020c
+  $fFunctorCompose2 ::
+    (GHC.Base.Functor f, GHC.Base.Functor g) =>
+    forall a b. (a -> b) -> Main.Compose f g a -> f (g b)
+  {- Arity: 4, HasNoCafRefs,
+     Strictness: <S(C(C(S))L),1*U(1*C1(C1(U)),A)><L,1*U(1*C1(U),A)><L,U><L,U>,
+     Unfolding: InlineRule (4, True, False)
+                (\ @ (f :: * -> *)
+                   @ (g :: * -> *)
+                   ($dFunctor :: GHC.Base.Functor f)
+                   ($dFunctor1 :: GHC.Base.Functor g)
+                   @ a
+                   @ b
+                   (f1 :: a -> b)
+                   (ds :: Main.Compose f g a) ->
+                 GHC.Base.fmap
+                   @ f
+                   $dFunctor
+                   @ (g a)
+                   @ (g b)
+                   (GHC.Base.fmap @ g $dFunctor1 @ a @ b f1)
+                   ds `cast` (Main.N:Compose[0] <f>_R <g>_N <a>_N)) -}
+2d77e5f68a0263d70283b40a5e9e020c
+  $fFunctorCompose_$c<$ ::
+    (GHC.Base.Functor f, GHC.Base.Functor g) =>
+    forall a b. a -> Main.Compose f g b -> Main.Compose f g a
+  {- Arity: 4, HasNoCafRefs,
+     Strictness: <S(C(C(S))L),1*U(1*C1(C1(U)),A)><L,1*U(1*C1(U),A)><L,U><L,U>,
+     Unfolding: InlineRule (0, True, True)
+                Main.$fFunctorCompose1
+                  `cast`
+                (forall (f :: <* -> *>_N) (g :: <* -> *>_N).
+                 <GHC.Base.Functor f>_R
+                 ->_R <GHC.Base.Functor g>_R
+                 ->_R forall (a :: <*>_N) (b :: <*>_N).
+                      <a>_R
+                      ->_R <Main.Compose f g b>_R
+                      ->_R Sym (Main.N:Compose[0] <f>_R <g>_N <a>_N)) -}
+2d77e5f68a0263d70283b40a5e9e020c
+  $fFunctorCompose_$cfmap ::
+    (GHC.Base.Functor f, GHC.Base.Functor g) =>
+    forall a b. (a -> b) -> Main.Compose f g a -> Main.Compose f g b
+  {- Arity: 4, HasNoCafRefs,
+     Strictness: <S(C(C(S))L),1*U(1*C1(C1(U)),A)><L,1*U(1*C1(U),A)><L,U><L,U>,
+     Unfolding: InlineRule (0, True, True)
+                Main.$fFunctorCompose2
+                  `cast`
+                (forall (f :: <* -> *>_N) (g :: <* -> *>_N).
+                 <GHC.Base.Functor f>_R
+                 ->_R <GHC.Base.Functor g>_R
+                 ->_R forall (a :: <*>_N) (b :: <*>_N).
+                      <a -> b>_R
+                      ->_R <Main.Compose f g a>_R
+                      ->_R Sym (Main.N:Compose[0] <f>_R <g>_N <b>_N)) -}
+a6d3d18222e4089804e21ceadcbc7ab4
+  $fFunctorIdentity :: GHC.Base.Functor Main.Identity
+  DFunId
+  {- Strictness: m, Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun:.
+                  @ Main.Identity
+                  Main.$fFunctorIdentity_$cfmap
+                  Main.$fFunctorIdentity_$c<$ -}
+a6d3d18222e4089804e21ceadcbc7ab4
+  $fFunctorIdentity1 :: a -> Main.Identity b -> a
+  {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><L,A>,
+     Unfolding: InlineRule (2, True, True)
+                (\ @ b @ a (eta :: a) (ds :: Main.Identity b) -> eta) -}
+a6d3d18222e4089804e21ceadcbc7ab4
+  $fFunctorIdentity2 :: (a -> b) -> Main.Identity a -> b
+  {- Arity: 2, HasNoCafRefs, Strictness: <C(S),1*C1(U)><L,U>,
+     Unfolding: InlineRule (2, True, True)
+                (\ @ a @ b (f :: a -> b) (ds :: Main.Identity a) ->
+                 f ds `cast` (Main.N:Identity[0] <a>_R)) -}
+a6d3d18222e4089804e21ceadcbc7ab4
+  $fFunctorIdentity_$c<$ :: a -> Main.Identity b -> Main.Identity a
+  {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><L,A>,
+     Unfolding: InlineRule (0, True, True)
+                (\ @ a @ b -> Main.$fFunctorIdentity1 @ b @ a)
+                  `cast`
+                (forall (a :: <*>_N) (b :: <*>_N).
+                 <a>_R
+                 ->_R <Main.Identity b>_R
+                 ->_R Sym (Main.N:Identity[0] <a>_R)) -}
+a6d3d18222e4089804e21ceadcbc7ab4
+  $fFunctorIdentity_$cfmap ::
+    (a -> b) -> Main.Identity a -> Main.Identity b
+  {- Arity: 2, HasNoCafRefs, Strictness: <C(S),1*C1(U)><L,U>,
+     Unfolding: InlineRule (0, True, True)
+                Main.$fFunctorIdentity2
+                  `cast`
+                (forall (a :: <*>_N) (b :: <*>_N).
+                 <a -> b>_R
+                 ->_R <Main.Identity a>_R
+                 ->_R Sym (Main.N:Identity[0] <b>_R)) -}
+0c72a90c50063d3044bbeba29c6d37d6
+  $fFunctorOne :: GHC.Base.Functor f => GHC.Base.Functor (Main.One f)
+  DFunId
+  {- Arity: 1, HasNoCafRefs, Strictness: <L,U(C(C1(U)),A)>m,
+     Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun: @ (f :: * -> *) ($dFunctor :: GHC.Base.Functor f).
+                  @ (Main.One f)
+                  (Main.$fFunctorOne_$cfmap @ f $dFunctor)
+                  (Main.$fFunctorOne_$c<$ @ f $dFunctor) -}
+0c72a90c50063d3044bbeba29c6d37d6
+  $fFunctorOne1 ::
+    GHC.Base.Functor f => forall a b. a -> Main.One f b -> f a
+  {- Arity: 3, HasNoCafRefs,
+     Strictness: <S(C(C(S))L),1*U(1*C1(C1(U)),A)><L,U><L,U>,
+     Unfolding: InlineRule (3, True, False)
+                (\ @ (f :: * -> *)
+                   ($dFunctor :: GHC.Base.Functor f)
+                   @ a
+                   @ b
+                   (eta :: a)
+                   (eta1 :: Main.One f b) ->
+                 GHC.Base.fmap
+                   @ f
+                   $dFunctor
+                   @ b
+                   @ a
+                   (\ (ds :: b) -> eta)
+                   eta1 `cast` (Main.N:One[0] <f>_R <b>_N)) -}
+0c72a90c50063d3044bbeba29c6d37d6
+  $fFunctorOne2 ::
+    GHC.Base.Functor f => forall a b. (a -> b) -> Main.One f a -> f b
+  {- Arity: 3, HasNoCafRefs,
+     Strictness: <S(C(C(S))L),1*U(1*C1(C1(U)),A)><L,U><L,U>,
+     Unfolding: InlineRule (3, True, True)
+                (\ @ (f :: * -> *)
+                   ($dFunctor :: GHC.Base.Functor f)
+                   @ a
+                   @ b
+                   (f1 :: a -> b)
+                   (ds :: Main.One f a) ->
+                 GHC.Base.fmap
+                   @ f
+                   $dFunctor
+                   @ a
+                   @ b
+                   f1
+                   ds `cast` (Main.N:One[0] <f>_R <a>_N)) -}
+0c72a90c50063d3044bbeba29c6d37d6
+  $fFunctorOne_$c<$ ::
+    GHC.Base.Functor f => forall a b. a -> Main.One f b -> Main.One f a
+  {- Arity: 3, HasNoCafRefs,
+     Strictness: <S(C(C(S))L),1*U(1*C1(C1(U)),A)><L,U><L,U>,
+     Unfolding: InlineRule (0, True, True)
+                Main.$fFunctorOne1
+                  `cast`
+                (forall (f :: <* -> *>_N).
+                 <GHC.Base.Functor f>_R
+                 ->_R forall (a :: <*>_N) (b :: <*>_N).
+                      <a>_R
+                      ->_R <Main.One f b>_R
+                      ->_R Sym (Main.N:One[0] <f>_R) <a>_N) -}
+0c72a90c50063d3044bbeba29c6d37d6
+  $fFunctorOne_$cfmap ::
+    GHC.Base.Functor f =>
+    forall a b. (a -> b) -> Main.One f a -> Main.One f b
+  {- Arity: 3, HasNoCafRefs,
+     Strictness: <S(C(C(S))L),1*U(1*C1(C1(U)),A)><L,U><L,U>,
+     Unfolding: InlineRule (0, True, True)
+                Main.$fFunctorOne2
+                  `cast`
+                (forall (f :: <* -> *>_N).
+                 <GHC.Base.Functor f>_R
+                 ->_R forall (a :: <*>_N) (b :: <*>_N).
+                      <a -> b>_R
+                      ->_R <Main.One f a>_R
+                      ->_R Sym (Main.N:One[0] <f>_R) <b>_N) -}
+f3875a38da73f0f15443f9f6e56065ee
+  $fFunctorThree ::
+    (GHC.Base.Functor f, GHC.Base.Functor g, GHC.Base.Functor h) =>
+    GHC.Base.Functor (Main.Three f g h)
+  DFunId
+  {- Arity: 3, HasNoCafRefs,
+     Strictness: <L,U(C(C1(U)),A)><L,U(C(U),A)><L,U(C(U),A)>m,
+     Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun: @ (f :: * -> *)
+                      @ (g :: * -> *)
+                      @ (h :: * -> *)
+                      ($dFunctor :: GHC.Base.Functor f)
+                      ($dFunctor1 :: GHC.Base.Functor g)
+                      ($dFunctor2 :: GHC.Base.Functor h).
+                  @ (Main.Three f g h)
+                  (Main.$fFunctorThree_$cfmap
+                     @ f
+                     @ g
+                     @ h
+                     $dFunctor
+                     $dFunctor1
+                     $dFunctor2)
+                  (Main.$fFunctorThree_$c<$
+                     @ f
+                     @ g
+                     @ h
+                     $dFunctor
+                     $dFunctor1
+                     $dFunctor2) -}
+f3875a38da73f0f15443f9f6e56065ee
+  $fFunctorThree1 ::
+    (GHC.Base.Functor f, GHC.Base.Functor g, GHC.Base.Functor h) =>
+    forall a b. a -> Main.Three f g h b -> f (g (h a))
+  {- Arity: 5, HasNoCafRefs,
+     Strictness: <S(C(C(S))L),1*U(1*C1(C1(U)),A)><L,1*U(1*C1(U),A)><L,1*U(1*C1(U),A)><L,U><L,U>,
+     Unfolding: InlineRule (5, True, False)
+                (\ @ (f :: * -> *)
+                   @ (g :: * -> *)
+                   @ (h :: * -> *)
+                   ($dFunctor :: GHC.Base.Functor f)
+                   ($dFunctor1 :: GHC.Base.Functor g)
+                   ($dFunctor2 :: GHC.Base.Functor h)
+                   @ a
+                   @ b
+                   (eta :: a)
+                   (eta1 :: Main.Three f g h b) ->
+                 GHC.Base.fmap
+                   @ f
+                   $dFunctor
+                   @ (g (h b))
+                   @ (g (h a))
+                   (GHC.Base.fmap
+                      @ g
+                      $dFunctor1
+                      @ (h b)
+                      @ (h a)
+                      (GHC.Base.fmap @ h $dFunctor2 @ b @ a (\ (ds :: b) -> eta)))
+                   eta1 `cast` (Main.N:Three[0] <f>_R <g>_N <h>_N <b>_N)) -}
+f3875a38da73f0f15443f9f6e56065ee
+  $fFunctorThree2 ::
+    (GHC.Base.Functor f, GHC.Base.Functor g, GHC.Base.Functor h) =>
+    forall a b. (a -> b) -> Main.Three f g h a -> f (g (h b))
+  {- Arity: 5, HasNoCafRefs,
+     Strictness: <S(C(C(S))L),1*U(1*C1(C1(U)),A)><L,1*U(1*C1(U),A)><L,1*U(1*C1(U),A)><L,U><L,U>,
+     Unfolding: InlineRule (5, True, False)
+                (\ @ (f :: * -> *)
+                   @ (g :: * -> *)
+                   @ (h :: * -> *)
+                   ($dFunctor :: GHC.Base.Functor f)
+                   ($dFunctor1 :: GHC.Base.Functor g)
+                   ($dFunctor2 :: GHC.Base.Functor h)
+                   @ a
+                   @ b
+                   (f1 :: a -> b)
+                   (ds :: Main.Three f g h a) ->
+                 GHC.Base.fmap
+                   @ f
+                   $dFunctor
+                   @ (g (h a))
+                   @ (g (h b))
+                   (GHC.Base.fmap
+                      @ g
+                      $dFunctor1
+                      @ (h a)
+                      @ (h b)
+                      (GHC.Base.fmap @ h $dFunctor2 @ a @ b f1))
+                   ds `cast` (Main.N:Three[0] <f>_R <g>_N <h>_N <a>_N)) -}
+f3875a38da73f0f15443f9f6e56065ee
+  $fFunctorThree_$c<$ ::
+    (GHC.Base.Functor f, GHC.Base.Functor g, GHC.Base.Functor h) =>
+    forall a b. a -> Main.Three f g h b -> Main.Three f g h a
+  {- Arity: 5, HasNoCafRefs,
+     Strictness: <S(C(C(S))L),1*U(1*C1(C1(U)),A)><L,1*U(1*C1(U),A)><L,1*U(1*C1(U),A)><L,U><L,U>,
+     Unfolding: InlineRule (0, True, True)
+                Main.$fFunctorThree1
+                  `cast`
+                (forall (f :: <* -> *>_N) (g :: <* -> *>_N) (h :: <* -> *>_N).
+                 <GHC.Base.Functor f>_R
+                 ->_R <GHC.Base.Functor g>_R
+                 ->_R <GHC.Base.Functor h>_R
+                 ->_R forall (a :: <*>_N) (b :: <*>_N).
+                      <a>_R
+                      ->_R <Main.Three f g h b>_R
+                      ->_R Sym (Main.N:Three[0] <f>_R <g>_N <h>_N <a>_N)) -}
+f3875a38da73f0f15443f9f6e56065ee
+  $fFunctorThree_$cfmap ::
+    (GHC.Base.Functor f, GHC.Base.Functor g, GHC.Base.Functor h) =>
+    forall a b. (a -> b) -> Main.Three f g h a -> Main.Three f g h b
+  {- Arity: 5, HasNoCafRefs,
+     Strictness: <S(C(C(S))L),1*U(1*C1(C1(U)),A)><L,1*U(1*C1(U),A)><L,1*U(1*C1(U),A)><L,U><L,U>,
+     Unfolding: InlineRule (0, True, True)
+                Main.$fFunctorThree2
+                  `cast`
+                (forall (f :: <* -> *>_N) (g :: <* -> *>_N) (h :: <* -> *>_N).
+                 <GHC.Base.Functor f>_R
+                 ->_R <GHC.Base.Functor g>_R
+                 ->_R <GHC.Base.Functor h>_R
+                 ->_R forall (a :: <*>_N) (b :: <*>_N).
+                      <a -> b>_R
+                      ->_R <Main.Three f g h a>_R
+                      ->_R Sym (Main.N:Three[0] <f>_R <g>_N <h>_N <b>_N)) -}
+2d77e5f68a0263d70283b40a5e9e020c
+  $fShowCompose ::
+    GHC.Show.Show (f (g a)) => GHC.Show.Show (Main.Compose f g a)
+  DFunId
+  {- Arity: 1, Strictness: <L,U(C(C1(U)),A,A)>m,
+     Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun: @ (f :: * -> *)
+                      @ (g :: * -> *)
+                      @ a
+                      ($dShow :: GHC.Show.Show (f (g a))).
+                  @ (Main.Compose f g a)
+                  (Main.$fShowCompose_$cshowsPrec @ f @ g @ a $dShow)
+                  (Main.$fShowCompose_$cshow @ f @ g @ a $dShow)
+                  (Main.$fShowCompose_$cshowList @ f @ g @ a $dShow) -}
+8a60ef3b63b1932e1961e368f8c360f3
+  $fShowCompose1 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "}"#) -}
+79de6a447fd6ea8bb0fe536f1436cd2b
+  $fShowCompose2 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "getCompose = "#) -}
+f912d9cd1369be6250bf6c7d3e0f12e7
+  $fShowCompose3 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "Compose {"#) -}
+0817f84fd79d49aa4323974a8b780d94
+  $fShowCompose4 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.Base.++
+                   @ GHC.Types.Char
+                   Main.$fShowCompose1
+                   (GHC.Types.[] @ GHC.Types.Char)) -}
+2d77e5f68a0263d70283b40a5e9e020c
+  $fShowCompose_$cshow ::
+    GHC.Show.Show (f (g a)) => Main.Compose f g a -> GHC.Base.String
+  {- Arity: 2, Strictness: <L,1*U(1*C1(C1(C1(U))),A,A)><L,U>,
+     Unfolding: (\ @ (f :: * -> *)
+                   @ (g :: * -> *)
+                   @ a
+                   ($dShow :: GHC.Show.Show (f (g a)))
+                   (x :: Main.Compose f g a) ->
+                 GHC.Base.++
+                   @ GHC.Types.Char
+                   Main.$fShowCompose3
+                   (GHC.Base.++
+                      @ GHC.Types.Char
+                      Main.$fShowCompose2
+                      (GHC.Show.showsPrec
+                         @ (f (g a))
+                         $dShow
+                         Main.$fFoldableCompose4
+                         x `cast` (Main.N:Compose[0] <f>_R <g>_N <a>_N)
+                         Main.$fShowCompose4))) -}
+2d77e5f68a0263d70283b40a5e9e020c
+  $fShowCompose_$cshowList ::
+    GHC.Show.Show (f (g a)) => [Main.Compose f g a] -> GHC.Show.ShowS
+  {- Arity: 3, Strictness: <L,U(C(C1(U)),A,A)><S,1*U><L,U>,
+     Unfolding: InlineRule (3, True, False)
+                (\ @ (f :: * -> *)
+                   @ (g :: * -> *)
+                   @ a
+                   ($dShow :: GHC.Show.Show (f (g a)))
+                   (eta :: [Main.Compose f g a])
+                   (eta1 :: GHC.Base.String) ->
+                 GHC.Show.showList__
+                   @ (Main.Compose f g a)
+                   (Main.$fShowCompose_$cshowsPrec
+                      @ f
+                      @ g
+                      @ a
+                      $dShow
+                      Main.$fFoldableCompose4)
+                   eta
+                   eta1) -}
+2d77e5f68a0263d70283b40a5e9e020c
+  $fShowCompose_$cshowsPrec ::
+    GHC.Show.Show (f (g a)) =>
+    GHC.Types.Int -> Main.Compose f g a -> GHC.Show.ShowS
+  {- Arity: 3,
+     Strictness: <L,1*U(1*C1(C1(U)),A,A)><S(S),1*U(U)><L,U>,
+     Inline: INLINE[0],
+     Unfolding: InlineRule (3, True, False)
+                (\ @ (f :: * -> *)
+                   @ (g :: * -> *)
+                   @ a
+                   (w :: GHC.Show.Show (f (g a)))
+                   (w1 :: GHC.Types.Int)
+                   (w2 :: Main.Compose f g a) ->
+                 case w1 of ww { GHC.Types.I# ww1 ->
+                 Main.$w$cshowsPrec @ f @ g @ a w ww1 w2 }) -}
+a6d3d18222e4089804e21ceadcbc7ab4
+  $fShowIdentity ::
+    GHC.Show.Show a => GHC.Show.Show (Main.Identity a)
+  DFunId
+  {- Arity: 1, Strictness: <L,U(C(C1(U)),A,A)>m,
+     Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun: @ a ($dShow :: GHC.Show.Show a).
+                  @ (Main.Identity a)
+                  (Main.$fShowIdentity_$cshowsPrec @ a $dShow)
+                  (Main.$fShowIdentity_$cshow @ a $dShow)
+                  (Main.$fShowIdentity_$cshowList @ a $dShow) -}
+b754f25da1e1d685e5fd2d6a15a9ecd9
+  $fShowIdentity1 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "runIdentity = "#) -}
+e3f75705be34ac322ae27780fd27ce6e
+  $fShowIdentity2 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "Identity {"#) -}
+a6d3d18222e4089804e21ceadcbc7ab4
+  $fShowIdentity_$cshow ::
+    GHC.Show.Show a => Main.Identity a -> GHC.Base.String
+  {- Arity: 2, Strictness: <L,1*U(1*C1(C1(C1(U))),A,A)><L,U>,
+     Unfolding: (\ @ a
+                   ($dShow :: GHC.Show.Show a)
+                   (x :: Main.Identity a) ->
+                 GHC.Base.++
+                   @ GHC.Types.Char
+                   Main.$fShowIdentity2
+                   (GHC.Base.++
+                      @ GHC.Types.Char
+                      Main.$fShowIdentity1
+                      (GHC.Show.showsPrec
+                         @ a
+                         $dShow
+                         Main.$fFoldableCompose4
+                         x `cast` (Main.N:Identity[0] <a>_R)
+                         Main.$fShowCompose4))) -}
+a6d3d18222e4089804e21ceadcbc7ab4
+  $fShowIdentity_$cshowList ::
+    GHC.Show.Show a => [Main.Identity a] -> GHC.Show.ShowS
+  {- Arity: 3, Strictness: <L,U(C(C1(U)),A,A)><S,1*U><L,U>,
+     Unfolding: InlineRule (3, True, False)
+                (\ @ a
+                   ($dShow :: GHC.Show.Show a)
+                   (eta :: [Main.Identity a])
+                   (eta1 :: GHC.Base.String) ->
+                 GHC.Show.showList__
+                   @ (Main.Identity a)
+                   (Main.$fShowIdentity_$cshowsPrec
+                      @ a
+                      $dShow
+                      Main.$fFoldableCompose4)
+                   eta
+                   eta1) -}
+a6d3d18222e4089804e21ceadcbc7ab4
+  $fShowIdentity_$cshowsPrec ::
+    GHC.Show.Show a =>
+    GHC.Types.Int -> Main.Identity a -> GHC.Show.ShowS
+  {- Arity: 3,
+     Strictness: <L,1*U(1*C1(C1(U)),A,A)><S(S),1*U(U)><L,U>,
+     Inline: INLINE[0],
+     Unfolding: InlineRule (3, True, False)
+                (\ @ a
+                   (w :: GHC.Show.Show a)
+                   (w1 :: GHC.Types.Int)
+                   (w2 :: Main.Identity a) ->
+                 case w1 of ww { GHC.Types.I# ww1 ->
+                 Main.$w$cshowsPrec1 @ a w ww1 w2 }) -}
+0c72a90c50063d3044bbeba29c6d37d6
+  $fShowOne :: GHC.Show.Show (f a) => GHC.Show.Show (Main.One f a)
+  DFunId
+  {- Arity: 1, Strictness: <L,U(C(C1(U)),A,A)>m,
+     Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun: @ (f :: * -> *)
+                      @ a
+                      ($dShow :: GHC.Show.Show (f a)).
+                  @ (Main.One f a)
+                  (Main.$fShowOne_$cshowsPrec @ f @ a $dShow)
+                  (Main.$fShowOne_$cshow @ f @ a $dShow)
+                  (Main.$fShowOne_$cshowList @ f @ a $dShow) -}
+09062d0a78dec6800103f0156f6bb633
+  $fShowOne1 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "One "#) -}
+757725e64de37f1a00696fc06093ea7d
+  $fShowOne2 :: GHC.Types.Int
+  {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.I# 11#) -}
+0c72a90c50063d3044bbeba29c6d37d6
+  $fShowOne_$cshow ::
+    GHC.Show.Show (f a) => Main.One f a -> GHC.Base.String
+  {- Arity: 2, Strictness: <L,1*U(1*C1(C1(C1(U))),A,A)><L,U>,
+     Unfolding: InlineRule (2, True, False)
+                (\ @ (f :: * -> *)
+                   @ a
+                   ($dShow :: GHC.Show.Show (f a))
+                   (x :: Main.One f a) ->
+                 GHC.Base.augment
+                   @ GHC.Types.Char
+                   (\ @ b
+                      (c :: GHC.Types.Char -> b -> b)[OneShot]
+                      (n :: b)[OneShot] ->
+                    GHC.Base.foldr @ GHC.Types.Char @ b c n Main.$fShowOne1)
+                   (GHC.Show.showsPrec
+                      @ (f a)
+                      $dShow
+                      Main.$fShowOne2
+                      x `cast` (Main.N:One[0] <f>_R <a>_N)
+                      (GHC.Types.[] @ GHC.Types.Char))) -}
+0c72a90c50063d3044bbeba29c6d37d6
+  $fShowOne_$cshowList ::
+    GHC.Show.Show (f a) => [Main.One f a] -> GHC.Show.ShowS
+  {- Arity: 3, Strictness: <L,U(C(C1(U)),A,A)><S,1*U><L,U>,
+     Unfolding: InlineRule (3, True, False)
+                (\ @ (f :: * -> *)
+                   @ a
+                   ($dShow :: GHC.Show.Show (f a))
+                   (eta :: [Main.One f a])
+                   (eta1 :: GHC.Base.String) ->
+                 GHC.Show.showList__
+                   @ (Main.One f a)
+                   (Main.$fShowOne_$cshowsPrec @ f @ a $dShow Main.$fFoldableCompose4)
+                   eta
+                   eta1) -}
+0c72a90c50063d3044bbeba29c6d37d6
+  $fShowOne_$cshowsPrec ::
+    GHC.Show.Show (f a) =>
+    GHC.Types.Int -> Main.One f a -> GHC.Show.ShowS
+  {- Arity: 3,
+     Strictness: <L,1*U(1*C1(C1(U)),A,A)><S(S),1*U(U)><L,U>,
+     Inline: INLINE[0],
+     Unfolding: InlineRule (3, True, False)
+                (\ @ (f :: * -> *)
+                   @ a
+                   (w :: GHC.Show.Show (f a))
+                   (w1 :: GHC.Types.Int)
+                   (w2 :: Main.One f a) ->
+                 case w1 of ww { GHC.Types.I# ww1 ->
+                 Main.$w$cshowsPrec2 @ f @ a w ww1 w2 }) -}
+f3875a38da73f0f15443f9f6e56065ee
+  $fShowThree ::
+    GHC.Show.Show (f (g (h a))) => GHC.Show.Show (Main.Three f g h a)
+  DFunId
+  {- Arity: 1, Strictness: <L,U(C(C1(U)),A,A)>m,
+     Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun: @ (f :: * -> *)
+                      @ (g :: * -> *)
+                      @ (h :: * -> *)
+                      @ a
+                      ($dShow :: GHC.Show.Show (f (g (h a)))).
+                  @ (Main.Three f g h a)
+                  (Main.$fShowThree_$cshowsPrec @ f @ g @ h @ a $dShow)
+                  (Main.$fShowThree_$cshow @ f @ g @ h @ a $dShow)
+                  (Main.$fShowThree_$cshowList @ f @ g @ h @ a $dShow) -}
+6c27f80a8ecc2903fa347cc6327aae5f
+  $fShowThree1 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "Three "#) -}
+f3875a38da73f0f15443f9f6e56065ee
+  $fShowThree_$cshow ::
+    GHC.Show.Show (f (g (h a))) =>
+    Main.Three f g h a -> GHC.Base.String
+  {- Arity: 2, Strictness: <L,1*U(1*C1(C1(C1(U))),A,A)><L,U>,
+     Unfolding: InlineRule (2, True, False)
+                (\ @ (f :: * -> *)
+                   @ (g :: * -> *)
+                   @ (h :: * -> *)
+                   @ a
+                   ($dShow :: GHC.Show.Show (f (g (h a))))
+                   (x :: Main.Three f g h a) ->
+                 GHC.Base.augment
+                   @ GHC.Types.Char
+                   (\ @ b
+                      (c :: GHC.Types.Char -> b -> b)[OneShot]
+                      (n :: b)[OneShot] ->
+                    GHC.Base.foldr @ GHC.Types.Char @ b c n Main.$fShowThree1)
+                   (GHC.Show.showsPrec
+                      @ (f (g (h a)))
+                      $dShow
+                      Main.$fShowOne2
+                      x `cast` (Main.N:Three[0] <f>_R <g>_N <h>_N <a>_N)
+                      (GHC.Types.[] @ GHC.Types.Char))) -}
+f3875a38da73f0f15443f9f6e56065ee
+  $fShowThree_$cshowList ::
+    GHC.Show.Show (f (g (h a))) =>
+    [Main.Three f g h a] -> GHC.Show.ShowS
+  {- Arity: 3, Strictness: <L,U(C(C1(U)),A,A)><S,1*U><L,U>,
+     Unfolding: InlineRule (3, True, False)
+                (\ @ (f :: * -> *)
+                   @ (g :: * -> *)
+                   @ (h :: * -> *)
+                   @ a
+                   ($dShow :: GHC.Show.Show (f (g (h a))))
+                   (eta :: [Main.Three f g h a])
+                   (eta1 :: GHC.Base.String) ->
+                 GHC.Show.showList__
+                   @ (Main.Three f g h a)
+                   (Main.$fShowThree_$cshowsPrec
+                      @ f
+                      @ g
+                      @ h
+                      @ a
+                      $dShow
+                      Main.$fFoldableCompose4)
+                   eta
+                   eta1) -}
+f3875a38da73f0f15443f9f6e56065ee
+  $fShowThree_$cshowsPrec ::
+    GHC.Show.Show (f (g (h a))) =>
+    GHC.Types.Int -> Main.Three f g h a -> GHC.Show.ShowS
+  {- Arity: 3,
+     Strictness: <L,1*U(1*C1(C1(U)),A,A)><S(S),1*U(U)><L,U>,
+     Inline: INLINE[0],
+     Unfolding: InlineRule (3, True, False)
+                (\ @ (f :: * -> *)
+                   @ (g :: * -> *)
+                   @ (h :: * -> *)
+                   @ a
+                   (w :: GHC.Show.Show (f (g (h a))))
+                   (w1 :: GHC.Types.Int)
+                   (w2 :: Main.Three f g h a) ->
+                 case w1 of ww { GHC.Types.I# ww1 ->
+                 Main.$w$cshowsPrec3 @ f @ g @ h @ a w ww1 w2 }) -}
+2d77e5f68a0263d70283b40a5e9e020c
+  $fTraversableCompose ::
+    (Data.Traversable.Traversable f, Data.Traversable.Traversable g) =>
+    Data.Traversable.Traversable (Main.Compose f g)
+  DFunId
+  {- Arity: 2,
+     Strictness: <L,U(1*U(C(C1(U)),A),1*U(A,C(C1(C1(U))),A,A,A,A,A,A,A,A,A,A,A,A,A,A),C(C1(C1(U))),A,A,A)><L,U(1*U(C(U),A),1*U(A,C(C1(U)),A,A,A,A,A,A,A,A,A,A,A,A,A,A),C(C1(U)),A,A,A)>m,
+     Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun: @ (f :: * -> *)
+                      @ (g :: * -> *)
+                      ($dTraversable :: Data.Traversable.Traversable f)
+                      ($dTraversable1 :: Data.Traversable.Traversable g).
+                  @ (Main.Compose f g)
+                  (Main.$fTraversableCompose_$cp1Traversable
+                     @ f
+                     @ g
+                     $dTraversable
+                     $dTraversable1)
+                  (Main.$fTraversableCompose_$cp2Traversable
+                     @ f
+                     @ g
+                     $dTraversable
+                     $dTraversable1)
+                  (Main.$fTraversableCompose_$ctraverse
+                     @ f
+                     @ g
+                     $dTraversable
+                     $dTraversable1)
+                  (Main.$fTraversableCompose_$csequenceA
+                     @ f
+                     @ g
+                     $dTraversable
+                     $dTraversable1)
+                  (Main.$fTraversableCompose_$cmapM
+                     @ f
+                     @ g
+                     $dTraversable
+                     $dTraversable1)
+                  (Main.$fTraversableCompose_$csequence
+                     @ f
+                     @ g
+                     $dTraversable
+                     $dTraversable1) -}
+a2744ffc8050ed4c52121f62a8ac506d
+  $fTraversableCompose1 :: f (g b) -> f (g b)
+  {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U>,
+     Unfolding: InlineRule (1, True, True)
+                (\ @ (f :: * -> *) @ (g :: * -> *) @ b (tpl :: f (g b)) -> tpl) -}
+2d77e5f68a0263d70283b40a5e9e020c
+  $fTraversableCompose_$cmapM ::
+    (Data.Traversable.Traversable f, Data.Traversable.Traversable g) =>
+    forall (m :: * -> *) a b.
+    GHC.Base.Monad m =>
+    (a -> m b) -> Main.Compose f g a -> m (Main.Compose f g b)
+  {- Arity: 5, HasNoCafRefs,
+     Strictness: <L,1*U(A,A,1*C1(C1(C1(U))),A,A,A)><L,1*U(A,A,1*C1(C1(U)),A,A,A)><S(S(S(C(C(S))L)LLLL)LLLL),1*U(1*U(U(U,U),U,U,U,U),A,A,A,A)><L,U><L,U>,
+     Unfolding: InlineRule (5, True, False)
+                (\ @ (f :: * -> *)
+                   @ (g :: * -> *)
+                   ($dTraversable :: Data.Traversable.Traversable f)
+                   ($dTraversable1 :: Data.Traversable.Traversable g)
+                   @ (m :: * -> *)
+                   @ a
+                   @ b
+                   ($dMonad :: GHC.Base.Monad m)
+                   (eta :: a -> m b)
+                   (eta1 :: Main.Compose f g a) ->
+                 Main.$fTraversableCompose_$ctraverse
+                   @ f
+                   @ g
+                   $dTraversable
+                   $dTraversable1
+                   @ m
+                   @ a
+                   @ b
+                   (GHC.Base.$p1Monad @ m $dMonad)
+                   eta
+                   eta1) -}
+2d77e5f68a0263d70283b40a5e9e020c
+  $fTraversableCompose_$cp1Traversable ::
+    (Data.Traversable.Traversable f, Data.Traversable.Traversable g) =>
+    GHC.Base.Functor (Main.Compose f g)
+  {- Arity: 2, HasNoCafRefs,
+     Strictness: <L,1*U(1*U(C(C1(U)),A),A,A,A,A,A)><L,1*U(1*U(C(U),A),A,A,A,A,A)>m,
+     Unfolding: InlineRule (2, True, False)
+                (\ @ (f :: * -> *)
+                   @ (g :: * -> *)
+                   ($dTraversable :: Data.Traversable.Traversable f)
+                   ($dTraversable1 :: Data.Traversable.Traversable g) ->
+                 Main.$fFunctorCompose
+                   @ f
+                   @ g
+                   (Data.Traversable.$p1Traversable @ f $dTraversable)
+                   (Data.Traversable.$p1Traversable @ g $dTraversable1)) -}
+2d77e5f68a0263d70283b40a5e9e020c
+  $fTraversableCompose_$cp2Traversable ::
+    (Data.Traversable.Traversable f, Data.Traversable.Traversable g) =>
+    Data.Foldable.Foldable (Main.Compose f g)
+  {- Arity: 2,
+     Strictness: <L,1*U(A,1*U(A,C(C1(C1(U))),A,A,A,A,A,A,A,A,A,A,A,A,A,A),A,A,A,A)><L,1*U(A,1*U(A,C(C1(U)),A,A,A,A,A,A,A,A,A,A,A,A,A,A),A,A,A,A)>,
+     Unfolding: InlineRule (2, True, False)
+                (\ @ (f :: * -> *)
+                   @ (g :: * -> *)
+                   ($dTraversable :: Data.Traversable.Traversable f)
+                   ($dTraversable1 :: Data.Traversable.Traversable g) ->
+                 Main.$fFoldableCompose
+                   @ f
+                   @ g
+                   (Data.Traversable.$p2Traversable @ f $dTraversable)
+                   (Data.Traversable.$p2Traversable @ g $dTraversable1)) -}
+2d77e5f68a0263d70283b40a5e9e020c
+  $fTraversableCompose_$csequence ::
+    (Data.Traversable.Traversable f, Data.Traversable.Traversable g) =>
+    forall (m :: * -> *) a.
+    GHC.Base.Monad m =>
+    Main.Compose f g (m a) -> m (Main.Compose f g a)
+  {- Arity: 4, HasNoCafRefs,
+     Strictness: <L,1*U(A,A,1*C1(C1(C1(U))),A,A,A)><L,1*U(A,A,1*C1(C1(U)),A,A,A)><S(S(S(C(C(S))L)LLLL)LLLL),1*U(1*U(U(U,U),U,U,U,U),A,A,A,A)><L,U>,
+     Unfolding: InlineRule (4, True, False)
+                (\ @ (f :: * -> *)
+                   @ (g :: * -> *)
+                   ($dTraversable :: Data.Traversable.Traversable f)
+                   ($dTraversable1 :: Data.Traversable.Traversable g)
+                   @ (m :: * -> *)
+                   @ a
+                   ($dMonad :: GHC.Base.Monad m)
+                   (eta :: Main.Compose f g (m a)) ->
+                 Main.$fTraversableCompose_$ctraverse
+                   @ f
+                   @ g
+                   $dTraversable
+                   $dTraversable1
+                   @ m
+                   @ (m a)
+                   @ a
+                   (GHC.Base.$p1Monad @ m $dMonad)
+                   (GHC.Base.id @ (m a))
+                   eta) -}
+2d77e5f68a0263d70283b40a5e9e020c
+  $fTraversableCompose_$csequenceA ::
+    (Data.Traversable.Traversable f, Data.Traversable.Traversable g) =>
+    forall (f1 :: * -> *) a.
+    GHC.Base.Applicative f1 =>
+    Main.Compose f g (f1 a) -> f1 (Main.Compose f g a)
+  {- Arity: 4, HasNoCafRefs,
+     Strictness: <L,U(A,A,C(C1(C1(U))),A,A,A)><L,U(A,A,C(C1(U)),A,A,A)><L,U(U(U,U),U,U,U,U)>,
+     Unfolding: InlineRule (3, True, False)
+                (\ @ (f :: * -> *)
+                   @ (g :: * -> *)
+                   ($dTraversable :: Data.Traversable.Traversable f)
+                   ($dTraversable1 :: Data.Traversable.Traversable g)
+                   @ (f1 :: * -> *)
+                   @ a
+                   ($dApplicative :: GHC.Base.Applicative f1)
+                   (eta :: Main.Compose f g (f1 a)) ->
+                 Main.$fTraversableCompose_$ctraverse
+                   @ f
+                   @ g
+                   $dTraversable
+                   $dTraversable1
+                   @ f1
+                   @ (f1 a)
+                   @ a
+                   $dApplicative
+                   (GHC.Base.id @ (f1 a))
+                   eta) -}
+2d77e5f68a0263d70283b40a5e9e020c
+  $fTraversableCompose_$ctraverse ::
+    (Data.Traversable.Traversable f, Data.Traversable.Traversable g) =>
+    forall (f1 :: * -> *) a b.
+    GHC.Base.Applicative f1 =>
+    (a -> f1 b) -> Main.Compose f g a -> f1 (Main.Compose f g b)
+  {- Arity: 5, HasNoCafRefs,
+     Strictness: <L,1*U(A,A,1*C1(C1(C1(U))),A,A,A)><L,1*U(A,A,1*C1(C1(U)),A,A,A)><S(S(C(C(S))L)LLLL),U(U(U,U),U,U,U,U)><L,U><L,U>,
+     Unfolding: (\ @ (f :: * -> *)
+                   @ (g :: * -> *)
+                   ($dTraversable :: Data.Traversable.Traversable f)
+                   ($dTraversable1 :: Data.Traversable.Traversable g)
+                   @ (f1 :: * -> *)
+                   @ a
+                   @ b
+                   ($dApplicative :: GHC.Base.Applicative f1)
+                   (eta :: a -> f1 b)
+                   (eta1 :: Main.Compose f g a) ->
+                 GHC.Base.fmap
+                   @ f1
+                   (GHC.Base.$p1Applicative @ f1 $dApplicative)
+                   @ (f (g b))
+                   @ (Main.Compose f g b)
+                   (Main.$fTraversableCompose1 @ f @ g @ b)
+                     `cast`
+                   (<f (g b)>_R ->_R Sym (Main.N:Compose[0] <f>_R <g>_N <b>_N))
+                   (Data.Traversable.traverse
+                      @ f
+                      $dTraversable
+                      @ f1
+                      @ (g a)
+                      @ (g b)
+                      $dApplicative
+                      (Data.Traversable.traverse
+                         @ g
+                         $dTraversable1
+                         @ f1
+                         @ a
+                         @ b
+                         $dApplicative
+                         eta)
+                      eta1 `cast` (Main.N:Compose[0] <f>_R <g>_N <a>_N))) -}
+5416741957fca7b9042b8c5772161973
+  $tc'Compose :: GHC.Types.TyCon
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.TyCon
+                   12693460088484475247##
+                   10293579689808618380##
+                   Main.$trModule
+                   Main.$tc'Compose1) -}
+7199348f26f24e2df7ee99490434d0d5
+  $tc'Compose1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS "'Compose"#) -}
+fb6ed5929bece2c052127313cb24c106
+  $tc'Identity :: GHC.Types.TyCon
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.TyCon
+                   2029112138846393583##
+                   2905385520651452197##
+                   Main.$trModule
+                   Main.$tc'Identity1) -}
+d66c2f8db5a22ef38960484a4b9f37e2
+  $tc'Identity1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS "'Identity"#) -}
+6db0439d794bfbb91b3619f071b2d339
+  $tc'One :: GHC.Types.TyCon
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.TyCon
+                   12032748691208660560##
+                   9166101802491659799##
+                   Main.$trModule
+                   Main.$tc'One1) -}
+34ea78d659753264650d6e853a3a2a22
+  $tc'One1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS "'One"#) -}
+be2764d2dc870ffdc73ae4cca42bf7f8
+  $tc'Three :: GHC.Types.TyCon
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.TyCon
+                   12510237057949153623##
+                   595796659182430204##
+                   Main.$trModule
+                   Main.$tc'Three1) -}
+4024c0905512835ebdd8733ecbef0d94
+  $tc'Three1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS "'Three"#) -}
+5d035ecf525b3fbe0c748c7d8aad9ebf
+  $tcCompose :: GHC.Types.TyCon
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.TyCon
+                   9517318612114557489##
+                   9322451183407386165##
+                   Main.$trModule
+                   Main.$tcCompose1) -}
+5c5a8136df54d493f0cb10223fefac3c
+  $tcCompose1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS "Compose"#) -}
+7f9137da72f6c5793b3d621bfaad5de1
+  $tcIdentity :: GHC.Types.TyCon
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.TyCon
+                   1219351100840430795##
+                   4195889340468339127##
+                   Main.$trModule
+                   Main.$tcIdentity1) -}
+8223c0a29bd099943619ea59d112c6ea
+  $tcIdentity1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS "Identity"#) -}
+88291e4a65190e37356622e2a82d6cd6
+  $tcOne :: GHC.Types.TyCon
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.TyCon
+                   16353059893154374347##
+                   5909838743782817238##
+                   Main.$trModule
+                   Main.$tcOne1) -}
+a4d9bf2969ddb954a0d1c464a7d55f13
+  $tcOne1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS "One"#) -}
+14220b53f0df1af5747f191894ad4ed2
+  $tcThree :: GHC.Types.TyCon
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.TyCon
+                   17709309057917554660##
+                   6451264480197805443##
+                   Main.$trModule
+                   Main.$tcThree1) -}
+3908fe019a057c17e00cc20fef75e14f
+  $tcThree1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS "Three"#) -}
+d6831ef04cb9301b090dfae6f7bb7ec7
+  $trModule :: GHC.Types.Module
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.Module Main.$trModule2 Main.$trModule1) -}
+847d9fc3b8e6f0b424199f36b4999bb2
+  $trModule1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS "Main"#) -}
+24ef6042833e75ffd7aa98b83ecca98d
+  $trModule2 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS "main"#) -}
+2d77e5f68a0263d70283b40a5e9e020c
+  $w$cshowsPrec ::
+    GHC.Show.Show (f (g a)) =>
+    GHC.Prim.Int# -> Main.Compose f g a -> GHC.Show.ShowS
+  {- Arity: 3, Strictness: <L,1*U(1*C1(C1(U)),A,A)><S,U><L,U>,
+     Inline: [0],
+     Unfolding: (\ @ (f :: * -> *)
+                   @ (g :: * -> *)
+                   @ a
+                   (w :: GHC.Show.Show (f (g a)))
+                   (ww :: GHC.Prim.Int#)
+                   (w1 :: Main.Compose f g a) ->
+                 let {
+                   f1 :: GHC.Base.String -> GHC.Base.String
+                   = GHC.Show.showsPrec
+                       @ (f (g a))
+                       w
+                       Main.$fFoldableCompose4
+                       w1 `cast` (Main.N:Compose[0] <f>_R <g>_N <a>_N)
+                 } in
+                 let {
+                   p :: GHC.Show.ShowS {- Arity: 1, Strictness: <L,1*U> -}
+                   = \ (x :: GHC.Base.String) ->
+                     GHC.Base.++
+                       @ GHC.Types.Char
+                       Main.$fShowCompose3
+                       (GHC.Base.++
+                          @ GHC.Types.Char
+                          Main.$fShowCompose2
+                          (f1 (GHC.Base.++ @ GHC.Types.Char Main.$fShowCompose1 x)))
+                 } in
+                 case GHC.Prim.tagToEnum#
+                        @ GHC.Types.Bool
+                        (GHC.Prim.>=# ww 11#) of wild {
+                   GHC.Types.False -> p
+                   GHC.Types.True
+                   -> \ (x :: GHC.Base.String) ->
+                      GHC.Types.:
+                        @ GHC.Types.Char
+                        GHC.Show.shows7
+                        (p (GHC.Types.: @ GHC.Types.Char GHC.Show.shows4 x)) }) -}
+a6d3d18222e4089804e21ceadcbc7ab4
+  $w$cshowsPrec1 ::
+    GHC.Show.Show a =>
+    GHC.Prim.Int# -> Main.Identity a -> GHC.Show.ShowS
+  {- Arity: 3, Strictness: <L,1*U(1*C1(C1(U)),A,A)><S,U><L,U>,
+     Inline: [0],
+     Unfolding: (\ @ a
+                   (w :: GHC.Show.Show a)
+                   (ww :: GHC.Prim.Int#)
+                   (w1 :: Main.Identity a) ->
+                 let {
+                   f :: GHC.Base.String -> GHC.Base.String
+                   = GHC.Show.showsPrec
+                       @ a
+                       w
+                       Main.$fFoldableCompose4
+                       w1 `cast` (Main.N:Identity[0] <a>_R)
+                 } in
+                 let {
+                   p :: GHC.Show.ShowS {- Arity: 1, Strictness: <L,1*U> -}
+                   = \ (x :: GHC.Base.String) ->
+                     GHC.Base.++
+                       @ GHC.Types.Char
+                       Main.$fShowIdentity2
+                       (GHC.Base.++
+                          @ GHC.Types.Char
+                          Main.$fShowIdentity1
+                          (f (GHC.Base.++ @ GHC.Types.Char Main.$fShowCompose1 x)))
+                 } in
+                 case GHC.Prim.tagToEnum#
+                        @ GHC.Types.Bool
+                        (GHC.Prim.>=# ww 11#) of wild {
+                   GHC.Types.False -> p
+                   GHC.Types.True
+                   -> \ (x :: GHC.Base.String) ->
+                      GHC.Types.:
+                        @ GHC.Types.Char
+                        GHC.Show.shows7
+                        (p (GHC.Types.: @ GHC.Types.Char GHC.Show.shows4 x)) }) -}
+0c72a90c50063d3044bbeba29c6d37d6
+  $w$cshowsPrec2 ::
+    GHC.Show.Show (f a) =>
+    GHC.Prim.Int# -> Main.One f a -> GHC.Show.ShowS
+  {- Arity: 3, Strictness: <L,1*U(1*C1(C1(U)),A,A)><S,U><L,U>,
+     Inline: [0],
+     Unfolding: (\ @ (f :: * -> *)
+                   @ a
+                   (w :: GHC.Show.Show (f a))
+                   (ww :: GHC.Prim.Int#)
+                   (w1 :: Main.One f a) ->
+                 let {
+                   g :: GHC.Base.String -> GHC.Base.String
+                   = GHC.Show.showsPrec
+                       @ (f a)
+                       w
+                       Main.$fShowOne2
+                       w1 `cast` (Main.N:One[0] <f>_R <a>_N)
+                 } in
+                 case GHC.Prim.tagToEnum#
+                        @ GHC.Types.Bool
+                        (GHC.Prim.>=# ww 11#) of wild {
+                   GHC.Types.False
+                   -> \ (x :: GHC.Base.String) ->
+                      GHC.Base.++ @ GHC.Types.Char Main.$fShowOne1 (g x)
+                   GHC.Types.True
+                   -> \ (x :: GHC.Base.String) ->
+                      GHC.Types.:
+                        @ GHC.Types.Char
+                        GHC.Show.shows7
+                        (GHC.Base.++
+                           @ GHC.Types.Char
+                           Main.$fShowOne1
+                           (g (GHC.Types.: @ GHC.Types.Char GHC.Show.shows4 x))) }) -}
+f3875a38da73f0f15443f9f6e56065ee
+  $w$cshowsPrec3 ::
+    GHC.Show.Show (f (g (h a))) =>
+    GHC.Prim.Int# -> Main.Three f g h a -> GHC.Show.ShowS
+  {- Arity: 3, Strictness: <L,1*U(1*C1(C1(U)),A,A)><S,U><L,U>,
+     Inline: [0],
+     Unfolding: (\ @ (f :: * -> *)
+                   @ (g :: * -> *)
+                   @ (h :: * -> *)
+                   @ a
+                   (w :: GHC.Show.Show (f (g (h a))))
+                   (ww :: GHC.Prim.Int#)
+                   (w1 :: Main.Three f g h a) ->
+                 let {
+                   g1 :: GHC.Base.String -> GHC.Base.String
+                   = GHC.Show.showsPrec
+                       @ (f (g (h a)))
+                       w
+                       Main.$fShowOne2
+                       w1 `cast` (Main.N:Three[0] <f>_R <g>_N <h>_N <a>_N)
+                 } in
+                 case GHC.Prim.tagToEnum#
+                        @ GHC.Types.Bool
+                        (GHC.Prim.>=# ww 11#) of wild {
+                   GHC.Types.False
+                   -> \ (x :: GHC.Base.String) ->
+                      GHC.Base.++ @ GHC.Types.Char Main.$fShowThree1 (g1 x)
+                   GHC.Types.True
+                   -> \ (x :: GHC.Base.String) ->
+                      GHC.Types.:
+                        @ GHC.Types.Char
+                        GHC.Show.shows7
+                        (GHC.Base.++
+                           @ GHC.Types.Char
+                           Main.$fShowThree1
+                           (g1 (GHC.Types.: @ GHC.Types.Char GHC.Show.shows4 x))) }) -}
+2d77e5f68a0263d70283b40a5e9e020c
+  type role Compose representational nominal nominal
+  newtype Compose (f :: * -> *) (g :: * -> *) a
+    = Compose {getCompose :: f (g a)}
+a6d3d18222e4089804e21ceadcbc7ab4
+  newtype Identity a = Identity {runIdentity :: a}
+0c72a90c50063d3044bbeba29c6d37d6
+  type role One representational nominal
+  newtype One (f :: * -> *) a = One (f a)
+f3875a38da73f0f15443f9f6e56065ee
+  type role Three representational nominal nominal nominal
+  newtype Three (f :: * -> *) (g :: * -> *) (h :: * -> *) a
+    = Three (f (g (h a)))
+edbc1f66860afeca19f715fa0358cd7c
+  getCompose :: Main.Compose f g a -> f (g a)
+  RecSel Left Main.Compose
+  {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U>,
+     Unfolding: InlineRule (0, True, True)
+                Main.getCompose1
+                  `cast`
+                (forall (f :: <* -> *>_N) (g :: <* -> *>_N) (a :: <*>_N).
+                 <Main.Compose f g a>_R ->_R Main.N:Compose[0] <f>_R <g>_N <a>_N) -}
+6ad3a81f393818a35653dfe0be079fb4
+  getCompose1 :: Main.Compose f g a -> Main.Compose f g a
+  {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U>,
+     Unfolding: InlineRule (1, True, True)
+                (\ @ (f :: * -> *)
+                   @ (g :: * -> *)
+                   @ a
+                   (ds :: Main.Compose f g a) ->
+                 ds) -}
+549e997b77251cffa539541e3fca551d
+  main :: GHC.Types.IO ()
+  {- Arity: 1, Strictness: <S,U>,
+     Unfolding: InlineRule (0, True, True)
+                Main.main1 `cast` (Sym (GHC.Types.N:IO[0] <()>_R)) -}
+12f13e20d189575a2f38fa0188d46990
+  main1 ::
+    GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
+  {- Arity: 1, Strictness: <S,U>,
+     Unfolding: (\ (eta :: GHC.Prim.State#
+                             GHC.Prim.RealWorld)[OneShot] ->
+                 GHC.IO.Handle.Text.hPutStr2
+                   GHC.IO.Handle.FD.stdout
+                   Main.main2
+                   GHC.Types.True
+                   eta) -}
+5ca9aae8b1fa510e4d7ba6c699a49ec7
+  main2 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "hello world"#) -}
+eaf959ce78010a9f5591044b85b85e4b
+  main3 ::
+    GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
+  {- Arity: 1,
+     Unfolding: (GHC.TopHandler.runMainIO1
+                   @ ()
+                   Main.main1 `cast` (Sym (GHC.Types.N:IO[0] <()>_R))) -}
+7edfbcc15c1ad42dae7af7b9cf513b24
+  runIdentity :: Main.Identity a -> a
+  RecSel Left Main.Identity
+  {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U>,
+     Unfolding: InlineRule (0, True, True)
+                Main.runIdentity1
+                  `cast`
+                (forall (a :: <*>_N).
+                 <Main.Identity a>_R ->_R Main.N:Identity[0] <a>_R) -}
+fc1d8243cabe9ccbd3c54c7e233e9d6a
+  runIdentity1 :: Main.Identity a -> Main.Identity a
+  {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U>,
+     Unfolding: InlineRule (1, True, True)
+                (\ @ a (ds :: Main.Identity a) -> ds) -}
+instance [safe] GHC.Base.Applicative [Main.Compose]
+  = Main.$fApplicativeCompose
+instance [safe] GHC.Classes.Eq [Main.Compose] = Main.$fEqCompose
+instance [safe] GHC.Classes.Eq [Main.Identity] = Main.$fEqIdentity
+instance [safe] GHC.Classes.Eq [Main.One] = Main.$fEqOne
+instance [safe] GHC.Classes.Eq [Main.Three] = Main.$fEqThree
+instance [safe] Data.Foldable.Foldable [Main.Compose]
+  = Main.$fFoldableCompose
+instance [safe] GHC.Base.Functor [Main.Compose]
+  = Main.$fFunctorCompose
+instance [safe] GHC.Base.Functor [Main.Identity]
+  = Main.$fFunctorIdentity
+instance [safe] GHC.Base.Functor [Main.One] = Main.$fFunctorOne
+instance [safe] GHC.Base.Functor [Main.Three] = Main.$fFunctorThree
+instance [safe] GHC.Show.Show [Main.Compose] = Main.$fShowCompose
+instance [safe] GHC.Show.Show [Main.Identity] = Main.$fShowIdentity
+instance [safe] GHC.Show.Show [Main.One] = Main.$fShowOne
+instance [safe] GHC.Show.Show [Main.Three] = Main.$fShowThree
+instance [safe] Data.Traversable.Traversable [Main.Compose]
+  = Main.$fTraversableCompose
+vectorised variables:
+vectorised tycons:
+vectorised reused tycons:
+parallel variables:
+parallel tycons:
+trusted: safe
+require own pkg trusted: False
+

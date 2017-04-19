@@ -1,0 +1,63 @@
+Configuring addition-0.1.0.0...
+Preprocessing library addition-0.1.0.0...
+[1 of 1] Compiling Addition         ( Addition.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.2.0/build/Addition.o )
+
+Addition.hs:84:8: warning: [-Wtype-defaults]
+    • Defaulting the following constraints to type ‘Integer’
+        (Num a0) arising from a use of ‘+’ at Addition.hs:84:8-12
+        (Ord a0) arising from a use of ‘>’ at Addition.hs:84:7-17
+    • In the first argument of ‘(>)’, namely ‘(1 + 1)’
+      In the first argument of ‘shouldBe’, namely ‘(1 + 1) > 1’
+      In a stmt of a 'do' block: (1 + 1) > 1 `shouldBe` True
+
+Addition.hs:86:7: warning: [-Wtype-defaults]
+    • Defaulting the following constraints to type ‘Integer’
+        (Show a0) arising from a use of ‘shouldBe’ at Addition.hs:86:7-24
+        (Num a0) arising from a use of ‘+’ at Addition.hs:86:7-11
+        (Eq a0) arising from a use of ‘shouldBe’ at Addition.hs:86:7-24
+    • In a stmt of a 'do' block: 2 + 2 `shouldBe` 4
+      In the second argument of ‘($)’, namely ‘do { 2 + 2 `shouldBe` 4 }’
+      In a stmt of a 'do' block:
+        it "2 + 2 is equal to 4" $ do { 2 + 2 `shouldBe` 4 }
+
+Addition.hs:88:7: warning: [-Wtype-defaults]
+    • Defaulting the following constraints to type ‘Integer’
+        (Show a0) arising from a use of ‘shouldBe’ at Addition.hs:88:7-38
+        (Integral a0)
+          arising from a use of ‘dividedBy’ at Addition.hs:88:7-20
+        (Num a0) arising from the literal ‘15’ at Addition.hs:88:17-18
+        (Eq a0) arising from a use of ‘shouldBe’ at Addition.hs:88:7-38
+    • In a stmt of a 'do' block: dividedBy 15 3 `shouldBe` (5, 0)
+      In the second argument of ‘($)’, namely
+        ‘do { dividedBy 15 3 `shouldBe` (5, 0) }’
+      In a stmt of a 'do' block:
+        it "15 divided by 3 is 5" $ do { dividedBy 15 3 `shouldBe` (5, 0) }
+
+Addition.hs:90:7: warning: [-Wtype-defaults]
+    • Defaulting the following constraints to type ‘Integer’
+        (Show a0) arising from a use of ‘shouldBe’ at Addition.hs:90:7-38
+        (Integral a0)
+          arising from a use of ‘dividedBy’ at Addition.hs:90:7-20
+        (Num a0) arising from the literal ‘22’ at Addition.hs:90:17-18
+        (Eq a0) arising from a use of ‘shouldBe’ at Addition.hs:90:7-38
+    • In a stmt of a 'do' block: dividedBy 22 5 `shouldBe` (4, 2)
+      In the second argument of ‘($)’, namely
+        ‘do { dividedBy 22 5 `shouldBe` (4, 2) }’
+      In a stmt of a 'do' block:
+        it "22 divided by 5 is 4 remainder 2"
+        $ do { dividedBy 22 5 `shouldBe` (4, 2) }
+
+Addition.hs:92:7: warning: [-Wtype-defaults]
+    • Defaulting the following constraints to type ‘Integer’
+        (Show a0) arising from a use of ‘shouldBe’ at Addition.hs:92:7-30
+        (Integral a0) arising from a use of ‘recSum’ at Addition.hs:92:7-16
+        (Num a0) arising from the literal ‘7’ at Addition.hs:92:14
+        (Eq a0) arising from a use of ‘shouldBe’ at Addition.hs:92:7-30
+    • In a stmt of a 'do' block: recSum 7 9 `shouldBe` 63
+      In the second argument of ‘($)’, namely
+        ‘do { recSum 7 9 `shouldBe` 63 }’
+      In a stmt of a 'do' block:
+        it "7 * 9 (recursive) equals 63" $ do { recSum 7 9 `shouldBe` 63 }
+Installing library in
+/home/philip/git/haskellStuff/haskellBook/.stack-work/install/x86_64-linux/lts-8.4/8.0.2/lib/x86_64-linux-ghc-8.0.2/addition-0.1.0.0-CSouN8SeZajGrLop5I2JYb
+Registering addition-0.1.0.0...

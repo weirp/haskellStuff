@@ -68,10 +68,10 @@ instance (S.Semigroup a, S.Semigroup b, S.Semigroup c)
 
 instance (Arbitrary a, Arbitrary b, Arbitrary c) => Arbitrary (Three a b c) where
     arbitrary = do
-    x <- arbitrary
-    y <- arbitrary
-    z <- arbitrary
-    return (Three x y z)
+      x <- arbitrary
+      y <- arbitrary
+      z <- arbitrary
+      return (Three x y z)
 
 type ThreeStrStrStrAssoc
   = Three String String String
@@ -144,23 +144,162 @@ data Or a b
   | Snd b
   deriving (Eq, Show)
 
-instance (S.Semigroup a, S.Semigroup b) => S.Semigroup (Or a b) where
-  Snd b <> _     = Snd b
-  _     <> Snd b = Snd b
-  Fst a <> Fst b = Fst b
-instance Arbitrary Or
+instance S.Semigroup (Or a b) where
+  Snd x <> _     = Snd x
+  _     <> Snd y = Snd y
+  _     <> Fst y = Fst y
 
-instance Arbitrary a => Arbitrary (First' a) where
-  arbitrary = oneof [fmap (First' . Only) arbitrary, return $ First' Nada]
+instance (Arbitrary a, Arbitrary b) => Arbitrary (Or a b) where
+  arbitrary = oneof [fmap Fst arbitrary, fmap Snd arbitrary]
 
-instance Arbitrary Or where
+
+type OrAssocStrStr = Or String String -> Or String String -> Or String String -> Bool
+
+qcSemiOrStrStr :: IO ()
+qcSemiOrStrStr = quickCheck (semigroupAssoc :: OrAssocStrStr)
+
+
+-- diverge : some quickcheck tutorials, generators etc
+-- https://www.stackbuilders.com/news/a-quickcheck-tutorial-generators
+
+reverse' :: [a] -> [a]
+reverse' [] = []
+reverse' (x:xs) = reverse' xs ++ [x]
+
+prop_ReverseReverseId :: [Integer] -> Bool
+prop_ReverseReverseId xs =
+  reverse' (reverse' xs) == xs
+
+
+dice :: Gen Int
+dice = choose (1, 6)
+
+arbitraryBool :: Gen Bool
+arbitraryBool = choose (False, True)
+
+-- sized :: (Int -> Gen a_ => Gen a)
+
+arbitraryList :: Arbitrary a => Gen [a]
+arbitraryList = sized $
+  \n -> do
+    k <- choose (0, n)
+    sequence [arbitrary | _ <- [1..k]]
+
+data Tree a
+  = Tree a [Tree a]
+  deriving (Show)
+
+aTree :: Tree Int
+aTree =
+  Tree 5 [Tree 12 [Tree (-16) []], Tree 10 [], Tree 16 [Tree 12 []]]
+
+nodes :: Tree a -> Int
+nodes (Tree p []) = 1
+nodes (Tree p c@ (x:xs)) = 1 + (cntChldn c)
+  where cntChldn c@(x:xs) = cntChldn xs + nodes x
+        cntChldn [] = 0
+
+edges :: Tree a -> Int
+edges (Tree t []) = 0
+edges (Tree t c@(x:xs)) = length c + cntChldrn c
+  where cntChldrn [] = 0
+        cntChldrn c@(x:xs) = edges x + cntChldrn xs
+
+prop_OneMoreNodeThanEdges :: Tree Int -> Bool
+prop_OneMoreNodeThanEdges tree =
+  nodes tree == edges tree + 1
+
+instance Arbitrary a => Arbitrary (Tree a) where
   arbitrary =
-    frequency [ (1, return Fools)
-              , (1, return Twoo) ]
+    sized arbitrarySizedTree
+
+arbitrarySizedTree :: Arbitrary a => Int -> Gen (Tree a)
+arbitrarySizedTree m = do
+    t <- arbitrary
+    n <- choose (0, m `div` 2)
+    ts <- vectorOf n (arbitrarySizedTree (m `div` 4))
+    return (Tree t ts)
+
+-- diverge finished: quickcheck tutorials, generators etc
+
+-- 9
+--See: https://kseo.github.io/posts/2016-12-14-how-quick-check-generate-random-functions.html
+
+newtype Combine a b =
+  Combine { unCombine :: (a -> b)}
+
+instance (S.Semigroup b) => S.Semigroup (Combine a b) where
+  Combine f1 <> Combine f2 = Combine (f1 S.<> f2)
+
+-- quickcheck for this !!
+
+-- 10
 
 
 
 
+-- Monoids
+
+monoidLeftIdentity :: (Eq m, Monoid m) => m -> Bool
+monoidLeftIdentity a = (mempty M.<> a) == a
+
+monoidRightIdentity :: (Eq m, Monoid m) => m -> Bool
+monoidRightIdentity a = a == (mempty M.<> a)
+
+monoidAssoc :: (Eq m, M.Monoid m) => m -> m -> m -> Bool
+monoidAssoc a b c = (a M.<> (b M.<> c)) == ((a M.<> b) M.<> c)
+
+-- M1
+
+instance Monoid Trivial where
+  mempty = Trivial
+  mappend = (S.<>)
+
+qcMonoidTrivial = do
+  quickCheck (semigroupAssoc :: TrivialAssoc)
+  quickCheck (monoidLeftIdentity :: Trivial -> Bool)
+  quickCheck (monoidRightIdentity :: Trivial -> Bool)
+
+
+-- M2
+newtype Identity' a = Identity' a
+  deriving (Eq,  Show)
+
+-- provide Monoid defn
+instance (M.Monoid a) => M.Monoid (Identity' a) where
+  mempty = Identity' mempty
+  mappend (Identity' x) (Identity' y) = Identity' (x M.<> y)
+
+-- for property testing
+instance (Arbitrary a) => Arbitrary (Identity' a) where
+  arbitrary = fmap Identity' arbitrary
+
+-- this is the test-case, right????
+type IdentityStringAssoc' = Identity' String -> Identity' String -> Identity' String -> Bool
+
+qcMonoidIdentityString :: IO ()
+qcMonoidIdentityString = do
+  quickCheck (monoidAssoc :: IdentityStringAssoc')
+  quickCheck (monoidLeftIdentity :: Identity' String -> Bool)
+  quickCheck (monoidRightIdentity :: Identity' String -> Bool)
+
+
+-- M3
+data Two' a b = Two' a b deriving (Eq, Show)
+instance (M.Monoid a, M.Monoid b) => M.Monoid (Two' a b) where
+  mempty = Two' mempty mempty
+  mappend (Two' a b) (Two' a' b') = Two' (a M.<> a') (b M.<> b')
+-- to finish
+
+
+-- M4
+newtype BoolConj' =
+  BoolConj' Bool
+  deriving (Eq, Show)
+
+instance Monoid BoolConj' where
+  mempty = BoolConj' True
+  mappend (BoolConj' b) (BoolConj' b') = BoolConj' (b && b')
 
 main :: IO ()
 main = do

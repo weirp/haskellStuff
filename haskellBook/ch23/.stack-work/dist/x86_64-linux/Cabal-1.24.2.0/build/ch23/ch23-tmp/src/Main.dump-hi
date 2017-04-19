@@ -1,0 +1,215 @@
+
+==================== FINAL INTERFACE ====================
+2017-04-04 05:07:56.648131 UTC
+
+interface main@main:Main 8002
+  interface hash: 425ecfbe016f99465ab676607995c80d
+  ABI hash: 14a3754101a6393fea9182f671c2e12d
+  export-list hash: 6bc6d76e48921391164ef16580447898
+  orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
+  flag hash: 6ba07b8593f3a2e734385fcd82bafba9
+  sig of: Nothing
+  used TH splices: False
+  where
+exports:
+  Main.main
+  Main.sumIsIsomorphicWithItsContents
+  Main.Iso
+  Main.Reader'{Main.Reader' runReader}
+  Main.State'{Main.State' runState}
+  Main.Sum{Main.Sum getSum}
+module dependencies:
+package dependencies: base-4.9.1.0* ghc-prim-0.5.0.0
+                      integer-gmp-1.0.0.1
+orphans: base-4.9.1.0:GHC.Base base-4.9.1.0:GHC.Float
+family instance modules: base-4.9.1.0:Control.Applicative
+                         base-4.9.1.0:Data.Either base-4.9.1.0:Data.Functor.Const
+                         base-4.9.1.0:Data.Monoid base-4.9.1.0:Data.Type.Equality
+                         base-4.9.1.0:GHC.Generics base-4.9.1.0:GHC.IO.Exception
+                         base-4.9.1.0:GHC.TypeLits
+import  -/  base-4.9.1.0:Prelude 22dd289b8469a8fa8dc81cab7b237771
+import  -/  base-4.9.1.0:System.IO e4a64a8e3dce8616da54f0ee7104f7db
+import  -/  ghc-prim-0.5.0.0:GHC.Types 89f8de4f08018c9177c98d979eae0e45
+6c1499e2746a790f9024d391123ca693
+  $tc'Reader' :: GHC.Types.TyCon
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.TyCon
+                   17872888850110302835##
+                   1537161627455814033##
+                   Main.$trModule
+                   Main.$tc'Reader'1) -}
+ae190e7a3f28a3562ece7760c02706e9
+  $tc'Reader'1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS "'Reader'"#) -}
+8207bd30f0306fc02d7fb912143a2c60
+  $tc'State' :: GHC.Types.TyCon
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.TyCon
+                   12428872968641896283##
+                   9734267134434961993##
+                   Main.$trModule
+                   Main.$tc'State'1) -}
+4a84e3f5adddbe277d899d02bdf49796
+  $tc'State'1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS "'State'"#) -}
+04f2e6c1a99abb124299e74c77c95cad
+  $tc'Sum :: GHC.Types.TyCon
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.TyCon
+                   4578598580951108790##
+                   13817766789451806117##
+                   Main.$trModule
+                   Main.$tc'Sum1) -}
+02a1587e7d82b69f7a8007a983d93a3f
+  $tc'Sum1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS "'Sum"#) -}
+5dc68ee604ce703955f20e01b1d138aa
+  $tcReader' :: GHC.Types.TyCon
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.TyCon
+                   7515797743802802202##
+                   10192998656781595924##
+                   Main.$trModule
+                   Main.$tcReader'1) -}
+06b89f95934e7500d9634d72a159fbce
+  $tcReader'1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS "Reader'"#) -}
+17a39fb2db606317bbcbd856c22704f8
+  $tcState' :: GHC.Types.TyCon
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.TyCon
+                   1656747845248513512##
+                   14273280545339533504##
+                   Main.$trModule
+                   Main.$tcState'1) -}
+7ed22ed2a270e336278c5dca8b4582b2
+  $tcState'1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS "State'"#) -}
+5d5b6b8d400cfa9bc00f50df0c9924b2
+  $tcSum :: GHC.Types.TyCon
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.TyCon
+                   4856698266744372175##
+                   8992143841612010501##
+                   Main.$trModule
+                   Main.$tcSum1) -}
+06d51958c44bacd2d3884f5c9079da96
+  $tcSum1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS "Sum"#) -}
+d6831ef04cb9301b090dfae6f7bb7ec7
+  $trModule :: GHC.Types.Module
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.Module Main.$trModule2 Main.$trModule1) -}
+847d9fc3b8e6f0b424199f36b4999bb2
+  $trModule1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS "Main"#) -}
+24ef6042833e75ffd7aa98b83ecca98d
+  $trModule2 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS "main"#) -}
+46f956fbc864279142dffa4e19e2e1d3
+  type Iso a b = (a -> b, b -> a)
+2dbde66357c2f58e85c36f776c165fa9
+  newtype Reader' r a = Reader' {runReader :: r -> a}
+b294c54253833d5a171d81e690cc9ec7
+  newtype State' s a = State' {runState :: s -> (a, s)}
+2831fb5ad162866b1e1171b83595493a
+  newtype Sum a = Sum {getSum :: a}
+e76b4d6b3a36a57fdd505f5d6e084148
+  getSum :: Main.Sum a -> a
+  RecSel Left Main.Sum
+  {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U>,
+     Unfolding: InlineRule (0, True, True)
+                Main.getSum1
+                  `cast`
+                (forall (a :: <*>_N). <Main.Sum a>_R ->_R Main.N:Sum[0] <a>_R) -}
+90ff62d6e4c72abb29e7adb7e9dbafd9
+  getSum1 :: Main.Sum a -> Main.Sum a
+  {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U>,
+     Unfolding: InlineRule (1, True, True)
+                (\ @ a (ds :: Main.Sum a) -> ds) -}
+549e997b77251cffa539541e3fca551d
+  main :: GHC.Types.IO ()
+  {- Arity: 1, Strictness: <S,U>,
+     Unfolding: InlineRule (0, True, True)
+                Main.main1 `cast` (Sym (GHC.Types.N:IO[0] <()>_R)) -}
+12f13e20d189575a2f38fa0188d46990
+  main1 ::
+    GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
+  {- Arity: 1, Strictness: <S,U>,
+     Unfolding: (\ (eta :: GHC.Prim.State#
+                             GHC.Prim.RealWorld)[OneShot] ->
+                 GHC.IO.Handle.Text.hPutStr2
+                   GHC.IO.Handle.FD.stdout
+                   Main.main2
+                   GHC.Types.True
+                   eta) -}
+5ca9aae8b1fa510e4d7ba6c699a49ec7
+  main2 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "hello world"#) -}
+eaf959ce78010a9f5591044b85b85e4b
+  main3 ::
+    GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
+  {- Arity: 1,
+     Unfolding: (GHC.TopHandler.runMainIO1
+                   @ ()
+                   Main.main1 `cast` (Sym (GHC.Types.N:IO[0] <()>_R))) -}
+ff2786d383a34c36f4e47e2c3a89ac76
+  runReader :: Main.Reader' r a -> r -> a
+  RecSel Left Main.Reader'
+  {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U>,
+     Unfolding: InlineRule (0, True, True)
+                Main.runReader1
+                  `cast`
+                (forall (r :: <*>_N) (a :: <*>_N).
+                 <Main.Reader' r a>_R ->_R Main.N:Reader'[0] <r>_N <a>_N) -}
+9832a81bac0228b31207187ddab4e120
+  runReader1 :: Main.Reader' r a -> Main.Reader' r a
+  {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U>,
+     Unfolding: InlineRule (1, True, True)
+                (\ @ r @ a (ds :: Main.Reader' r a) -> ds) -}
+c35682fbd31ea8563c12213f63a82e38
+  runState :: Main.State' s a -> s -> (a, s)
+  RecSel Left Main.State'
+  {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U>,
+     Unfolding: InlineRule (0, True, True)
+                Main.runState1
+                  `cast`
+                (forall (s :: <*>_N) (a :: <*>_N).
+                 <Main.State' s a>_R ->_R Main.N:State'[0] <s>_R <a>_R) -}
+0bd25252292a9e36733f87b013abf759
+  runState1 :: Main.State' s a -> Main.State' s a
+  {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U>,
+     Unfolding: InlineRule (1, True, True)
+                (\ @ s @ a (ds :: Main.State' s a) -> ds) -}
+e4c5e8be7e0bba4c23ff757c87621593
+  sumIsIsomorphicWithItsContents :: Main.Iso a (Main.Sum a)
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (\ @ a ->
+                 ((Main.sumIsIsomorphicWithItsContents1 @ a)
+                    `cast`
+                  (<a>_R ->_R Sym (Main.N:Sum[0] <a>_R)),
+                  (Main.getSum1 @ a)
+                    `cast`
+                  (<Main.Sum a>_R ->_R Main.N:Sum[0] <a>_R))) -}
+fe04f6e0621a12ea1d4ca15d17511595
+  sumIsIsomorphicWithItsContents1 :: a -> a
+  {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U>,
+     Unfolding: InlineRule (1, True, True) (\ @ a (tpl :: a) -> tpl) -}
+vectorised variables:
+vectorised tycons:
+vectorised reused tycons:
+parallel variables:
+parallel tycons:
+trusted: safe
+require own pkg trusted: False
+

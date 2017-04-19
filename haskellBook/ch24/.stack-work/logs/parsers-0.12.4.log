@@ -1,0 +1,1427 @@
+[1 of 1] Compiling Main             ( /tmp/stack16050/parsers-0.12.4/Setup.lhs, /tmp/stack16050/parsers-0.12.4/.stack-work/dist/x86_64-linux/Cabal-1.24.2.0/setup/Main.o )
+
+/tmp/stack16050/parsers-0.12.4/Setup.lhs:44:69: warning: [-Wdeprecations]
+    In the use of type constructor or class ‘InstalledPackageId’
+    (imported from Distribution.Package):
+    Deprecated: "Use UnitId instead"
+Linking /tmp/stack16050/parsers-0.12.4/.stack-work/dist/x86_64-linux/Cabal-1.24.2.0/setup/setup ...
+Configuring parsers-0.12.4...
+Building parsers-0.12.4...
+Preprocessing library parsers-0.12.4...
+[1 of 8] Compiling Text.Parser.Token.Highlight ( src/Text/Parser/Token/Highlight.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.2.0/build/Text/Parser/Token/Highlight.o )
+[2 of 8] Compiling Text.Parser.Permutation ( src/Text/Parser/Permutation.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.2.0/build/Text/Parser/Permutation.o )
+
+src/Text/Parser/Permutation.hs:123:5: warning: [-Wmonomorphism-restriction]
+    • The Monomorphism Restriction applies to the binding for ‘e’
+        Consider giving a type signature for ‘e’
+    • In an equation for ‘permute’:
+          permute (Permutation def xs)
+            = asum (map branch xs ++ e)
+            where
+                e = maybe [] (pure . pure) def
+                branch (Branch perm p) = flip id <$> p <*> permute perm
+[3 of 8] Compiling Text.Parser.Combinators ( src/Text/Parser/Combinators.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.2.0/build/Text/Parser/Combinators.o )
+[4 of 8] Compiling Text.Parser.Expression ( src/Text/Parser/Expression.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.2.0/build/Text/Parser/Expression.o )
+
+src/Text/Parser/Expression.hs:113:15: warning: [-Wmonomorphism-restriction]
+    • The Monomorphism Restriction applies to the bindings for ‘rassoc’,
+                                                               ‘lassoc’, ‘nassoc’, ‘prefix’,
+                                                               ‘postfix’
+        Consider giving a type signature for these binders
+    • In the expression:
+        let
+          (rassoc, lassoc, nassoc, prefix, postfix)
+            = foldr splitOp ([], [], [], [], []) ops
+          rassocOp = choice rassoc
+          lassocOp = choice lassoc
+          ....
+        in
+          termP <**> (rassocP <|> lassocP <|> nassocP <|> pure id)
+          <?> "operator"
+      In an equation for ‘makeParser’:
+          makeParser term ops
+            = let
+                (rassoc, lassoc, nassoc, prefix, postfix) = foldr splitOp ... ops
+                rassocOp = choice rassoc
+                ....
+              in
+                termP <**> (rassocP <|> lassocP <|> nassocP <|> pure id)
+                <?> "operator"
+      In an equation for ‘buildExpressionParser’:
+          buildExpressionParser operators simpleExpr
+            = foldl makeParser simpleExpr operators
+            where
+                makeParser term ops
+                  = let ...
+                    in
+                      termP <**> (rassocP <|> lassocP <|> nassocP <|> pure id)
+                      <?> "operator"
+                splitOp (Infix op assoc) (rassoc, lassoc, nassoc, prefix, postfix)
+                  = case assoc of {
+                      AssocNone -> ...
+                      AssocLeft -> ...
+                      AssocRight -> ... }
+                splitOp (Prefix op) (rassoc, lassoc, nassoc, prefix, postfix)
+                  = (rassoc, lassoc, nassoc, op : prefix, postfix)
+                splitOp (Postfix op) (rassoc, lassoc, nassoc, prefix, postfix)
+                  = (rassoc, lassoc, nassoc, prefix, op : postfix)
+
+src/Text/Parser/Expression.hs:114:15: warning: [-Wmonomorphism-restriction]
+    • The Monomorphism Restriction applies to the binding for ‘rassocOp’
+        Consider giving a type signature for ‘rassocOp’
+    • In the expression:
+        let
+          (rassoc, lassoc, nassoc, prefix, postfix)
+            = foldr splitOp ([], [], [], [], []) ops
+          rassocOp = choice rassoc
+          lassocOp = choice lassoc
+          ....
+        in
+          termP <**> (rassocP <|> lassocP <|> nassocP <|> pure id)
+          <?> "operator"
+      In an equation for ‘makeParser’:
+          makeParser term ops
+            = let
+                (rassoc, lassoc, nassoc, prefix, postfix) = foldr splitOp ... ops
+                rassocOp = choice rassoc
+                ....
+              in
+                termP <**> (rassocP <|> lassocP <|> nassocP <|> pure id)
+                <?> "operator"
+      In an equation for ‘buildExpressionParser’:
+          buildExpressionParser operators simpleExpr
+            = foldl makeParser simpleExpr operators
+            where
+                makeParser term ops
+                  = let ...
+                    in
+                      termP <**> (rassocP <|> lassocP <|> nassocP <|> pure id)
+                      <?> "operator"
+                splitOp (Infix op assoc) (rassoc, lassoc, nassoc, prefix, postfix)
+                  = case assoc of {
+                      AssocNone -> ...
+                      AssocLeft -> ...
+                      AssocRight -> ... }
+                splitOp (Prefix op) (rassoc, lassoc, nassoc, prefix, postfix)
+                  = (rassoc, lassoc, nassoc, op : prefix, postfix)
+                splitOp (Postfix op) (rassoc, lassoc, nassoc, prefix, postfix)
+                  = (rassoc, lassoc, nassoc, prefix, op : postfix)
+
+src/Text/Parser/Expression.hs:115:15: warning: [-Wmonomorphism-restriction]
+    • The Monomorphism Restriction applies to the binding for ‘lassocOp’
+        Consider giving a type signature for ‘lassocOp’
+    • In the expression:
+        let
+          (rassoc, lassoc, nassoc, prefix, postfix)
+            = foldr splitOp ([], [], [], [], []) ops
+          rassocOp = choice rassoc
+          lassocOp = choice lassoc
+          ....
+        in
+          termP <**> (rassocP <|> lassocP <|> nassocP <|> pure id)
+          <?> "operator"
+      In an equation for ‘makeParser’:
+          makeParser term ops
+            = let
+                (rassoc, lassoc, nassoc, prefix, postfix) = foldr splitOp ... ops
+                rassocOp = choice rassoc
+                ....
+              in
+                termP <**> (rassocP <|> lassocP <|> nassocP <|> pure id)
+                <?> "operator"
+      In an equation for ‘buildExpressionParser’:
+          buildExpressionParser operators simpleExpr
+            = foldl makeParser simpleExpr operators
+            where
+                makeParser term ops
+                  = let ...
+                    in
+                      termP <**> (rassocP <|> lassocP <|> nassocP <|> pure id)
+                      <?> "operator"
+                splitOp (Infix op assoc) (rassoc, lassoc, nassoc, prefix, postfix)
+                  = case assoc of {
+                      AssocNone -> ...
+                      AssocLeft -> ...
+                      AssocRight -> ... }
+                splitOp (Prefix op) (rassoc, lassoc, nassoc, prefix, postfix)
+                  = (rassoc, lassoc, nassoc, op : prefix, postfix)
+                splitOp (Postfix op) (rassoc, lassoc, nassoc, prefix, postfix)
+                  = (rassoc, lassoc, nassoc, prefix, op : postfix)
+
+src/Text/Parser/Expression.hs:116:15: warning: [-Wmonomorphism-restriction]
+    • The Monomorphism Restriction applies to the binding for ‘nassocOp’
+        Consider giving a type signature for ‘nassocOp’
+    • In the expression:
+        let
+          (rassoc, lassoc, nassoc, prefix, postfix)
+            = foldr splitOp ([], [], [], [], []) ops
+          rassocOp = choice rassoc
+          lassocOp = choice lassoc
+          ....
+        in
+          termP <**> (rassocP <|> lassocP <|> nassocP <|> pure id)
+          <?> "operator"
+      In an equation for ‘makeParser’:
+          makeParser term ops
+            = let
+                (rassoc, lassoc, nassoc, prefix, postfix) = foldr splitOp ... ops
+                rassocOp = choice rassoc
+                ....
+              in
+                termP <**> (rassocP <|> lassocP <|> nassocP <|> pure id)
+                <?> "operator"
+      In an equation for ‘buildExpressionParser’:
+          buildExpressionParser operators simpleExpr
+            = foldl makeParser simpleExpr operators
+            where
+                makeParser term ops
+                  = let ...
+                    in
+                      termP <**> (rassocP <|> lassocP <|> nassocP <|> pure id)
+                      <?> "operator"
+                splitOp (Infix op assoc) (rassoc, lassoc, nassoc, prefix, postfix)
+                  = case assoc of {
+                      AssocNone -> ...
+                      AssocLeft -> ...
+                      AssocRight -> ... }
+                splitOp (Prefix op) (rassoc, lassoc, nassoc, prefix, postfix)
+                  = (rassoc, lassoc, nassoc, op : prefix, postfix)
+                splitOp (Postfix op) (rassoc, lassoc, nassoc, prefix, postfix)
+                  = (rassoc, lassoc, nassoc, prefix, op : postfix)
+
+src/Text/Parser/Expression.hs:117:15: warning: [-Wmonomorphism-restriction]
+    • The Monomorphism Restriction applies to the binding for ‘prefixOp’
+        Consider giving a type signature for ‘prefixOp’
+    • In the expression:
+        let
+          (rassoc, lassoc, nassoc, prefix, postfix)
+            = foldr splitOp ([], [], [], [], []) ops
+          rassocOp = choice rassoc
+          lassocOp = choice lassoc
+          ....
+        in
+          termP <**> (rassocP <|> lassocP <|> nassocP <|> pure id)
+          <?> "operator"
+      In an equation for ‘makeParser’:
+          makeParser term ops
+            = let
+                (rassoc, lassoc, nassoc, prefix, postfix) = foldr splitOp ... ops
+                rassocOp = choice rassoc
+                ....
+              in
+                termP <**> (rassocP <|> lassocP <|> nassocP <|> pure id)
+                <?> "operator"
+      In an equation for ‘buildExpressionParser’:
+          buildExpressionParser operators simpleExpr
+            = foldl makeParser simpleExpr operators
+            where
+                makeParser term ops
+                  = let ...
+                    in
+                      termP <**> (rassocP <|> lassocP <|> nassocP <|> pure id)
+                      <?> "operator"
+                splitOp (Infix op assoc) (rassoc, lassoc, nassoc, prefix, postfix)
+                  = case assoc of {
+                      AssocNone -> ...
+                      AssocLeft -> ...
+                      AssocRight -> ... }
+                splitOp (Prefix op) (rassoc, lassoc, nassoc, prefix, postfix)
+                  = (rassoc, lassoc, nassoc, op : prefix, postfix)
+                splitOp (Postfix op) (rassoc, lassoc, nassoc, prefix, postfix)
+                  = (rassoc, lassoc, nassoc, prefix, op : postfix)
+
+src/Text/Parser/Expression.hs:118:15: warning: [-Wmonomorphism-restriction]
+    • The Monomorphism Restriction applies to the binding for ‘postfixOp’
+        Consider giving a type signature for ‘postfixOp’
+    • In the expression:
+        let
+          (rassoc, lassoc, nassoc, prefix, postfix)
+            = foldr splitOp ([], [], [], [], []) ops
+          rassocOp = choice rassoc
+          lassocOp = choice lassoc
+          ....
+        in
+          termP <**> (rassocP <|> lassocP <|> nassocP <|> pure id)
+          <?> "operator"
+      In an equation for ‘makeParser’:
+          makeParser term ops
+            = let
+                (rassoc, lassoc, nassoc, prefix, postfix) = foldr splitOp ... ops
+                rassocOp = choice rassoc
+                ....
+              in
+                termP <**> (rassocP <|> lassocP <|> nassocP <|> pure id)
+                <?> "operator"
+      In an equation for ‘buildExpressionParser’:
+          buildExpressionParser operators simpleExpr
+            = foldl makeParser simpleExpr operators
+            where
+                makeParser term ops
+                  = let ...
+                    in
+                      termP <**> (rassocP <|> lassocP <|> nassocP <|> pure id)
+                      <?> "operator"
+                splitOp (Infix op assoc) (rassoc, lassoc, nassoc, prefix, postfix)
+                  = case assoc of {
+                      AssocNone -> ...
+                      AssocLeft -> ...
+                      AssocRight -> ... }
+                splitOp (Prefix op) (rassoc, lassoc, nassoc, prefix, postfix)
+                  = (rassoc, lassoc, nassoc, op : prefix, postfix)
+                splitOp (Postfix op) (rassoc, lassoc, nassoc, prefix, postfix)
+                  = (rassoc, lassoc, nassoc, prefix, op : postfix)
+
+src/Text/Parser/Expression.hs:122:15: warning: [-Wmonomorphism-restriction]
+    • The Monomorphism Restriction applies to the binding for ‘ambiguousRight’
+        Consider giving a type signature for ‘ambiguousRight’
+    • In the expression:
+        let
+          (rassoc, lassoc, nassoc, prefix, postfix)
+            = foldr splitOp ([], [], [], [], []) ops
+          rassocOp = choice rassoc
+          lassocOp = choice lassoc
+          ....
+        in
+          termP <**> (rassocP <|> lassocP <|> nassocP <|> pure id)
+          <?> "operator"
+      In an equation for ‘makeParser’:
+          makeParser term ops
+            = let
+                (rassoc, lassoc, nassoc, prefix, postfix) = foldr splitOp ... ops
+                rassocOp = choice rassoc
+                ....
+              in
+                termP <**> (rassocP <|> lassocP <|> nassocP <|> pure id)
+                <?> "operator"
+      In an equation for ‘buildExpressionParser’:
+          buildExpressionParser operators simpleExpr
+            = foldl makeParser simpleExpr operators
+            where
+                makeParser term ops
+                  = let ...
+                    in
+                      termP <**> (rassocP <|> lassocP <|> nassocP <|> pure id)
+                      <?> "operator"
+                splitOp (Infix op assoc) (rassoc, lassoc, nassoc, prefix, postfix)
+                  = case assoc of {
+                      AssocNone -> ...
+                      AssocLeft -> ...
+                      AssocRight -> ... }
+                splitOp (Prefix op) (rassoc, lassoc, nassoc, prefix, postfix)
+                  = (rassoc, lassoc, nassoc, op : prefix, postfix)
+                splitOp (Postfix op) (rassoc, lassoc, nassoc, prefix, postfix)
+                  = (rassoc, lassoc, nassoc, prefix, op : postfix)
+
+src/Text/Parser/Expression.hs:123:15: warning: [-Wmonomorphism-restriction]
+    • The Monomorphism Restriction applies to the binding for ‘ambiguousLeft’
+        Consider giving a type signature for ‘ambiguousLeft’
+    • In the expression:
+        let
+          (rassoc, lassoc, nassoc, prefix, postfix)
+            = foldr splitOp ([], [], [], [], []) ops
+          rassocOp = choice rassoc
+          lassocOp = choice lassoc
+          ....
+        in
+          termP <**> (rassocP <|> lassocP <|> nassocP <|> pure id)
+          <?> "operator"
+      In an equation for ‘makeParser’:
+          makeParser term ops
+            = let
+                (rassoc, lassoc, nassoc, prefix, postfix) = foldr splitOp ... ops
+                rassocOp = choice rassoc
+                ....
+              in
+                termP <**> (rassocP <|> lassocP <|> nassocP <|> pure id)
+                <?> "operator"
+      In an equation for ‘buildExpressionParser’:
+          buildExpressionParser operators simpleExpr
+            = foldl makeParser simpleExpr operators
+            where
+                makeParser term ops
+                  = let ...
+                    in
+                      termP <**> (rassocP <|> lassocP <|> nassocP <|> pure id)
+                      <?> "operator"
+                splitOp (Infix op assoc) (rassoc, lassoc, nassoc, prefix, postfix)
+                  = case assoc of {
+                      AssocNone -> ...
+                      AssocLeft -> ...
+                      AssocRight -> ... }
+                splitOp (Prefix op) (rassoc, lassoc, nassoc, prefix, postfix)
+                  = (rassoc, lassoc, nassoc, op : prefix, postfix)
+                splitOp (Postfix op) (rassoc, lassoc, nassoc, prefix, postfix)
+                  = (rassoc, lassoc, nassoc, prefix, op : postfix)
+
+src/Text/Parser/Expression.hs:124:15: warning: [-Wmonomorphism-restriction]
+    • The Monomorphism Restriction applies to the binding for ‘ambiguousNon’
+        Consider giving a type signature for ‘ambiguousNon’
+    • In the expression:
+        let
+          (rassoc, lassoc, nassoc, prefix, postfix)
+            = foldr splitOp ([], [], [], [], []) ops
+          rassocOp = choice rassoc
+          lassocOp = choice lassoc
+          ....
+        in
+          termP <**> (rassocP <|> lassocP <|> nassocP <|> pure id)
+          <?> "operator"
+      In an equation for ‘makeParser’:
+          makeParser term ops
+            = let
+                (rassoc, lassoc, nassoc, prefix, postfix) = foldr splitOp ... ops
+                rassocOp = choice rassoc
+                ....
+              in
+                termP <**> (rassocP <|> lassocP <|> nassocP <|> pure id)
+                <?> "operator"
+      In an equation for ‘buildExpressionParser’:
+          buildExpressionParser operators simpleExpr
+            = foldl makeParser simpleExpr operators
+            where
+                makeParser term ops
+                  = let ...
+                    in
+                      termP <**> (rassocP <|> lassocP <|> nassocP <|> pure id)
+                      <?> "operator"
+                splitOp (Infix op assoc) (rassoc, lassoc, nassoc, prefix, postfix)
+                  = case assoc of {
+                      AssocNone -> ...
+                      AssocLeft -> ...
+                      AssocRight -> ... }
+                splitOp (Prefix op) (rassoc, lassoc, nassoc, prefix, postfix)
+                  = (rassoc, lassoc, nassoc, op : prefix, postfix)
+                splitOp (Postfix op) (rassoc, lassoc, nassoc, prefix, postfix)
+                  = (rassoc, lassoc, nassoc, prefix, op : postfix)
+
+src/Text/Parser/Expression.hs:126:15: warning: [-Wmonomorphism-restriction]
+    • The Monomorphism Restriction applies to the binding for ‘termP’
+        Consider giving a type signature for ‘termP’
+    • In the expression:
+        let
+          (rassoc, lassoc, nassoc, prefix, postfix)
+            = foldr splitOp ([], [], [], [], []) ops
+          rassocOp = choice rassoc
+          lassocOp = choice lassoc
+          ....
+        in
+          termP <**> (rassocP <|> lassocP <|> nassocP <|> pure id)
+          <?> "operator"
+      In an equation for ‘makeParser’:
+          makeParser term ops
+            = let
+                (rassoc, lassoc, nassoc, prefix, postfix) = foldr splitOp ... ops
+                rassocOp = choice rassoc
+                ....
+              in
+                termP <**> (rassocP <|> lassocP <|> nassocP <|> pure id)
+                <?> "operator"
+      In an equation for ‘buildExpressionParser’:
+          buildExpressionParser operators simpleExpr
+            = foldl makeParser simpleExpr operators
+            where
+                makeParser term ops
+                  = let ...
+                    in
+                      termP <**> (rassocP <|> lassocP <|> nassocP <|> pure id)
+                      <?> "operator"
+                splitOp (Infix op assoc) (rassoc, lassoc, nassoc, prefix, postfix)
+                  = case assoc of {
+                      AssocNone -> ...
+                      AssocLeft -> ...
+                      AssocRight -> ... }
+                splitOp (Prefix op) (rassoc, lassoc, nassoc, prefix, postfix)
+                  = (rassoc, lassoc, nassoc, op : prefix, postfix)
+                splitOp (Postfix op) (rassoc, lassoc, nassoc, prefix, postfix)
+                  = (rassoc, lassoc, nassoc, prefix, op : postfix)
+
+src/Text/Parser/Expression.hs:128:15: warning: [-Wmonomorphism-restriction]
+    • The Monomorphism Restriction applies to the binding for ‘postfixP’
+        Consider giving a type signature for ‘postfixP’
+    • In the expression:
+        let
+          (rassoc, lassoc, nassoc, prefix, postfix)
+            = foldr splitOp ([], [], [], [], []) ops
+          rassocOp = choice rassoc
+          lassocOp = choice lassoc
+          ....
+        in
+          termP <**> (rassocP <|> lassocP <|> nassocP <|> pure id)
+          <?> "operator"
+      In an equation for ‘makeParser’:
+          makeParser term ops
+            = let
+                (rassoc, lassoc, nassoc, prefix, postfix) = foldr splitOp ... ops
+                rassocOp = choice rassoc
+                ....
+              in
+                termP <**> (rassocP <|> lassocP <|> nassocP <|> pure id)
+                <?> "operator"
+      In an equation for ‘buildExpressionParser’:
+          buildExpressionParser operators simpleExpr
+            = foldl makeParser simpleExpr operators
+            where
+                makeParser term ops
+                  = let ...
+                    in
+                      termP <**> (rassocP <|> lassocP <|> nassocP <|> pure id)
+                      <?> "operator"
+                splitOp (Infix op assoc) (rassoc, lassoc, nassoc, prefix, postfix)
+                  = case assoc of {
+                      AssocNone -> ...
+                      AssocLeft -> ...
+                      AssocRight -> ... }
+                splitOp (Prefix op) (rassoc, lassoc, nassoc, prefix, postfix)
+                  = (rassoc, lassoc, nassoc, op : prefix, postfix)
+                splitOp (Postfix op) (rassoc, lassoc, nassoc, prefix, postfix)
+                  = (rassoc, lassoc, nassoc, prefix, op : postfix)
+
+src/Text/Parser/Expression.hs:130:15: warning: [-Wmonomorphism-restriction]
+    • The Monomorphism Restriction applies to the binding for ‘prefixP’
+        Consider giving a type signature for ‘prefixP’
+    • In the expression:
+        let
+          (rassoc, lassoc, nassoc, prefix, postfix)
+            = foldr splitOp ([], [], [], [], []) ops
+          rassocOp = choice rassoc
+          lassocOp = choice lassoc
+          ....
+        in
+          termP <**> (rassocP <|> lassocP <|> nassocP <|> pure id)
+          <?> "operator"
+      In an equation for ‘makeParser’:
+          makeParser term ops
+            = let
+                (rassoc, lassoc, nassoc, prefix, postfix) = foldr splitOp ... ops
+                rassocOp = choice rassoc
+                ....
+              in
+                termP <**> (rassocP <|> lassocP <|> nassocP <|> pure id)
+                <?> "operator"
+      In an equation for ‘buildExpressionParser’:
+          buildExpressionParser operators simpleExpr
+            = foldl makeParser simpleExpr operators
+            where
+                makeParser term ops
+                  = let ...
+                    in
+                      termP <**> (rassocP <|> lassocP <|> nassocP <|> pure id)
+                      <?> "operator"
+                splitOp (Infix op assoc) (rassoc, lassoc, nassoc, prefix, postfix)
+                  = case assoc of {
+                      AssocNone -> ...
+                      AssocLeft -> ...
+                      AssocRight -> ... }
+                splitOp (Prefix op) (rassoc, lassoc, nassoc, prefix, postfix)
+                  = (rassoc, lassoc, nassoc, op : prefix, postfix)
+                splitOp (Postfix op) (rassoc, lassoc, nassoc, prefix, postfix)
+                  = (rassoc, lassoc, nassoc, prefix, op : postfix)
+[5 of 8] Compiling Text.Parser.LookAhead ( src/Text/Parser/LookAhead.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.2.0/build/Text/Parser/LookAhead.o )
+[6 of 8] Compiling Text.Parser.Char ( src/Text/Parser/Char.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.2.0/build/Text/Parser/Char.o )
+[7 of 8] Compiling Text.Parser.Token ( src/Text/Parser/Token.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.2.0/build/Text/Parser/Token.o )
+
+src/Text/Parser/Token.hs:129:3: warning: [-Wmonomorphism-restriction]
+    • The Monomorphism Restriction applies to the binding for ‘lit’
+        Consider giving a type signature for ‘lit’
+    • In an equation for ‘charLiteral’:
+          charLiteral
+            = token (highlight CharLiteral lit)
+            where
+                lit
+                  = between
+                      (char '\'') (char '\'' <?> "end of character") characterChar
+                    <?> "character"
+
+src/Text/Parser/Token.hs:140:3: warning: [-Wmonomorphism-restriction]
+    • The Monomorphism Restriction applies to the binding for ‘lit’
+        Consider giving a type signature for ‘lit’
+    • In an equation for ‘stringLiteral’:
+          stringLiteral
+            = fromString <$> token (highlight StringLiteral lit)
+            where
+                lit
+                  = Prelude.foldr (maybe id (:)) ""
+                    <$>
+                      between (char '"') (char '"' <?> "end of string") (many stringChar)
+                    <?> "string"
+                stringChar
+                  = Just <$> stringLetter <|> stringEscape <?> "string character"
+                stringLetter
+                  = satisfy (\ c -> (c /= '"') && (c /= '\\') && (c > '\SUB'))
+                stringEscape
+                  = highlight EscapeCode $ char '\\' *> esc
+                  where
+                      esc
+                        = Nothing <$ escapeGap <|> Nothing <$ escapeEmpty
+                          <|> Just <$> escapeCode
+                ....
+
+src/Text/Parser/Token.hs:143:3: warning: [-Wmonomorphism-restriction]
+    • The Monomorphism Restriction applies to the binding for ‘stringChar’
+        Consider giving a type signature for ‘stringChar’
+    • In an equation for ‘stringLiteral’:
+          stringLiteral
+            = fromString <$> token (highlight StringLiteral lit)
+            where
+                lit
+                  = Prelude.foldr (maybe id (:)) ""
+                    <$>
+                      between (char '"') (char '"' <?> "end of string") (many stringChar)
+                    <?> "string"
+                stringChar
+                  = Just <$> stringLetter <|> stringEscape <?> "string character"
+                stringLetter
+                  = satisfy (\ c -> (c /= '"') && (c /= '\\') && (c > '\SUB'))
+                stringEscape
+                  = highlight EscapeCode $ char '\\' *> esc
+                  where
+                      esc
+                        = Nothing <$ escapeGap <|> Nothing <$ escapeEmpty
+                          <|> Just <$> escapeCode
+                ....
+
+src/Text/Parser/Token.hs:146:3: warning: [-Wmonomorphism-restriction]
+    • The Monomorphism Restriction applies to the binding for ‘stringLetter’
+        Consider giving a type signature for ‘stringLetter’
+    • In an equation for ‘stringLiteral’:
+          stringLiteral
+            = fromString <$> token (highlight StringLiteral lit)
+            where
+                lit
+                  = Prelude.foldr (maybe id (:)) ""
+                    <$>
+                      between (char '"') (char '"' <?> "end of string") (many stringChar)
+                    <?> "string"
+                stringChar
+                  = Just <$> stringLetter <|> stringEscape <?> "string character"
+                stringLetter
+                  = satisfy (\ c -> (c /= '"') && (c /= '\\') && (c > '\SUB'))
+                stringEscape
+                  = highlight EscapeCode $ char '\\' *> esc
+                  where
+                      esc
+                        = Nothing <$ escapeGap <|> Nothing <$ escapeEmpty
+                          <|> Just <$> escapeCode
+                ....
+
+src/Text/Parser/Token.hs:148:3: warning: [-Wmonomorphism-restriction]
+    • The Monomorphism Restriction applies to the binding for ‘stringEscape’
+        Consider giving a type signature for ‘stringEscape’
+    • In an equation for ‘stringLiteral’:
+          stringLiteral
+            = fromString <$> token (highlight StringLiteral lit)
+            where
+                lit
+                  = Prelude.foldr (maybe id (:)) ""
+                    <$>
+                      between (char '"') (char '"' <?> "end of string") (many stringChar)
+                    <?> "string"
+                stringChar
+                  = Just <$> stringLetter <|> stringEscape <?> "string character"
+                stringLetter
+                  = satisfy (\ c -> (c /= '"') && (c /= '\\') && (c > '\SUB'))
+                stringEscape
+                  = highlight EscapeCode $ char '\\' *> esc
+                  where
+                      esc
+                        = Nothing <$ escapeGap <|> Nothing <$ escapeEmpty
+                          <|> Just <$> escapeCode
+                ....
+
+src/Text/Parser/Token.hs:149:5: warning: [-Wmonomorphism-restriction]
+    • The Monomorphism Restriction applies to the binding for ‘esc’
+        Consider giving a type signature for ‘esc’
+    • In an equation for ‘stringEscape’:
+          stringEscape
+            = highlight EscapeCode $ char '\\' *> esc
+            where
+                esc
+                  = Nothing <$ escapeGap <|> Nothing <$ escapeEmpty
+                    <|> Just <$> escapeCode
+      In an equation for ‘stringLiteral’:
+          stringLiteral
+            = fromString <$> token (highlight StringLiteral lit)
+            where
+                lit
+                  = Prelude.foldr (maybe id (:)) ""
+                    <$>
+                      between (char '"') (char '"' <?> "end of string") (many stringChar)
+                    <?> "string"
+                stringChar
+                  = Just <$> stringLetter <|> stringEscape <?> "string character"
+                stringLetter
+                  = satisfy (\ c -> (c /= '"') && (c /= '\\') && (c > '\SUB'))
+                stringEscape
+                  = highlight EscapeCode $ char '\\' *> esc
+                  where
+                      esc
+                        = Nothing <$ escapeGap <|> Nothing <$ escapeEmpty
+                          <|> Just <$> escapeCode
+                ....
+
+src/Text/Parser/Token.hs:152:3: warning: [-Wmonomorphism-restriction]
+    • The Monomorphism Restriction applies to the binding for ‘escapeEmpty’
+        Consider giving a type signature for ‘escapeEmpty’
+    • In an equation for ‘stringLiteral’:
+          stringLiteral
+            = fromString <$> token (highlight StringLiteral lit)
+            where
+                lit
+                  = Prelude.foldr (maybe id (:)) ""
+                    <$>
+                      between (char '"') (char '"' <?> "end of string") (many stringChar)
+                    <?> "string"
+                stringChar
+                  = Just <$> stringLetter <|> stringEscape <?> "string character"
+                stringLetter
+                  = satisfy (\ c -> (c /= '"') && (c /= '\\') && (c > '\SUB'))
+                stringEscape
+                  = highlight EscapeCode $ char '\\' *> esc
+                  where
+                      esc
+                        = Nothing <$ escapeGap <|> Nothing <$ escapeEmpty
+                          <|> Just <$> escapeCode
+                ....
+
+src/Text/Parser/Token.hs:153:3: warning: [-Wmonomorphism-restriction]
+    • The Monomorphism Restriction applies to the binding for ‘escapeGap’
+        Consider giving a type signature for ‘escapeGap’
+    • In an equation for ‘stringLiteral’:
+          stringLiteral
+            = fromString <$> token (highlight StringLiteral lit)
+            where
+                lit
+                  = Prelude.foldr (maybe id (:)) ""
+                    <$>
+                      between (char '"') (char '"' <?> "end of string") (many stringChar)
+                    <?> "string"
+                stringChar
+                  = Just <$> stringLetter <|> stringEscape <?> "string character"
+                stringLetter
+                  = satisfy (\ c -> (c /= '"') && (c /= '\\') && (c > '\SUB'))
+                stringEscape
+                  = highlight EscapeCode $ char '\\' *> esc
+                  where
+                      esc
+                        = Nothing <$ escapeGap <|> Nothing <$ escapeEmpty
+                          <|> Just <$> escapeCode
+                ....
+
+src/Text/Parser/Token.hs:160:3: warning: [-Wmonomorphism-restriction]
+    • The Monomorphism Restriction applies to the binding for ‘lit’
+        Consider giving a type signature for ‘lit’
+    • In an equation for ‘stringLiteral'’:
+          stringLiteral'
+            = fromString <$> token (highlight StringLiteral lit)
+            where
+                lit
+                  = Prelude.foldr (maybe id (:)) ""
+                    <$>
+                      between
+                        (char '\'') (char '\'' <?> "end of string") (many stringChar)
+                    <?> "string"
+                stringChar
+                  = Just <$> stringLetter <|> stringEscape <?> "string character"
+                stringLetter
+                  = satisfy (\ c -> (c /= '\'') && (c /= '\\') && (c > '\SUB'))
+                stringEscape
+                  = highlight EscapeCode $ char '\\' *> esc
+                  where
+                      esc
+                        = Nothing <$ escapeGap <|> Nothing <$ escapeEmpty
+                          <|> Just <$> escapeCode
+                ....
+
+src/Text/Parser/Token.hs:163:3: warning: [-Wmonomorphism-restriction]
+    • The Monomorphism Restriction applies to the binding for ‘stringChar’
+        Consider giving a type signature for ‘stringChar’
+    • In an equation for ‘stringLiteral'’:
+          stringLiteral'
+            = fromString <$> token (highlight StringLiteral lit)
+            where
+                lit
+                  = Prelude.foldr (maybe id (:)) ""
+                    <$>
+                      between
+                        (char '\'') (char '\'' <?> "end of string") (many stringChar)
+                    <?> "string"
+                stringChar
+                  = Just <$> stringLetter <|> stringEscape <?> "string character"
+                stringLetter
+                  = satisfy (\ c -> (c /= '\'') && (c /= '\\') && (c > '\SUB'))
+                stringEscape
+                  = highlight EscapeCode $ char '\\' *> esc
+                  where
+                      esc
+                        = Nothing <$ escapeGap <|> Nothing <$ escapeEmpty
+                          <|> Just <$> escapeCode
+                ....
+
+src/Text/Parser/Token.hs:166:3: warning: [-Wmonomorphism-restriction]
+    • The Monomorphism Restriction applies to the binding for ‘stringLetter’
+        Consider giving a type signature for ‘stringLetter’
+    • In an equation for ‘stringLiteral'’:
+          stringLiteral'
+            = fromString <$> token (highlight StringLiteral lit)
+            where
+                lit
+                  = Prelude.foldr (maybe id (:)) ""
+                    <$>
+                      between
+                        (char '\'') (char '\'' <?> "end of string") (many stringChar)
+                    <?> "string"
+                stringChar
+                  = Just <$> stringLetter <|> stringEscape <?> "string character"
+                stringLetter
+                  = satisfy (\ c -> (c /= '\'') && (c /= '\\') && (c > '\SUB'))
+                stringEscape
+                  = highlight EscapeCode $ char '\\' *> esc
+                  where
+                      esc
+                        = Nothing <$ escapeGap <|> Nothing <$ escapeEmpty
+                          <|> Just <$> escapeCode
+                ....
+
+src/Text/Parser/Token.hs:168:3: warning: [-Wmonomorphism-restriction]
+    • The Monomorphism Restriction applies to the binding for ‘stringEscape’
+        Consider giving a type signature for ‘stringEscape’
+    • In an equation for ‘stringLiteral'’:
+          stringLiteral'
+            = fromString <$> token (highlight StringLiteral lit)
+            where
+                lit
+                  = Prelude.foldr (maybe id (:)) ""
+                    <$>
+                      between
+                        (char '\'') (char '\'' <?> "end of string") (many stringChar)
+                    <?> "string"
+                stringChar
+                  = Just <$> stringLetter <|> stringEscape <?> "string character"
+                stringLetter
+                  = satisfy (\ c -> (c /= '\'') && (c /= '\\') && (c > '\SUB'))
+                stringEscape
+                  = highlight EscapeCode $ char '\\' *> esc
+                  where
+                      esc
+                        = Nothing <$ escapeGap <|> Nothing <$ escapeEmpty
+                          <|> Just <$> escapeCode
+                ....
+
+src/Text/Parser/Token.hs:169:5: warning: [-Wmonomorphism-restriction]
+    • The Monomorphism Restriction applies to the binding for ‘esc’
+        Consider giving a type signature for ‘esc’
+    • In an equation for ‘stringEscape’:
+          stringEscape
+            = highlight EscapeCode $ char '\\' *> esc
+            where
+                esc
+                  = Nothing <$ escapeGap <|> Nothing <$ escapeEmpty
+                    <|> Just <$> escapeCode
+      In an equation for ‘stringLiteral'’:
+          stringLiteral'
+            = fromString <$> token (highlight StringLiteral lit)
+            where
+                lit
+                  = Prelude.foldr (maybe id (:)) ""
+                    <$>
+                      between
+                        (char '\'') (char '\'' <?> "end of string") (many stringChar)
+                    <?> "string"
+                stringChar
+                  = Just <$> stringLetter <|> stringEscape <?> "string character"
+                stringLetter
+                  = satisfy (\ c -> (c /= '\'') && (c /= '\\') && (c > '\SUB'))
+                stringEscape
+                  = highlight EscapeCode $ char '\\' *> esc
+                  where
+                      esc
+                        = Nothing <$ escapeGap <|> Nothing <$ escapeEmpty
+                          <|> Just <$> escapeCode
+                ....
+
+src/Text/Parser/Token.hs:172:3: warning: [-Wmonomorphism-restriction]
+    • The Monomorphism Restriction applies to the binding for ‘escapeEmpty’
+        Consider giving a type signature for ‘escapeEmpty’
+    • In an equation for ‘stringLiteral'’:
+          stringLiteral'
+            = fromString <$> token (highlight StringLiteral lit)
+            where
+                lit
+                  = Prelude.foldr (maybe id (:)) ""
+                    <$>
+                      between
+                        (char '\'') (char '\'' <?> "end of string") (many stringChar)
+                    <?> "string"
+                stringChar
+                  = Just <$> stringLetter <|> stringEscape <?> "string character"
+                stringLetter
+                  = satisfy (\ c -> (c /= '\'') && (c /= '\\') && (c > '\SUB'))
+                stringEscape
+                  = highlight EscapeCode $ char '\\' *> esc
+                  where
+                      esc
+                        = Nothing <$ escapeGap <|> Nothing <$ escapeEmpty
+                          <|> Just <$> escapeCode
+                ....
+
+src/Text/Parser/Token.hs:173:3: warning: [-Wmonomorphism-restriction]
+    • The Monomorphism Restriction applies to the binding for ‘escapeGap’
+        Consider giving a type signature for ‘escapeGap’
+    • In an equation for ‘stringLiteral'’:
+          stringLiteral'
+            = fromString <$> token (highlight StringLiteral lit)
+            where
+                lit
+                  = Prelude.foldr (maybe id (:)) ""
+                    <$>
+                      between
+                        (char '\'') (char '\'' <?> "end of string") (many stringChar)
+                    <?> "string"
+                stringChar
+                  = Just <$> stringLetter <|> stringEscape <?> "string character"
+                stringLetter
+                  = satisfy (\ c -> (c /= '\'') && (c /= '\\') && (c > '\SUB'))
+                stringEscape
+                  = highlight EscapeCode $ char '\\' *> esc
+                  where
+                      esc
+                        = Nothing <$ escapeGap <|> Nothing <$ escapeEmpty
+                          <|> Just <$> escapeCode
+                ....
+
+src/Text/Parser/Token.hs:194:3: warning: [-Wmonomorphism-restriction]
+    • The Monomorphism Restriction applies to the binding for ‘sgn’
+        Consider giving a type signature for ‘sgn’
+    • In an equation for ‘integer’:
+          integer
+            = token (token (highlight Operator sgn <*> natural')) <?> "integer"
+            where
+                sgn = negate <$ char '-' <|> id <$ char '+' <|> pure id
+
+src/Text/Parser/Token.hs:239:9: warning: [-Wmonomorphism-restriction]
+    • The Monomorphism Restriction applies to the binding for ‘ios’
+        Consider giving a type signature for ‘ios’
+    • In an equation for ‘integerOrScientific’:
+          integerOrScientific
+            = token (highlight Number ios <?> "number")
+            where
+                ios = mneg <$> optional (oneOf "+-") <*> natFloating
+                mneg (Just '-') nd = either (Left . negate) (Right . negate) nd
+                mneg _ nd = nd
+
+src/Text/Parser/Token.hs:584:3: warning: [-Wmonomorphism-restriction]
+    • The Monomorphism Restriction applies to the binding for ‘charControl’
+        Consider giving a type signature for ‘charControl’
+    • In an equation for ‘escapeCode’:
+          escapeCode
+            = (charEsc <|> charNum <|> charAscii <|> charControl)
+              <?> "escape code"
+            where
+                charControl
+                  = (\ c -> toEnum (fromEnum c - fromEnum '@'))
+                    <$> (char '^' *> (upper <|> char '@'))
+                charNum
+                  = toEnum <$> num
+                  where
+                      num
+                        = bounded 10 maxchar <|> (char 'o' *> bounded 8 maxchar)
+                          <|> (char 'x' *> bounded 16 maxchar)
+                      maxchar = fromEnum (maxBound :: Char)
+                bounded base bnd
+                  = foldl' (\ x d -> base * x + digitToInt d) 0
+                    <$>
+                      bounded'
+                        (take base thedigits)
+                        (map digitToInt $ showIntAtBase base intToDigit bnd "")
+                  where
+                      thedigits = map char ... ++ map oneOf (transpose ...)
+                      toomuch = unexpected "out-of-range numeric escape sequence"
+                      ....
+                charEsc = choice $ parseEsc <$> escMap
+                ....
+
+src/Text/Parser/Token.hs:585:3: warning: [-Wmonomorphism-restriction]
+    • The Monomorphism Restriction applies to the binding for ‘charNum’
+        Consider giving a type signature for ‘charNum’
+    • In an equation for ‘escapeCode’:
+          escapeCode
+            = (charEsc <|> charNum <|> charAscii <|> charControl)
+              <?> "escape code"
+            where
+                charControl
+                  = (\ c -> toEnum (fromEnum c - fromEnum '@'))
+                    <$> (char '^' *> (upper <|> char '@'))
+                charNum
+                  = toEnum <$> num
+                  where
+                      num
+                        = bounded 10 maxchar <|> (char 'o' *> bounded 8 maxchar)
+                          <|> (char 'x' *> bounded 16 maxchar)
+                      maxchar = fromEnum (maxBound :: Char)
+                bounded base bnd
+                  = foldl' (\ x d -> base * x + digitToInt d) 0
+                    <$>
+                      bounded'
+                        (take base thedigits)
+                        (map digitToInt $ showIntAtBase base intToDigit bnd "")
+                  where
+                      thedigits = map char ... ++ map oneOf (transpose ...)
+                      toomuch = unexpected "out-of-range numeric escape sequence"
+                      ....
+                charEsc = choice $ parseEsc <$> escMap
+                ....
+
+src/Text/Parser/Token.hs:587:7: warning: [-Wmonomorphism-restriction]
+    • The Monomorphism Restriction applies to the binding for ‘num’
+        Consider giving a type signature for ‘num’
+    • In an equation for ‘charNum’:
+          charNum
+            = toEnum <$> num
+            where
+                num
+                  = bounded 10 maxchar <|> (char 'o' *> bounded 8 maxchar)
+                    <|> (char 'x' *> bounded 16 maxchar)
+                maxchar = fromEnum (maxBound :: Char)
+      In an equation for ‘escapeCode’:
+          escapeCode
+            = (charEsc <|> charNum <|> charAscii <|> charControl)
+              <?> "escape code"
+            where
+                charControl
+                  = (\ c -> toEnum (fromEnum c - fromEnum '@'))
+                    <$> (char '^' *> (upper <|> char '@'))
+                charNum
+                  = toEnum <$> num
+                  where
+                      num
+                        = bounded 10 maxchar <|> (char 'o' *> bounded 8 maxchar)
+                          <|> (char 'x' *> bounded 16 maxchar)
+                      maxchar = fromEnum (maxBound :: Char)
+                bounded base bnd
+                  = foldl' (\ x d -> base * x + digitToInt d) 0
+                    <$>
+                      bounded'
+                        (take base thedigits)
+                        (map digitToInt $ showIntAtBase base intToDigit bnd "")
+                  where
+                      thedigits = map char ... ++ map oneOf (transpose ...)
+                      toomuch = unexpected "out-of-range numeric escape sequence"
+                      ....
+                charEsc = choice $ parseEsc <$> escMap
+                ....
+
+src/Text/Parser/Token.hs:595:7: warning: [-Wmonomorphism-restriction]
+    • The Monomorphism Restriction applies to the binding for ‘thedigits’
+        Consider giving a type signature for ‘thedigits’
+    • In an equation for ‘bounded’:
+          bounded base bnd
+            = foldl' (\ x d -> base * x + digitToInt d) 0
+              <$>
+                bounded'
+                  (take base thedigits)
+                  (map digitToInt $ showIntAtBase base intToDigit bnd "")
+            where
+                thedigits
+                  = map char ['0' .. '9']
+                    ++ map oneOf (transpose [['A' .. 'F'], ....])
+                toomuch = unexpected "out-of-range numeric escape sequence"
+                bounded' dps@(zero : _) bds
+                  = skipSome zero
+                    *> ([] <$ notFollowedBy (choice dps) <|> bounded'' dps bds)
+                    <|> bounded'' dps bds
+                bounded' [] _ = error "bounded called with base 0"
+                bounded'' dps [] = [] <$ notFollowedBy (choice dps) <|> toomuch
+                bounded'' dps (bd : bds)
+                  = let ...
+                    in
+                      ((:) <$> choice low <*> atMost (length bds) anyd) <* nomore
+                      <|> ((:) <$> ex <*> ([] <$ nomore <|> bounded'' dps bds))
+                      <|>
+                        if not (null bds) then
+                            (:) <$> choice high <*> atMost (length bds - 1) anyd <* nomore
+                        else
+                            empty
+                ....
+      In an equation for ‘escapeCode’:
+          escapeCode
+            = (charEsc <|> charNum <|> charAscii <|> charControl)
+              <?> "escape code"
+            where
+                charControl
+                  = (\ c -> toEnum (fromEnum c - fromEnum '@'))
+                    <$> (char '^' *> (upper <|> char '@'))
+                charNum
+                  = toEnum <$> num
+                  where
+                      num
+                        = bounded 10 maxchar <|> (char 'o' *> bounded 8 maxchar)
+                          <|> (char 'x' *> bounded 16 maxchar)
+                      maxchar = fromEnum (maxBound :: Char)
+                bounded base bnd
+                  = foldl' (\ x d -> base * x + digitToInt d) 0
+                    <$>
+                      bounded'
+                        (take base thedigits)
+                        (map digitToInt $ showIntAtBase base intToDigit bnd "")
+                  where
+                      thedigits = map char ... ++ map oneOf (transpose ...)
+                      toomuch = unexpected "out-of-range numeric escape sequence"
+                      ....
+                charEsc = choice $ parseEsc <$> escMap
+                ....
+
+src/Text/Parser/Token.hs:596:7: warning: [-Wmonomorphism-restriction]
+    • The Monomorphism Restriction applies to the binding for ‘toomuch’
+        Consider giving a type signature for ‘toomuch’
+    • In an equation for ‘bounded’:
+          bounded base bnd
+            = foldl' (\ x d -> base * x + digitToInt d) 0
+              <$>
+                bounded'
+                  (take base thedigits)
+                  (map digitToInt $ showIntAtBase base intToDigit bnd "")
+            where
+                thedigits
+                  = map char ['0' .. '9']
+                    ++ map oneOf (transpose [['A' .. 'F'], ....])
+                toomuch = unexpected "out-of-range numeric escape sequence"
+                bounded' dps@(zero : _) bds
+                  = skipSome zero
+                    *> ([] <$ notFollowedBy (choice dps) <|> bounded'' dps bds)
+                    <|> bounded'' dps bds
+                bounded' [] _ = error "bounded called with base 0"
+                bounded'' dps [] = [] <$ notFollowedBy (choice dps) <|> toomuch
+                bounded'' dps (bd : bds)
+                  = let ...
+                    in
+                      ((:) <$> choice low <*> atMost (length bds) anyd) <* nomore
+                      <|> ((:) <$> ex <*> ([] <$ nomore <|> bounded'' dps bds))
+                      <|>
+                        if not (null bds) then
+                            (:) <$> choice high <*> atMost (length bds - 1) anyd <* nomore
+                        else
+                            empty
+                ....
+      In an equation for ‘escapeCode’:
+          escapeCode
+            = (charEsc <|> charNum <|> charAscii <|> charControl)
+              <?> "escape code"
+            where
+                charControl
+                  = (\ c -> toEnum (fromEnum c - fromEnum '@'))
+                    <$> (char '^' *> (upper <|> char '@'))
+                charNum
+                  = toEnum <$> num
+                  where
+                      num
+                        = bounded 10 maxchar <|> (char 'o' *> bounded 8 maxchar)
+                          <|> (char 'x' *> bounded 16 maxchar)
+                      maxchar = fromEnum (maxBound :: Char)
+                bounded base bnd
+                  = foldl' (\ x d -> base * x + digitToInt d) 0
+                    <$>
+                      bounded'
+                        (take base thedigits)
+                        (map digitToInt $ showIntAtBase base intToDigit bnd "")
+                  where
+                      thedigits = map char ... ++ map oneOf (transpose ...)
+                      toomuch = unexpected "out-of-range numeric escape sequence"
+                      ....
+                charEsc = choice $ parseEsc <$> escMap
+                ....
+
+src/Text/Parser/Token.hs:601:38: warning: [-Wmonomorphism-restriction]
+    • The Monomorphism Restriction applies to the binding for ‘anyd’
+        Consider giving a type signature for ‘anyd’
+    • In the expression:
+        let
+          anyd = choice dps
+          nomore = notFollowedBy anyd <|> toomuch
+          (low, ex : high) = splitAt bd dps
+        in
+          ((:) <$> choice low <*> atMost (length bds) anyd) <* nomore
+          <|> ((:) <$> ex <*> ([] <$ nomore <|> bounded'' dps bds))
+          <|>
+            if not (null bds) then
+                (:) <$> choice high <*> atMost (length bds - 1) anyd <* nomore
+            else
+                empty
+      In an equation for ‘bounded''’:
+          bounded'' dps (bd : bds)
+            = let
+                anyd = choice dps
+                nomore = notFollowedBy anyd <|> toomuch
+                ....
+              in
+                ((:) <$> choice low <*> atMost (length bds) anyd) <* nomore
+                <|> ((:) <$> ex <*> ([] <$ nomore <|> bounded'' dps bds))
+                <|>
+                  if not (null bds) then
+                      (:) <$> choice high <*> atMost (length bds - 1) anyd <* nomore
+                  else
+                      empty
+      In an equation for ‘bounded’:
+          bounded base bnd
+            = foldl' (\ x d -> base * x + digitToInt d) 0
+              <$>
+                bounded'
+                  (take base thedigits)
+                  (map digitToInt $ showIntAtBase base intToDigit bnd "")
+            where
+                thedigits
+                  = map char ['0' .. '9']
+                    ++ map oneOf (transpose [['A' .. 'F'], ....])
+                toomuch = unexpected "out-of-range numeric escape sequence"
+                bounded' dps@(zero : _) bds
+                  = skipSome zero
+                    *> ([] <$ notFollowedBy (choice dps) <|> bounded'' dps bds)
+                    <|> bounded'' dps bds
+                bounded' [] _ = error "bounded called with base 0"
+                bounded'' dps [] = [] <$ notFollowedBy (choice dps) <|> toomuch
+                bounded'' dps (bd : bds)
+                  = let ...
+                    in
+                      ((:) <$> choice low <*> atMost (length bds) anyd) <* nomore
+                      <|> ((:) <$> ex <*> ([] <$ nomore <|> bounded'' dps bds))
+                      <|>
+                        if not (null bds) then
+                            (:) <$> choice high <*> atMost (length bds - 1) anyd <* nomore
+                        else
+                            empty
+                ....
+
+src/Text/Parser/Token.hs:602:38: warning: [-Wmonomorphism-restriction]
+    • The Monomorphism Restriction applies to the binding for ‘nomore’
+        Consider giving a type signature for ‘nomore’
+    • In the expression:
+        let
+          anyd = choice dps
+          nomore = notFollowedBy anyd <|> toomuch
+          (low, ex : high) = splitAt bd dps
+        in
+          ((:) <$> choice low <*> atMost (length bds) anyd) <* nomore
+          <|> ((:) <$> ex <*> ([] <$ nomore <|> bounded'' dps bds))
+          <|>
+            if not (null bds) then
+                (:) <$> choice high <*> atMost (length bds - 1) anyd <* nomore
+            else
+                empty
+      In an equation for ‘bounded''’:
+          bounded'' dps (bd : bds)
+            = let
+                anyd = choice dps
+                nomore = notFollowedBy anyd <|> toomuch
+                ....
+              in
+                ((:) <$> choice low <*> atMost (length bds) anyd) <* nomore
+                <|> ((:) <$> ex <*> ([] <$ nomore <|> bounded'' dps bds))
+                <|>
+                  if not (null bds) then
+                      (:) <$> choice high <*> atMost (length bds - 1) anyd <* nomore
+                  else
+                      empty
+      In an equation for ‘bounded’:
+          bounded base bnd
+            = foldl' (\ x d -> base * x + digitToInt d) 0
+              <$>
+                bounded'
+                  (take base thedigits)
+                  (map digitToInt $ showIntAtBase base intToDigit bnd "")
+            where
+                thedigits
+                  = map char ['0' .. '9']
+                    ++ map oneOf (transpose [['A' .. 'F'], ....])
+                toomuch = unexpected "out-of-range numeric escape sequence"
+                bounded' dps@(zero : _) bds
+                  = skipSome zero
+                    *> ([] <$ notFollowedBy (choice dps) <|> bounded'' dps bds)
+                    <|> bounded'' dps bds
+                bounded' [] _ = error "bounded called with base 0"
+                bounded'' dps [] = [] <$ notFollowedBy (choice dps) <|> toomuch
+                bounded'' dps (bd : bds)
+                  = let ...
+                    in
+                      ((:) <$> choice low <*> atMost (length bds) anyd) <* nomore
+                      <|> ((:) <$> ex <*> ([] <$ nomore <|> bounded'' dps bds))
+                      <|>
+                        if not (null bds) then
+                            (:) <$> choice high <*> atMost (length bds - 1) anyd <* nomore
+                        else
+                            empty
+                ....
+
+src/Text/Parser/Token.hs:603:38: warning: [-Wincomplete-uni-patterns]
+    Pattern match(es) are non-exhaustive
+    In a pattern binding: Patterns not matched: (_, [])
+
+src/Text/Parser/Token.hs:611:3: warning: [-Wmonomorphism-restriction]
+    • The Monomorphism Restriction applies to the binding for ‘charEsc’
+        Consider giving a type signature for ‘charEsc’
+    • In an equation for ‘escapeCode’:
+          escapeCode
+            = (charEsc <|> charNum <|> charAscii <|> charControl)
+              <?> "escape code"
+            where
+                charControl
+                  = (\ c -> toEnum (fromEnum c - fromEnum '@'))
+                    <$> (char '^' *> (upper <|> char '@'))
+                charNum
+                  = toEnum <$> num
+                  where
+                      num
+                        = bounded 10 maxchar <|> (char 'o' *> bounded 8 maxchar)
+                          <|> (char 'x' *> bounded 16 maxchar)
+                      maxchar = fromEnum (maxBound :: Char)
+                bounded base bnd
+                  = foldl' (\ x d -> base * x + digitToInt d) 0
+                    <$>
+                      bounded'
+                        (take base thedigits)
+                        (map digitToInt $ showIntAtBase base intToDigit bnd "")
+                  where
+                      thedigits = map char ... ++ map oneOf (transpose ...)
+                      toomuch = unexpected "out-of-range numeric escape sequence"
+                      ....
+                charEsc = choice $ parseEsc <$> escMap
+                ....
+
+src/Text/Parser/Token.hs:614:3: warning: [-Wmonomorphism-restriction]
+    • The Monomorphism Restriction applies to the binding for ‘charAscii’
+        Consider giving a type signature for ‘charAscii’
+    • In an equation for ‘escapeCode’:
+          escapeCode
+            = (charEsc <|> charNum <|> charAscii <|> charControl)
+              <?> "escape code"
+            where
+                charControl
+                  = (\ c -> toEnum (fromEnum c - fromEnum '@'))
+                    <$> (char '^' *> (upper <|> char '@'))
+                charNum
+                  = toEnum <$> num
+                  where
+                      num
+                        = bounded 10 maxchar <|> (char 'o' *> bounded 8 maxchar)
+                          <|> (char 'x' *> bounded 16 maxchar)
+                      maxchar = fromEnum (maxBound :: Char)
+                bounded base bnd
+                  = foldl' (\ x d -> base * x + digitToInt d) 0
+                    <$>
+                      bounded'
+                        (take base thedigits)
+                        (map digitToInt $ showIntAtBase base intToDigit bnd "")
+                  where
+                      thedigits = map char ... ++ map oneOf (transpose ...)
+                      toomuch = unexpected "out-of-range numeric escape sequence"
+                      ....
+                charEsc = choice $ parseEsc <$> escMap
+                ....
+
+src/Text/Parser/Token.hs:677:3: warning: [-Wmonomorphism-restriction]
+    • The Monomorphism Restriction applies to the binding for ‘fraction’
+        Consider giving a type signature for ‘fraction’
+    • In an equation for ‘fractExponent’:
+          fractExponent
+            = (\ fract expo n -> (fromInteger n + fract) * expo) <$> fraction
+              <*> option 1 exponent'
+              <|> (\ expo n -> fromInteger n * expo) <$> exponent'
+            where
+                fraction
+                  = foldl' op 0 <$> (char '.' *> (some digit <?> "fraction"))
+                op f d
+                  = f
+                    + Sci.scientific
+                        (fromIntegral (digitToInt d)) (Sci.base10Exponent f - 1)
+                exponent'
+                  = ((\ f e -> power (f e)) <$ oneOf "eE" <*> sign
+                     <*> (decimal <?> "exponent"))
+                    <?> "exponent"
+                power = Sci.scientific 1 . fromInteger
+
+src/Text/Parser/Token.hs:679:3: warning: [-Wmonomorphism-restriction]
+    • The Monomorphism Restriction applies to the binding for ‘exponent'’
+        Consider giving a type signature for ‘exponent'’
+    • In an equation for ‘fractExponent’:
+          fractExponent
+            = (\ fract expo n -> (fromInteger n + fract) * expo) <$> fraction
+              <*> option 1 exponent'
+              <|> (\ expo n -> fromInteger n * expo) <$> exponent'
+            where
+                fraction
+                  = foldl' op 0 <$> (char '.' *> (some digit <?> "fraction"))
+                op f d
+                  = f
+                    + Sci.scientific
+                        (fromIntegral (digitToInt d)) (Sci.base10Exponent f - 1)
+                exponent'
+                  = ((\ f e -> power (f e)) <$ oneOf "eE" <*> sign
+                     <*> (decimal <?> "exponent"))
+                    <?> "exponent"
+                power = Sci.scientific 1 . fromInteger
+[8 of 8] Compiling Text.Parser.Token.Style ( src/Text/Parser/Token/Style.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.2.0/build/Text/Parser/Token/Style.o )
+
+src/Text/Parser/Token/Style.hs:118:5: warning: [-Wmonomorphism-restriction]
+    • The Monomorphism Restriction applies to the binding for ‘oneLineComment’
+        Consider giving a type signature for ‘oneLineComment’
+    • In an equation for ‘buildSomeSpaceParser’:
+          buildSomeSpaceParser
+            simpleSpace
+            (CommentStyle startStyle endStyle lineStyle nestingStyle)
+            | noLine && noMulti = skipSome (simpleSpace <?> "")
+            | noLine = skipSome (simpleSpace <|> multiLineComment <?> "")
+            | noMulti = skipSome (simpleSpace <|> oneLineComment <?> "")
+            | otherwise
+            = skipSome
+                (simpleSpace <|> oneLineComment <|> multiLineComment <?> "")
+            where
+                noLine = null lineStyle
+                noMulti = null startStyle
+                oneLineComment
+                  = try (string lineStyle) *> skipMany (satisfy (/= '\n'))
+                multiLineComment = try (string startStyle) *> inComment
+                ....
+
+src/Text/Parser/Token/Style.hs:119:5: warning: [-Wmonomorphism-restriction]
+    • The Monomorphism Restriction applies to the bindings for ‘multiLineComment’,
+                                                               ‘inComment’, ‘inCommentMulti’
+        Consider giving a type signature for these binders
+    • In an equation for ‘buildSomeSpaceParser’:
+          buildSomeSpaceParser
+            simpleSpace
+            (CommentStyle startStyle endStyle lineStyle nestingStyle)
+            | noLine && noMulti = skipSome (simpleSpace <?> "")
+            | noLine = skipSome (simpleSpace <|> multiLineComment <?> "")
+            | noMulti = skipSome (simpleSpace <|> oneLineComment <?> "")
+            | otherwise
+            = skipSome
+                (simpleSpace <|> oneLineComment <|> multiLineComment <?> "")
+            where
+                noLine = null lineStyle
+                noMulti = null startStyle
+                oneLineComment
+                  = try (string lineStyle) *> skipMany (satisfy (/= '\n'))
+                multiLineComment = try (string startStyle) *> inComment
+                ....
+
+src/Text/Parser/Token/Style.hs:128:5: warning: [-Wmonomorphism-restriction]
+    • The Monomorphism Restriction applies to the binding for ‘inCommentSingle’
+        Consider giving a type signature for ‘inCommentSingle’
+    • In an equation for ‘buildSomeSpaceParser’:
+          buildSomeSpaceParser
+            simpleSpace
+            (CommentStyle startStyle endStyle lineStyle nestingStyle)
+            | noLine && noMulti = skipSome (simpleSpace <?> "")
+            | noLine = skipSome (simpleSpace <|> multiLineComment <?> "")
+            | noMulti = skipSome (simpleSpace <|> oneLineComment <?> "")
+            | otherwise
+            = skipSome
+                (simpleSpace <|> oneLineComment <|> multiLineComment <?> "")
+            where
+                noLine = null lineStyle
+                noMulti = null startStyle
+                oneLineComment
+                  = try (string lineStyle) *> skipMany (satisfy (/= '\n'))
+                multiLineComment = try (string startStyle) *> inComment
+                ....
+Installing library in
+/home/philip/.stack/snapshots/x86_64-linux/lts-8.8/8.0.2/lib/x86_64-linux-ghc-8.0.2/parsers-0.12.4-3z9fGHRVoUQ7s7Vw73VXaL
+Registering parsers-0.12.4...

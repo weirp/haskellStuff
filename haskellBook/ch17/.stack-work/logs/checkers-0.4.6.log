@@ -1,0 +1,194 @@
+Configuring checkers-0.4.6...
+Building checkers-0.4.6...
+Preprocessing library checkers-0.4.6...
+[ 1 of 15] Compiling Control.Monad.Extensions ( src/Control/Monad/Extensions.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Control/Monad/Extensions.o )
+[ 2 of 15] Compiling Test.QuickCheck.Instances.Array ( src/Test/QuickCheck/Instances/Array.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Test/QuickCheck/Instances/Array.o )
+
+src/Test/QuickCheck/Instances/Array.hs:5:1: warning: [-Wunused-imports]
+    The import of ‘Control.Applicative’ is redundant
+      except perhaps to import instances from ‘Control.Applicative’
+    To import instances alone, use: import Control.Applicative()
+
+src/Test/QuickCheck/Instances/Array.hs:12:10: warning: [-Wredundant-constraints]
+    • Redundant constraints: (Ix a, Integral a)
+    • In the instance declaration for ‘CoArbitrary (Array a b)’
+[ 3 of 15] Compiling Test.QuickCheck.Instances.Tuple ( src/Test/QuickCheck/Instances/Tuple.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Test/QuickCheck/Instances/Tuple.o )
+[ 4 of 15] Compiling Test.QuickCheck.Instances.Ord ( src/Test/QuickCheck/Instances/Ord.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Test/QuickCheck/Instances/Ord.o )
+
+src/Test/QuickCheck/Instances/Ord.hs:6:1: warning: [-Wredundant-constraints]
+    • Redundant constraint: Arbitrary a
+    • In the type signature for:
+           greaterThan :: (Ord a, Arbitrary a) => a -> Gen a -> Gen a
+
+src/Test/QuickCheck/Instances/Ord.hs:9:1: warning: [-Wredundant-constraints]
+    • Redundant constraint: Arbitrary a
+    • In the type signature for:
+           lessThan :: (Ord a, Arbitrary a) => a -> Gen a -> Gen a
+[ 5 of 15] Compiling Test.QuickCheck.Instances.Num ( src/Test/QuickCheck/Instances/Num.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Test/QuickCheck/Instances/Num.o )
+
+src/Test/QuickCheck/Instances/Num.hs:9:1: warning: [-Wunused-imports]
+    The import of ‘Control.Applicative’ is redundant
+      except perhaps to import instances from ‘Control.Applicative’
+    To import instances alone, use: import Control.Applicative()
+
+src/Test/QuickCheck/Instances/Num.hs:23:1: warning: [-Wredundant-constraints]
+    • Redundant constraint: Arbitrary a
+    • In the type signature for:
+           nonZero :: (Eq a, Num a, Arbitrary a) => Gen a -> Gen a
+[ 6 of 15] Compiling Test.QuickCheck.Instances.Maybe ( src/Test/QuickCheck/Instances/Maybe.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Test/QuickCheck/Instances/Maybe.o )
+
+src/Test/QuickCheck/Instances/Maybe.hs:4:1: warning: [-Wunused-imports]
+    The import of ‘Control.Applicative’ is redundant
+      except perhaps to import instances from ‘Control.Applicative’
+    To import instances alone, use: import Control.Applicative()
+[ 7 of 15] Compiling Test.QuickCheck.Instances.List ( src/Test/QuickCheck/Instances/List.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Test/QuickCheck/Instances/List.o )
+[ 8 of 15] Compiling Test.QuickCheck.Bottoms ( src/Test/QuickCheck/Bottoms.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Test/QuickCheck/Bottoms.o )
+[ 9 of 15] Compiling Test.QuickCheck.Utils ( src/Test/QuickCheck/Utils.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Test/QuickCheck/Utils.o )
+
+src/Test/QuickCheck/Utils.hs:30:1: warning: [-Wtabs]
+    Tab character found here, and in 9 further locations.
+    Please use spaces instead.
+
+src/Test/QuickCheck/Utils.hs:50:1: warning: [-Wredundant-constraints]
+    • Redundant constraints: (Arbitrary a, Show a)
+    • In the type signature for:
+           isTotalOrder :: (Arbitrary a, Show a, Ord a) => a -> a -> Property
+[10 of 15] Compiling Test.QuickCheck.Checkers ( src/Test/QuickCheck/Checkers.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Test/QuickCheck/Checkers.o )
+
+src/Test/QuickCheck/Checkers.hs:47:1: warning: [-Wunused-imports]
+    The import of ‘Data.Monoid’ is redundant
+      except perhaps to import instances from ‘Data.Monoid’
+    To import instances alone, use: import Data.Monoid()
+
+src/Test/QuickCheck/Checkers.hs:372:1: warning: [-Wtabs]
+    Tab character found here, and in three further locations.
+    Please use spaces instead.
+[11 of 15] Compiling Test.QuickCheck.Instances.Eq ( src/Test/QuickCheck/Instances/Eq.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Test/QuickCheck/Instances/Eq.o )
+
+src/Test/QuickCheck/Instances/Eq.hs:7:1: warning: [-Wredundant-constraints]
+    • Redundant constraint: Arbitrary a
+    • In the type signature for:
+           notEqualTo :: (Eq a, Arbitrary a) => a -> Gen a -> Gen a
+[12 of 15] Compiling Test.QuickCheck.Instances.Char ( src/Test/QuickCheck/Instances/Char.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Test/QuickCheck/Instances/Char.o )
+[13 of 15] Compiling Test.QuickCheck.Classes ( src/Test/QuickCheck/Classes.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Test/QuickCheck/Classes.o )
+
+src/Test/QuickCheck/Classes.hs:29:1: warning: [-Wunused-imports]
+    The import of ‘Data.Monoid’ is redundant
+      except perhaps to import instances from ‘Data.Monoid’
+    To import instances alone, use: import Data.Monoid()
+
+src/Test/QuickCheck/Classes.hs:44:1: warning: [-Wredundant-constraints]
+    • Redundant constraint: EqProp a
+    • In the type signature for:
+           ordRel :: (Ord a, Show a, Arbitrary a, EqProp a) =>
+                     BinRel a -> (a -> Gen a) -> TestBatch
+
+src/Test/QuickCheck/Classes.hs:154:1: warning: [-Wredundant-constraints]
+    • Redundant constraint: Arbitrary a
+    • In the type signature for:
+           functor :: (Functor m, Arbitrary a, Arbitrary b, Arbitrary c,
+                       CoArbitrary a, CoArbitrary b, Show (m a), Arbitrary (m a),
+                       EqProp (m a), EqProp (m c)) =>
+                      m (a, b, c) -> TestBatch
+
+src/Test/QuickCheck/Classes.hs:277:1: warning: [-Wredundant-constraints]
+    • Redundant constraint: Arbitrary b
+    • In the type signature for:
+           monad :: (Monad m, Show a, Arbitrary a, CoArbitrary a, Arbitrary b,
+                     CoArbitrary b, Arbitrary (m a), EqProp (m a), Show (m a),
+                     Arbitrary (m b), EqProp (m b), Arbitrary (m c), EqProp (m c)) =>
+                    m (a, b, c) -> TestBatch
+
+src/Test/QuickCheck/Classes.hs:301:1: warning: [-Wredundant-constraints]
+    • Redundant constraints: (Functor m, Arbitrary a)
+    • In the type signature for:
+           monadFunctor :: (Functor m, Monad m, Arbitrary a, Arbitrary b,
+                            CoArbitrary a, Arbitrary (m a), Show (m a), EqProp (m b)) =>
+                           m (a, b) -> TestBatch
+
+src/Test/QuickCheck/Classes.hs:312:1: warning: [-Wredundant-constraints]
+    • Redundant constraint: Applicative m
+    • In the type signature for:
+           monadApplicative :: (Applicative m, Monad m, EqProp (m a),
+                                EqProp (m b), Show a, Arbitrary a, Show (m a), Arbitrary (m a),
+                                Show (m (a -> b)), Arbitrary (m (a -> b))) =>
+                               m (a, b) -> TestBatch
+
+src/Test/QuickCheck/Classes.hs:334:1: warning: [-Wredundant-constraints]
+    • Redundant constraints: (Functor g,
+                              Show (f (NumT -> T)),
+                              Arbitrary (f (NumT -> T)))
+    • In the type signature for:
+           monadMorphism :: (Monad f, Monad g, Functor g, Show (f NumT),
+                             Show (f (NumT -> T)), Show (f (f (NumT -> T))), Arbitrary (f NumT),
+                             Arbitrary (f T), Arbitrary (f (NumT -> T)),
+                             Arbitrary (f (f (NumT -> T))), EqProp (g NumT), EqProp (g T),
+                             EqProp (g (NumT -> T))) =>
+                            (forall a. f a -> g a) -> TestBatch
+
+src/Test/QuickCheck/Classes.hs:376:1: warning: [-Wredundant-constraints]
+    • Redundant constraint: Functor g
+    • In the type signature for:
+           semanticMonad :: (Model1 f g, Monad f, Monad g, EqProp (g T),
+                             EqProp (g NumT), EqProp (g (NumT -> T)), Arbitrary (f T),
+                             Arbitrary (f NumT), Arbitrary (f (f (NumT -> T))),
+                             Arbitrary (f (NumT -> T)), Show (f (f (NumT -> T))),
+                             Show (f (NumT -> T)), Show (f NumT), Functor g) =>
+                            f () -> TestBatch
+
+src/Test/QuickCheck/Classes.hs:392:1: warning: [-Wredundant-constraints]
+    • Redundant constraint: Arbitrary a
+    • In the type signature for:
+           monadPlus :: (MonadPlus m, Show (m a), Arbitrary a, CoArbitrary a,
+                         Arbitrary (m a), Arbitrary (m b), EqProp (m a), EqProp (m b)) =>
+                        m (a, b) -> TestBatch
+
+src/Test/QuickCheck/Classes.hs:434:1: warning: [-Wredundant-constraints]
+    • Redundant constraint: Arbitrary a
+    • In the type signature for:
+           alternative :: (Alternative f, Arbitrary a, Arbitrary (f a),
+                           EqProp (f a), Show (f a)) =>
+                          f a -> TestBatch
+
+src/Test/QuickCheck/Classes.hs:445:1: warning: [-Wredundant-constraints]
+    • Redundant constraints: (Show b,
+                              Show c,
+                              Show d,
+                              Show e,
+                              Arbitrary b,
+                              EqProp b,
+                              EqProp c,
+                              EqProp d,
+                              EqProp e)
+    • In the type signature for:
+           arrow :: (Arrow a, Show (a d e), Show (a c d), Show (a b c),
+                     Show b, Show c, Show d, Show e, Arbitrary (a d e),
+                     Arbitrary (a c d), Arbitrary (a b c), Arbitrary b, Arbitrary c,
+                     Arbitrary d, Arbitrary e, CoArbitrary b, CoArbitrary c,
+                     CoArbitrary d, EqProp (a b e), EqProp (a b d), EqProp (a (b, d) c),
+                     EqProp (a (b, d) (c, d)), EqProp (a (b, e) (d, e)),
+                     EqProp (a (b, d) (c, e)), EqProp b, EqProp c, EqProp d,
+                     EqProp e) =>
+                    a b (c, d, e) -> TestBatch
+
+src/Test/QuickCheck/Classes.hs:493:1: warning: [-Wredundant-constraints]
+    • Redundant constraints: (Arbitrary b, Arbitrary d)
+    • In the type signature for:
+           arrowChoice :: (ArrowChoice a, Show (a b c), Arbitrary (a b c),
+                           Arbitrary b, Arbitrary c, Arbitrary d, Arbitrary e, CoArbitrary b,
+                           CoArbitrary d, EqProp (a (Either b d) (Either c e)),
+                           EqProp (a (Either b d) (Either c d))) =>
+                          a b (c, d, e) -> TestBatch
+
+src/Test/QuickCheck/Classes.hs:517:1: warning: [-Wredundant-constraints]
+    • Redundant constraint: Arbitrary a
+    • In the type signature for:
+           traversable :: (Traversable f, Monoid m, Show (f a),
+                           Arbitrary (f a), Arbitrary b, Arbitrary a, Arbitrary m,
+                           CoArbitrary a, EqProp (f b), EqProp m) =>
+                          f (a, b, m) -> TestBatch
+[14 of 15] Compiling Test.QuickCheck.Instances ( src/Test/QuickCheck/Instances.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Test/QuickCheck/Instances.o )
+[15 of 15] Compiling Test.QuickCheck.Later ( src/Test/QuickCheck/Later.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Test/QuickCheck/Later.o )
+Installing library in
+/home/philip/.stack/snapshots/x86_64-linux/lts-7.9/8.0.1/lib/x86_64-linux-ghc-8.0.1/checkers-0.4.6-3FKOYAS90lTBM95J5H2HRi
+Registering checkers-0.4.6...

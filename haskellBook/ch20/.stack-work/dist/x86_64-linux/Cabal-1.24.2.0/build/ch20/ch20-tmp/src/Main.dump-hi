@@ -1,0 +1,857 @@
+
+==================== FINAL INTERFACE ====================
+2017-03-26 03:21:30.468336 UTC
+
+interface main@main:Main 8002
+  interface hash: 89cd2a5c1d552e6328b7ba5a5e9b3fa5
+  ABI hash: 1ab31c850526bb2dce972eba1e86e7f5
+  export-list hash: 76923736bce1bf0b7c51fda859308087
+  orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
+  flag hash: 4d06176014dc5b887425ca11a0482fbf
+  sig of: Nothing
+  used TH splices: False
+  where
+exports:
+  Main.elem'
+  Main.main
+  Main.product'
+  Main.sum'
+  Main.sum''
+  Main.Identity{Main.Identity}
+  Main.Optional{Main.Nada Main.Yep}
+module dependencies:
+package dependencies: base-4.9.1.0* ghc-prim-0.5.0.0
+                      integer-gmp-1.0.0.1
+orphans: base-4.9.1.0:GHC.Base base-4.9.1.0:GHC.Float
+family instance modules: base-4.9.1.0:Control.Applicative
+                         base-4.9.1.0:Data.Either base-4.9.1.0:Data.Functor.Const
+                         base-4.9.1.0:Data.Monoid base-4.9.1.0:Data.Type.Equality
+                         base-4.9.1.0:GHC.Generics base-4.9.1.0:GHC.IO.Exception
+                         base-4.9.1.0:GHC.TypeLits
+import  -/  base-4.9.1.0:Data.Foldable 3e0b6967a1da89945d0e2d47266337a2
+import  -/  base-4.9.1.0:Data.Monoid 51cc9cd8c130d49ba96b7c2c2406022b
+import  -/  base-4.9.1.0:GHC.Base c4231c43c07e46080a26bf94094c7aa1
+import  -/  base-4.9.1.0:GHC.Num 00bfaa7b2f9d6084913c0697a8a49ec8
+import  -/  base-4.9.1.0:GHC.Show a027f5ac24879eaba752f44aa90fe511
+import  -/  base-4.9.1.0:Prelude 22dd289b8469a8fa8dc81cab7b237771
+import  -/  base-4.9.1.0:System.IO e4a64a8e3dce8616da54f0ee7104f7db
+import  -/  ghc-prim-0.5.0.0:GHC.Classes 0bdf3d057a415ec1b84a7b1994efbe47
+import  -/  ghc-prim-0.5.0.0:GHC.Types 89f8de4f08018c9177c98d979eae0e45
+bd06eedc2aceb643a22e2fad3ef55155
+  $fEqIdentity ::
+    GHC.Classes.Eq a => GHC.Classes.Eq (Main.Identity a)
+  DFunId
+  {- Arity: 1, HasNoCafRefs, Strictness: <L,U(C(C1(U)),A)>m,
+     Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun: @ a ($dEq :: GHC.Classes.Eq a).
+                  @ (Main.Identity a)
+                  (Main.$fEqIdentity_$c== @ a $dEq)
+                  (Main.$fEqIdentity_$c/= @ a $dEq) -}
+bd06eedc2aceb643a22e2fad3ef55155
+  $fEqIdentity_$c/= ::
+    GHC.Classes.Eq a =>
+    Main.Identity a -> Main.Identity a -> GHC.Types.Bool
+  {- Arity: 3, HasNoCafRefs,
+     Strictness: <S(C(C(S))L),1*U(1*C1(C1(U)),A)><S,1*U(U)><S,1*U(U)>,
+     Unfolding: InlineRule (3, True, False)
+                (\ @ a
+                   ($dEq :: GHC.Classes.Eq a)
+                   (a1 :: Main.Identity a)
+                   (b :: Main.Identity a) ->
+                 case a1 of wild { Main.Identity a2 ->
+                 case b of wild1 { Main.Identity b1 ->
+                 case GHC.Classes.== @ a $dEq a2 b1 of wild2 {
+                   GHC.Types.False -> GHC.Types.True
+                   GHC.Types.True -> GHC.Types.False } } }) -}
+bd06eedc2aceb643a22e2fad3ef55155
+  $fEqIdentity_$c== ::
+    GHC.Classes.Eq a =>
+    Main.Identity a -> Main.Identity a -> GHC.Types.Bool
+  {- Arity: 3, HasNoCafRefs,
+     Strictness: <S(C(C(S))L),1*U(1*C1(C1(U)),A)><S,1*U(U)><S,1*U(U)>,
+     Unfolding: InlineRule (3, True, False)
+                (\ @ a
+                   ($dEq :: GHC.Classes.Eq a)
+                   (ds :: Main.Identity a)
+                   (ds1 :: Main.Identity a) ->
+                 case ds of wild { Main.Identity a1 ->
+                 case ds1 of wild1 { Main.Identity b1 ->
+                 GHC.Classes.== @ a $dEq a1 b1 } }) -}
+4a90d81d8573e00167a4fab54266dccc
+  $fEqOptional ::
+    GHC.Classes.Eq a => GHC.Classes.Eq (Main.Optional a)
+  DFunId
+  {- Arity: 1, HasNoCafRefs, Strictness: <L,U(C(C1(U)),A)>m,
+     Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun: @ a ($dEq :: GHC.Classes.Eq a).
+                  @ (Main.Optional a)
+                  (Main.$fEqOptional_$c== @ a $dEq)
+                  (Main.$fEqOptional_$c/= @ a $dEq) -}
+4a90d81d8573e00167a4fab54266dccc
+  $fEqOptional_$c/= ::
+    GHC.Classes.Eq a =>
+    Main.Optional a -> Main.Optional a -> GHC.Types.Bool
+  {- Arity: 3, HasNoCafRefs,
+     Strictness: <L,1*U(1*C1(C1(U)),A)><S,1*U><S,1*U>,
+     Unfolding: (\ @ a
+                   ($dEq :: GHC.Classes.Eq a)
+                   (a1 :: Main.Optional a)
+                   (b :: Main.Optional a) ->
+                 case a1 of wild {
+                   Main.Nada
+                   -> case b of wild1 {
+                        Main.Nada -> GHC.Types.False Main.Yep ipv -> GHC.Types.True }
+                   Main.Yep a2
+                   -> case b of wild1 {
+                        Main.Nada -> GHC.Types.True
+                        Main.Yep b1
+                        -> case GHC.Classes.== @ a $dEq a2 b1 of wild2 {
+                             GHC.Types.False -> GHC.Types.True
+                             GHC.Types.True -> GHC.Types.False } } }) -}
+4a90d81d8573e00167a4fab54266dccc
+  $fEqOptional_$c== ::
+    GHC.Classes.Eq a =>
+    Main.Optional a -> Main.Optional a -> GHC.Types.Bool
+  {- Arity: 3, HasNoCafRefs,
+     Strictness: <L,1*U(1*C1(C1(U)),A)><S,1*U><S,1*U>,
+     Unfolding: InlineRule (3, True, False)
+                (\ @ a
+                   ($dEq :: GHC.Classes.Eq a)
+                   (ds :: Main.Optional a)
+                   (ds1 :: Main.Optional a) ->
+                 case ds of wild {
+                   Main.Nada
+                   -> case ds1 of wild1 {
+                        Main.Nada -> GHC.Types.True Main.Yep ipv -> GHC.Types.False }
+                   Main.Yep a1
+                   -> case ds1 of wild1 {
+                        Main.Nada -> GHC.Types.False
+                        Main.Yep b1 -> GHC.Classes.== @ a $dEq a1 b1 } }) -}
+bd06eedc2aceb643a22e2fad3ef55155
+  $fFoldableIdentity :: Data.Foldable.Foldable Main.Identity
+  DFunId
+  {- HasNoCafRefs, Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun:.
+                  @ Main.Identity
+                  Main.$fFoldableIdentity_$cfold
+                  Main.$fFoldableIdentity_$cfoldMap
+                  Main.$fFoldableIdentity_$cfoldr
+                  Main.$fFoldableIdentity_$cfoldr
+                  Main.$fFoldableIdentity_$cfoldl
+                  Main.$fFoldableIdentity_$cfoldl
+                  Main.$fFoldableIdentity_$cfoldl1
+                  Main.$fFoldableIdentity_$cfoldl1
+                  Main.$fFoldableIdentity_$ctoList
+                  Main.$fFoldableIdentity_$cnull
+                  Main.$fFoldableIdentity_$clength
+                  Main.$fFoldableIdentity_$celem
+                  Main.$fFoldableIdentity_$cminimum
+                  Main.$fFoldableIdentity_$cminimum
+                  Main.$fFoldableIdentity_$cproduct
+                  Main.$fFoldableIdentity_$cproduct -}
+bd06eedc2aceb643a22e2fad3ef55155
+  $fFoldableIdentity_$celem ::
+    GHC.Classes.Eq a => a -> Main.Identity a -> GHC.Types.Bool
+  {- Arity: 2, HasNoCafRefs, Strictness: <L,1*U(1*C1(U),A)><L,U>,
+     Unfolding: InlineRule (2, True, False)
+                (\ @ a ($dEq :: GHC.Classes.Eq a) (eta :: a) ->
+                 let {
+                   f :: a -> GHC.Types.Bool = GHC.Classes.== @ a $dEq eta
+                 } in
+                 (\ (ds :: Main.Identity a) ->
+                  case ds of wild { Main.Identity x ->
+                  (f x) `cast` (Sym (Data.Monoid.N:Any[0])) })
+                   `cast`
+                 (<Main.Identity a>_R ->_R Data.Monoid.N:Any[0])) -}
+bd06eedc2aceb643a22e2fad3ef55155
+  $fFoldableIdentity_$cfold ::
+    GHC.Base.Monoid m => Main.Identity m -> m
+  {- Arity: 2, HasNoCafRefs, Strictness: <L,A><S(S),1*U(1*U)>,
+     Unfolding: InlineRule (2, True, False)
+                (\ @ m ($dMonoid :: GHC.Base.Monoid m) (ds :: Main.Identity m) ->
+                 case ds of wild { Main.Identity x -> x }) -}
+bd06eedc2aceb643a22e2fad3ef55155
+  $fFoldableIdentity_$cfoldMap ::
+    GHC.Base.Monoid m => (a -> m) -> Main.Identity a -> m
+  {- Arity: 3, HasNoCafRefs,
+     Strictness: <L,A><C(S),1*C1(U)><S,1*U(U)>,
+     Unfolding: InlineRule (3, True, False)
+                (\ @ m
+                   @ a
+                   ($dMonoid :: GHC.Base.Monoid m)
+                   (f :: a -> m)
+                   (ds :: Main.Identity a) ->
+                 case ds of wild { Main.Identity x -> f x }) -}
+bd06eedc2aceb643a22e2fad3ef55155
+  $fFoldableIdentity_$cfoldl ::
+    (b -> a -> b) -> b -> Main.Identity a -> b
+  {- Arity: 3, HasNoCafRefs,
+     Strictness: <C(C(S)),1*C1(C1(U))><L,U><S,1*U(U)>,
+     Unfolding: InlineRule (3, True, False)
+                (\ @ b @ a (f :: b -> a -> b) (z :: b) (ds :: Main.Identity a) ->
+                 case ds of wild { Main.Identity x -> f z x }) -}
+bd06eedc2aceb643a22e2fad3ef55155
+  $fFoldableIdentity_$cfoldl1 ::
+    (a -> a -> a) -> Main.Identity a -> a
+  {- Arity: 2, HasNoCafRefs, Strictness: <L,A><S(S),1*U(1*U)>,
+     Unfolding: InlineRule (2, True, False)
+                (\ @ a (f :: a -> a -> a) (xs :: Main.Identity a) ->
+                 case xs of wild { Main.Identity x -> x }) -}
+bd06eedc2aceb643a22e2fad3ef55155
+  $fFoldableIdentity_$cfoldr ::
+    (a -> b -> b) -> b -> Main.Identity a -> b
+  {- Arity: 3, HasNoCafRefs,
+     Strictness: <C(C(S)),1*C1(C1(U))><L,U><S,1*U(U)>,
+     Unfolding: InlineRule (3, True, False)
+                (\ @ a @ b (f :: a -> b -> b) (z :: b) (ds :: Main.Identity a) ->
+                 case ds of wild { Main.Identity x -> f x z }) -}
+bd06eedc2aceb643a22e2fad3ef55155
+  $fFoldableIdentity_$clength :: Main.Identity a -> GHC.Types.Int
+  {- Arity: 1, HasNoCafRefs, Strictness: <S,1*H>m,
+     Unfolding: InlineRule (1, True, False)
+                (\ @ a (xs :: Main.Identity a) ->
+                 case xs of wild { Main.Identity x -> GHC.Types.I# 1# }) -}
+bd06eedc2aceb643a22e2fad3ef55155
+  $fFoldableIdentity_$cminimum ::
+    GHC.Classes.Ord a => Main.Identity a -> a
+  {- Arity: 2, HasNoCafRefs, Strictness: <L,A><S(S),1*U(1*U)>,
+     Unfolding: InlineRule (2, True, False)
+                (\ @ a ($dOrd :: GHC.Classes.Ord a) (eta :: Main.Identity a) ->
+                 case eta of wild { Main.Identity x -> x }) -}
+bd06eedc2aceb643a22e2fad3ef55155
+  $fFoldableIdentity_$cnull :: Main.Identity a -> GHC.Types.Bool
+  {- Arity: 1, HasNoCafRefs, Strictness: <S,1*H>,
+     Unfolding: InlineRule (1, True, False)
+                (\ @ a (ds :: Main.Identity a) ->
+                 case ds of wild { Main.Identity x -> GHC.Types.False }) -}
+bd06eedc2aceb643a22e2fad3ef55155
+  $fFoldableIdentity_$cproduct ::
+    GHC.Num.Num a => Main.Identity a -> a
+  {- Arity: 2, HasNoCafRefs, Strictness: <L,A><S(S),1*U(1*U)>,
+     Unfolding: InlineRule (2, True, False)
+                (\ @ a ($dNum :: GHC.Num.Num a) (eta :: Main.Identity a) ->
+                 case eta of wild { Main.Identity x -> x }) -}
+bd06eedc2aceb643a22e2fad3ef55155
+  $fFoldableIdentity_$ctoList :: Main.Identity a -> [a]
+  {- Arity: 1, HasNoCafRefs, Strictness: <L,U>,
+     Inline: INLINE (sat-args=1),
+     Unfolding: InlineRule (1, False, False)
+                (\ @ a (t1 :: Main.Identity a) ->
+                 GHC.Base.build
+                   @ a
+                   (\ @ b (c :: a -> b -> b)[OneShot] (n :: b)[OneShot] ->
+                    Main.$fFoldableIdentity_$cfoldr @ a @ b c n t1)) -}
+4a90d81d8573e00167a4fab54266dccc
+  $fFoldableOptional :: Data.Foldable.Foldable Main.Optional
+  DFunId
+  {- Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun:.
+                  @ Main.Optional
+                  Main.$fFoldableOptional_$cfold
+                  Main.$fFoldableOptional_$cfoldMap
+                  Main.$fFoldableOptional_$cfoldr
+                  Main.$fFoldableOptional_$cfoldr
+                  Main.$fFoldableOptional_$cfoldl
+                  Main.$fFoldableOptional_$cfoldl
+                  Main.$fFoldableOptional_$cfoldr1
+                  Main.$fFoldableOptional_$cfoldl1
+                  Main.$fFoldableOptional_$ctoList
+                  Main.$fFoldableOptional_$cnull
+                  Main.$fFoldableOptional_$clength
+                  Main.$fFoldableOptional_$celem
+                  Main.$fFoldableOptional_$cmaximum
+                  Main.$fFoldableOptional_$cminimum
+                  Main.$fFoldableOptional_$csum
+                  Main.$fFoldableOptional_$cproduct -}
+4a90d81d8573e00167a4fab54266dccc
+  $fFoldableOptional1 ::
+    GHC.Num.Num a => Main.Optional a -> Data.Monoid.Product a
+  {- Arity: 2, HasNoCafRefs,
+     Strictness: <L,1*U(A,A,A,A,A,A,1*C1(U))><S,1*U>,
+     Unfolding: InlineRule (2, True, False)
+                (\ @ a ($dNum :: GHC.Num.Num a) (ds :: Main.Optional a) ->
+                 case ds of wild {
+                   Main.Nada
+                   -> (Data.Monoid.$fMonoidProduct2 @ a $dNum)
+                        `cast`
+                      (Sym (Data.Monoid.N:Product[0] <a>_R))
+                   Main.Yep a1
+                   -> a1 `cast` (Sym (Data.Monoid.N:Product[0] <a>_R)) }) -}
+4a90d81d8573e00167a4fab54266dccc
+  $fFoldableOptional2 ::
+    GHC.Num.Num a => Main.Optional a -> Data.Monoid.Sum a
+  {- Arity: 2, HasNoCafRefs,
+     Strictness: <L,1*U(A,A,A,A,A,A,1*C1(U))><S,1*U>,
+     Unfolding: InlineRule (2, True, False)
+                (\ @ a ($dNum :: GHC.Num.Num a) (ds :: Main.Optional a) ->
+                 case ds of wild {
+                   Main.Nada
+                   -> (Data.Monoid.$fMonoidSum2 @ a $dNum)
+                        `cast`
+                      (Sym (Data.Monoid.N:Sum[0] <a>_R))
+                   Main.Yep a1 -> a1 `cast` (Sym (Data.Monoid.N:Sum[0] <a>_R)) }) -}
+96aa19da2dd3df0f5c8993d7f699eb0d
+  $fFoldableOptional3 :: a
+  {- Strictness: x -}
+6e5537030ffd864832a2a1719cf7f945
+  $fFoldableOptional4 :: a
+  {- Strictness: x -}
+1133c9d65cbd55053cb9b2bb88056531
+  $fFoldableOptional5 :: GHC.Types.Int
+  {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.I# 0#) -}
+cedcacee88075dbc4ac69bebb8285ca7
+  $fFoldableOptional6 :: a
+  {- Strictness: x -}
+95e18caac6cfa07c100f19f2eb2ddd4e
+  $fFoldableOptional7 :: a
+  {- Strictness: x -}
+4a90d81d8573e00167a4fab54266dccc
+  $fFoldableOptional_$celem ::
+    GHC.Classes.Eq a => a -> Main.Optional a -> GHC.Types.Bool
+  {- Arity: 2, HasNoCafRefs, Strictness: <L,1*U(1*C1(U),A)><L,U>,
+     Unfolding: InlineRule (2, True, False)
+                (\ @ a ($dEq :: GHC.Classes.Eq a) (eta :: a) ->
+                 let {
+                   ds :: a -> GHC.Types.Bool = GHC.Classes.== @ a $dEq eta
+                 } in
+                 (\ (ds1 :: Main.Optional a) ->
+                  case ds1 of wild {
+                    Main.Nada -> GHC.Types.False `cast` (Sym (Data.Monoid.N:Any[0]))
+                    Main.Yep a1 -> (ds a1) `cast` (Sym (Data.Monoid.N:Any[0])) })
+                   `cast`
+                 (<Main.Optional a>_R ->_R Data.Monoid.N:Any[0])) -}
+4a90d81d8573e00167a4fab54266dccc
+  $fFoldableOptional_$cfold ::
+    GHC.Base.Monoid m => Main.Optional m -> m
+  {- Arity: 2, HasNoCafRefs, Strictness: <L,1*U(1*U,A,A)><S,1*U>,
+     Unfolding: InlineRule (2, True, False)
+                (\ @ m ($dMonoid :: GHC.Base.Monoid m) (ds :: Main.Optional m) ->
+                 case ds of wild {
+                   Main.Nada -> GHC.Base.mempty @ m $dMonoid Main.Yep a -> a }) -}
+4a90d81d8573e00167a4fab54266dccc
+  $fFoldableOptional_$cfoldMap ::
+    GHC.Base.Monoid m => (a -> m) -> Main.Optional a -> m
+  {- Arity: 3, HasNoCafRefs,
+     Strictness: <L,1*U(1*U,A,A)><L,1*C1(U)><S,1*U>,
+     Unfolding: InlineRule (3, True, False)
+                (\ @ m
+                   @ a
+                   ($dMonoid :: GHC.Base.Monoid m)
+                   (ds :: a -> m)
+                   (ds1 :: Main.Optional a) ->
+                 case ds1 of wild {
+                   Main.Nada -> GHC.Base.mempty @ m $dMonoid
+                   Main.Yep a1 -> ds a1 }) -}
+4a90d81d8573e00167a4fab54266dccc
+  $fFoldableOptional_$cfoldl ::
+    (b -> a -> b) -> b -> Main.Optional a -> b
+  {- Arity: 3, HasNoCafRefs, Strictness: <L,1*C1(C1(U))><L,U><S,1*U>,
+     Unfolding: InlineRule (3, True, False)
+                (\ @ b @ a (ds :: b -> a -> b) (z :: b) (ds1 :: Main.Optional a) ->
+                 case ds1 of wild { Main.Nada -> z Main.Yep x -> ds z x }) -}
+4a90d81d8573e00167a4fab54266dccc
+  $fFoldableOptional_$cfoldl1 ::
+    (a -> a -> a) -> Main.Optional a -> a
+  {- Arity: 2, Strictness: <L,A><S,1*U>, Inline: INLINE[0],
+     Unfolding: InlineRule (2, True, False)
+                (\ @ a (w :: a -> a -> a) (w1 :: Main.Optional a) ->
+                 case w1 of wild {
+                   Main.Nada -> Main.$fFoldableOptional6 @ a Main.Yep x -> x }) -}
+4a90d81d8573e00167a4fab54266dccc
+  $fFoldableOptional_$cfoldr ::
+    (a -> b -> b) -> b -> Main.Optional a -> b
+  {- Arity: 3, HasNoCafRefs, Strictness: <L,1*C1(C1(U))><L,U><S,1*U>,
+     Unfolding: InlineRule (3, True, False)
+                (\ @ a @ b (ds :: a -> b -> b) (z :: b) (ds1 :: Main.Optional a) ->
+                 case ds1 of wild { Main.Nada -> z Main.Yep x -> ds x z }) -}
+4a90d81d8573e00167a4fab54266dccc
+  $fFoldableOptional_$cfoldr1 ::
+    (a -> a -> a) -> Main.Optional a -> a
+  {- Arity: 2, Strictness: <L,A><S,1*U>, Inline: INLINE[0],
+     Unfolding: InlineRule (2, True, False)
+                (\ @ a (w :: a -> a -> a) (w1 :: Main.Optional a) ->
+                 case w1 of wild {
+                   Main.Nada -> Main.$fFoldableOptional7 @ a Main.Yep x -> x }) -}
+4a90d81d8573e00167a4fab54266dccc
+  $fFoldableOptional_$clength :: Main.Optional a -> GHC.Types.Int
+  {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U>m,
+     Unfolding: InlineRule (1, True, False)
+                (\ @ a (xs :: Main.Optional a) ->
+                 case xs of wild {
+                   Main.Nada -> Main.$fFoldableOptional5
+                   Main.Yep x -> GHC.Types.I# 1# }) -}
+4a90d81d8573e00167a4fab54266dccc
+  $fFoldableOptional_$cmaximum ::
+    GHC.Classes.Ord a => Main.Optional a -> a
+  {- Arity: 2, Strictness: <L,A><S,1*U>, Inline: INLINE[0],
+     Unfolding: InlineRule (2, True, False)
+                (\ @ a (w :: GHC.Classes.Ord a) (w1 :: Main.Optional a) ->
+                 case w1 of wild {
+                   Main.Nada -> Main.$fFoldableOptional4 @ a Main.Yep a1 -> a1 }) -}
+4a90d81d8573e00167a4fab54266dccc
+  $fFoldableOptional_$cminimum ::
+    GHC.Classes.Ord a => Main.Optional a -> a
+  {- Arity: 2, Strictness: <L,A><S,1*U>, Inline: INLINE[0],
+     Unfolding: InlineRule (2, True, False)
+                (\ @ a (w :: GHC.Classes.Ord a) (w1 :: Main.Optional a) ->
+                 case w1 of wild {
+                   Main.Nada -> Main.$fFoldableOptional3 @ a Main.Yep a1 -> a1 }) -}
+4a90d81d8573e00167a4fab54266dccc
+  $fFoldableOptional_$cnull :: Main.Optional a -> GHC.Types.Bool
+  {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U>,
+     Unfolding: InlineRule (1, True, False)
+                (\ @ a (ds :: Main.Optional a) ->
+                 case ds of wild {
+                   Main.Nada -> GHC.Types.True Main.Yep x -> GHC.Types.False }) -}
+4a90d81d8573e00167a4fab54266dccc
+  $fFoldableOptional_$cproduct ::
+    GHC.Num.Num a => Main.Optional a -> a
+  {- Arity: 2, HasNoCafRefs,
+     Strictness: <L,1*U(A,A,A,A,A,A,1*C1(U))><S,1*U>,
+     Unfolding: InlineRule (0, True, True)
+                Main.$fFoldableOptional1
+                  `cast`
+                (forall (a :: <*>_N).
+                 <GHC.Num.Num a>_R
+                 ->_R <Main.Optional a>_R
+                 ->_R Data.Monoid.N:Product[0] <a>_R) -}
+4a90d81d8573e00167a4fab54266dccc
+  $fFoldableOptional_$csum :: GHC.Num.Num a => Main.Optional a -> a
+  {- Arity: 2, HasNoCafRefs,
+     Strictness: <L,1*U(A,A,A,A,A,A,1*C1(U))><S,1*U>,
+     Unfolding: InlineRule (0, True, True)
+                Main.$fFoldableOptional2
+                  `cast`
+                (forall (a :: <*>_N).
+                 <GHC.Num.Num a>_R
+                 ->_R <Main.Optional a>_R
+                 ->_R Data.Monoid.N:Sum[0] <a>_R) -}
+4a90d81d8573e00167a4fab54266dccc
+  $fFoldableOptional_$ctoList :: Main.Optional a -> [a]
+  {- Arity: 1, Strictness: <L,U>, Inline: INLINE (sat-args=1),
+     Unfolding: InlineRule (1, False, False)
+                (\ @ a (t1 :: Main.Optional a) ->
+                 GHC.Base.build
+                   @ a
+                   (\ @ b (c :: a -> b -> b)[OneShot] (n :: b)[OneShot] ->
+                    Main.$fFoldableOptional_$cfoldr @ a @ b c n t1)) -}
+bd06eedc2aceb643a22e2fad3ef55155
+  $fShowIdentity ::
+    GHC.Show.Show a => GHC.Show.Show (Main.Identity a)
+  DFunId
+  {- Arity: 1, Strictness: <L,U(C(C1(U)),A,A)>m,
+     Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun: @ a ($dShow :: GHC.Show.Show a).
+                  @ (Main.Identity a)
+                  (Main.$fShowIdentity_$cshowsPrec @ a $dShow)
+                  (Main.$fShowIdentity_$cshow @ a $dShow)
+                  (Main.$fShowIdentity_$cshowList @ a $dShow) -}
+9a1df3dc3e86745f67eccd0ae5850ead
+  $fShowIdentity1 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "Identity "#) -}
+e3ccc3eccfb7ae6d5b8003301d665a24
+  $fShowIdentity2 :: GHC.Types.Int
+  {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.I# 11#) -}
+bd06eedc2aceb643a22e2fad3ef55155
+  $fShowIdentity_$cshow ::
+    GHC.Show.Show a => Main.Identity a -> GHC.Base.String
+  {- Arity: 2, Strictness: <L,1*U(1*C1(C1(C1(U))),A,A)><S,1*U(U)>,
+     Unfolding: InlineRule (2, True, False)
+                (\ @ a ($dShow :: GHC.Show.Show a) (x :: Main.Identity a) ->
+                 case x of wild { Main.Identity b1 ->
+                 GHC.Base.augment
+                   @ GHC.Types.Char
+                   (\ @ b
+                      (c :: GHC.Types.Char -> b -> b)[OneShot]
+                      (n :: b)[OneShot] ->
+                    GHC.Base.foldr @ GHC.Types.Char @ b c n Main.$fShowIdentity1)
+                   (GHC.Show.showsPrec
+                      @ a
+                      $dShow
+                      Main.$fShowIdentity2
+                      b1
+                      (GHC.Types.[] @ GHC.Types.Char)) }) -}
+bd06eedc2aceb643a22e2fad3ef55155
+  $fShowIdentity_$cshowList ::
+    GHC.Show.Show a => [Main.Identity a] -> GHC.Show.ShowS
+  {- Arity: 3, Strictness: <L,U(C(C1(U)),A,A)><S,1*U><L,U>,
+     Unfolding: InlineRule (3, True, False)
+                (\ @ a
+                   ($dShow :: GHC.Show.Show a)
+                   (eta :: [Main.Identity a])
+                   (eta1 :: GHC.Base.String) ->
+                 GHC.Show.showList__
+                   @ (Main.Identity a)
+                   (Main.$fShowIdentity_$cshowsPrec
+                      @ a
+                      $dShow
+                      Main.$fFoldableOptional5)
+                   eta
+                   eta1) -}
+bd06eedc2aceb643a22e2fad3ef55155
+  $fShowIdentity_$cshowsPrec ::
+    GHC.Show.Show a =>
+    GHC.Types.Int -> Main.Identity a -> GHC.Show.ShowS
+  {- Arity: 3,
+     Strictness: <L,1*U(1*C1(C1(U)),A,A)><S(S),1*U(U)><S,1*U(U)>,
+     Inline: INLINE[0],
+     Unfolding: InlineRule (3, True, False)
+                (\ @ a
+                   (w :: GHC.Show.Show a)
+                   (w1 :: GHC.Types.Int)
+                   (w2 :: Main.Identity a) ->
+                 case w1 of ww { GHC.Types.I# ww1 ->
+                 case w2 of ww2 { Main.Identity ww3 ->
+                 Main.$w$cshowsPrec @ a w ww1 ww3 } }) -}
+4a90d81d8573e00167a4fab54266dccc
+  $fShowOptional ::
+    GHC.Show.Show a => GHC.Show.Show (Main.Optional a)
+  DFunId
+  {- Arity: 1, Strictness: <L,U(C(C1(U)),A,A)>m,
+     Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun: @ a ($dShow :: GHC.Show.Show a).
+                  @ (Main.Optional a)
+                  (Main.$fShowOptional_$cshowsPrec @ a $dShow)
+                  (Main.$fShowOptional_$cshow @ a $dShow)
+                  (Main.$fShowOptional_$cshowList @ a $dShow) -}
+75d218d4f8a0b97d9d853feb36e2f41c
+  $fShowOptional1 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "Yep "#) -}
+859e7d6dfbd40bb7b0b49a0772b257fd
+  $fShowOptional2 :: GHC.Show.ShowS
+  {- Arity: 1,
+     Unfolding: (GHC.Base.++ @ GHC.Types.Char Main.$fShowOptional3) -}
+c63dd4cd3f7ebfe04c8467a5134b78a1
+  $fShowOptional3 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "Nada"#) -}
+4a90d81d8573e00167a4fab54266dccc
+  $fShowOptional_$cshow ::
+    GHC.Show.Show a => Main.Optional a -> GHC.Base.String
+  {- Arity: 2, Strictness: <L,1*U(1*C1(C1(C1(U))),A,A)><S,1*U>,
+     Unfolding: (\ @ a
+                   ($dShow :: GHC.Show.Show a)
+                   (x :: Main.Optional a) ->
+                 case x of wild {
+                   Main.Nada -> Main.$fShowOptional3
+                   Main.Yep b1
+                   -> GHC.Base.++
+                        @ GHC.Types.Char
+                        Main.$fShowOptional1
+                        (GHC.Show.showsPrec
+                           @ a
+                           $dShow
+                           Main.$fShowIdentity2
+                           b1
+                           (GHC.Types.[] @ GHC.Types.Char)) }) -}
+4a90d81d8573e00167a4fab54266dccc
+  $fShowOptional_$cshowList ::
+    GHC.Show.Show a => [Main.Optional a] -> GHC.Show.ShowS
+  {- Arity: 3, Strictness: <L,U(C(C1(U)),A,A)><S,1*U><L,U>,
+     Unfolding: InlineRule (3, True, False)
+                (\ @ a
+                   ($dShow :: GHC.Show.Show a)
+                   (eta :: [Main.Optional a])
+                   (eta1 :: GHC.Base.String) ->
+                 GHC.Show.showList__
+                   @ (Main.Optional a)
+                   (Main.$fShowOptional_$cshowsPrec
+                      @ a
+                      $dShow
+                      Main.$fFoldableOptional5)
+                   eta
+                   eta1) -}
+4a90d81d8573e00167a4fab54266dccc
+  $fShowOptional_$cshowsPrec ::
+    GHC.Show.Show a =>
+    GHC.Types.Int -> Main.Optional a -> GHC.Show.ShowS
+  {- Arity: 3, Strictness: <L,1*U(1*C1(C1(U)),A,A)><L,1*U(U)><S,1*U>,
+     Unfolding: (\ @ a
+                   ($dShow :: GHC.Show.Show a)
+                   (ds :: GHC.Types.Int)
+                   (ds1 :: Main.Optional a) ->
+                 case ds1 of wild {
+                   Main.Nada -> Main.$fShowOptional2
+                   Main.Yep b1
+                   -> case ds of wild1 { GHC.Types.I# x ->
+                      let {
+                        g :: GHC.Base.String -> GHC.Base.String
+                        = GHC.Show.showsPrec @ a $dShow Main.$fShowIdentity2 b1
+                      } in
+                      case GHC.Prim.tagToEnum#
+                             @ GHC.Types.Bool
+                             (GHC.Prim.>=# x 11#) of wild2 {
+                        GHC.Types.False
+                        -> \ (x1 :: GHC.Base.String) ->
+                           GHC.Base.++ @ GHC.Types.Char Main.$fShowOptional1 (g x1)
+                        GHC.Types.True
+                        -> \ (x1 :: GHC.Base.String) ->
+                           GHC.Types.:
+                             @ GHC.Types.Char
+                             GHC.Show.shows7
+                             (GHC.Base.++
+                                @ GHC.Types.Char
+                                Main.$fShowOptional1
+                                (g (GHC.Types.: @ GHC.Types.Char GHC.Show.shows4 x1))) } } }) -}
+fb6ed5929bece2c052127313cb24c106
+  $tc'Identity :: GHC.Types.TyCon
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.TyCon
+                   2029112138846393583##
+                   2905385520651452197##
+                   Main.$trModule
+                   Main.$tc'Identity1) -}
+d66c2f8db5a22ef38960484a4b9f37e2
+  $tc'Identity1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS "'Identity"#) -}
+04f499c71f7e25aefb94c350c8ef2cf4
+  $tc'Nada :: GHC.Types.TyCon
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.TyCon
+                   2935585615942756401##
+                   10209378682843712398##
+                   Main.$trModule
+                   Main.$tc'Nada1) -}
+ca3ad59889bdfb6981d6baada8d905c4
+  $tc'Nada1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS "'Nada"#) -}
+2967e212f00f8da784e135e789fa4b2b
+  $tc'Yep :: GHC.Types.TyCon
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.TyCon
+                   8754939123156615373##
+                   18259977238246583279##
+                   Main.$trModule
+                   Main.$tc'Yep1) -}
+ed6ac6ac45cd844e051ca5d74ab5c720
+  $tc'Yep1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS "'Yep"#) -}
+7f9137da72f6c5793b3d621bfaad5de1
+  $tcIdentity :: GHC.Types.TyCon
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.TyCon
+                   1219351100840430795##
+                   4195889340468339127##
+                   Main.$trModule
+                   Main.$tcIdentity1) -}
+8223c0a29bd099943619ea59d112c6ea
+  $tcIdentity1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS "Identity"#) -}
+c2558d42769badfa4b5684774e7acf2b
+  $tcOptional :: GHC.Types.TyCon
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.TyCon
+                   15899356279460857983##
+                   2311544536945580550##
+                   Main.$trModule
+                   Main.$tcOptional1) -}
+b7ef9ccc57a899368e4a51e71c5b3dc9
+  $tcOptional1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS "Optional"#) -}
+d6831ef04cb9301b090dfae6f7bb7ec7
+  $trModule :: GHC.Types.Module
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.Module Main.$trModule2 Main.$trModule1) -}
+847d9fc3b8e6f0b424199f36b4999bb2
+  $trModule1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS "Main"#) -}
+24ef6042833e75ffd7aa98b83ecca98d
+  $trModule2 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS "main"#) -}
+2fc6fef4c5d32f0e0212ada18032b1b7
+  $w$cshowsPrec ::
+    GHC.Show.Show a => GHC.Prim.Int# -> a -> GHC.Show.ShowS
+  {- Arity: 3, Strictness: <L,1*U(1*C1(C1(U)),A,A)><S,U><L,U>,
+     Inline: [0],
+     Unfolding: (\ @ a
+                   (w :: GHC.Show.Show a)
+                   (ww :: GHC.Prim.Int#)
+                   (ww1 :: a) ->
+                 let {
+                   g :: GHC.Base.String -> GHC.Base.String
+                   = GHC.Show.showsPrec @ a w Main.$fShowIdentity2 ww1
+                 } in
+                 case GHC.Prim.tagToEnum#
+                        @ GHC.Types.Bool
+                        (GHC.Prim.>=# ww 11#) of wild {
+                   GHC.Types.False
+                   -> \ (x :: GHC.Base.String) ->
+                      GHC.Base.++ @ GHC.Types.Char Main.$fShowIdentity1 (g x)
+                   GHC.Types.True
+                   -> \ (x :: GHC.Base.String) ->
+                      GHC.Types.:
+                        @ GHC.Types.Char
+                        GHC.Show.shows7
+                        (GHC.Base.++
+                           @ GHC.Types.Char
+                           Main.$fShowIdentity1
+                           (g (GHC.Types.: @ GHC.Types.Char GHC.Show.shows4 x))) }) -}
+bd06eedc2aceb643a22e2fad3ef55155
+  data Identity a = Identity a
+4a90d81d8573e00167a4fab54266dccc
+  data Optional a = Nada | Yep a
+3816701b5d2f644ba21391bf81b05216
+  elem' ::
+    (Data.Foldable.Foldable t, GHC.Classes.Eq a) =>
+    a -> t a -> GHC.Types.Bool
+  {- Arity: 4, HasNoCafRefs,
+     Strictness: <S(LC(C(C(S)))LLLLLLLLLLLLLL),1*U(A,1*C1(C1(C1(U))),A,A,A,A,A,A,A,A,A,A,A,A,A,A)><L,U(C(C1(U)),A)><L,U><L,U>,
+     Unfolding: InlineRule (0, True, True)
+                Main.elem'1
+                  `cast`
+                (forall (t :: <* -> *>_N) (a :: <*>_N).
+                 <Data.Foldable.Foldable t>_R
+                 ->_R <GHC.Classes.Eq a>_R
+                 ->_R <a>_R
+                 ->_R <t a>_R
+                 ->_R Data.Monoid.N:Any[0]) -}
+0e12c726b89b59b3a3c1942cba77efe7
+  elem'1 ::
+    (Data.Foldable.Foldable t, GHC.Classes.Eq a) =>
+    a -> t a -> Data.Monoid.Any
+  {- Arity: 4, HasNoCafRefs,
+     Strictness: <S(LC(C(C(S)))LLLLLLLLLLLLLL),1*U(A,1*C1(C1(C1(U))),A,A,A,A,A,A,A,A,A,A,A,A,A,A)><L,U(C(C1(U)),A)><L,U><L,U>,
+     Unfolding: InlineRule (4, True, False)
+                (\ @ (t :: * -> *)
+                   @ a
+                   ($dFoldable :: Data.Foldable.Foldable t)
+                   ($dEq :: GHC.Classes.Eq a)
+                   (e :: a)
+                   (xs :: t a) ->
+                 Data.Foldable.foldMap
+                   @ t
+                   $dFoldable
+                   @ Data.Monoid.Any
+                   @ a
+                   Data.Monoid.$fMonoidAny
+                   (\ (x :: a) -> GHC.Classes.== @ a $dEq x e)
+                     `cast`
+                   (<a>_R ->_R Sym (Data.Monoid.N:Any[0]))
+                   xs) -}
+549e997b77251cffa539541e3fca551d
+  main :: GHC.Types.IO ()
+  {- Arity: 1, Strictness: <S,U>,
+     Unfolding: InlineRule (0, True, True)
+                Main.main1 `cast` (Sym (GHC.Types.N:IO[0] <()>_R)) -}
+12f13e20d189575a2f38fa0188d46990
+  main1 ::
+    GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
+  {- Arity: 1, Strictness: <S,U>,
+     Unfolding: (\ (eta :: GHC.Prim.State#
+                             GHC.Prim.RealWorld)[OneShot] ->
+                 GHC.IO.Handle.Text.hPutStr2
+                   GHC.IO.Handle.FD.stdout
+                   Main.main2
+                   GHC.Types.True
+                   eta) -}
+5ca9aae8b1fa510e4d7ba6c699a49ec7
+  main2 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "hello world"#) -}
+eaf959ce78010a9f5591044b85b85e4b
+  main3 ::
+    GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
+  {- Arity: 1,
+     Unfolding: (GHC.TopHandler.runMainIO1
+                   @ ()
+                   Main.main1 `cast` (Sym (GHC.Types.N:IO[0] <()>_R))) -}
+7c689f94b322703b0a44238dbabd2eec
+  product' :: (Data.Foldable.Foldable t, GHC.Num.Num a) => t a -> a
+  {- Arity: 2, HasNoCafRefs,
+     Strictness: <L,U(A,C(C1(C1(U))),A,A,A,A,A,A,A,A,A,A,A,A,A,A)><L,U(A,A,U,A,A,A,C(U))>,
+     Unfolding: InlineRule (2, True, False)
+                (\ @ (t :: * -> *)
+                   @ a
+                   ($dFoldable :: Data.Foldable.Foldable t)
+                   ($dNum :: GHC.Num.Num a) ->
+                 let {
+                   $dMonoid :: GHC.Base.Monoid (Data.Monoid.Product a)
+                   = Data.Monoid.$fMonoidProduct @ a $dNum
+                 } in
+                 (\ (a1 :: t a) ->
+                  Data.Foldable.foldMap
+                    @ t
+                    $dFoldable
+                    @ (Data.Monoid.Product a)
+                    @ a
+                    $dMonoid
+                    (Main.product'1 @ a)
+                      `cast`
+                    (<a>_R ->_R Sym (Data.Monoid.N:Product[0] <a>_R))
+                    a1)
+                   `cast`
+                 (<t a>_R ->_R Data.Monoid.N:Product[0] <a>_R)) -}
+592315c83250bb7864ffa32ac692d9b5
+  product'1 :: a -> a
+  {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U>,
+     Unfolding: InlineRule (1, True, True) (\ @ a (tpl :: a) -> tpl) -}
+987c248402de366f8da6d3d63553767d
+  sum' :: (Data.Foldable.Foldable t, GHC.Num.Num a) => t a -> a
+  {- Arity: 3, HasNoCafRefs,
+     Strictness: <S(LLC(C(C(S)))LLLLLLLLLLLLL),1*U(A,A,1*C1(C1(C1(U))),A,A,A,A,A,A,A,A,A,A,A,A,A)><L,U(1*U,A,A,A,A,A,1*C1(U))><L,U>,
+     Unfolding: InlineRule (3, True, False)
+                (\ @ (t :: * -> *)
+                   @ a
+                   ($dFoldable :: Data.Foldable.Foldable t)
+                   ($dNum :: GHC.Num.Num a)
+                   (xs :: t a) ->
+                 Data.Foldable.foldr
+                   @ t
+                   $dFoldable
+                   @ a
+                   @ a
+                   (GHC.Num.+ @ a $dNum)
+                   (GHC.Num.fromInteger @ a $dNum Main.sum'1)
+                   xs) -}
+a59c72e48cdd8c9c94d74b9421d87daf
+  sum'' :: (Data.Foldable.Foldable t, GHC.Num.Num a) => t a -> a
+  {- Arity: 2, HasNoCafRefs,
+     Strictness: <L,U(A,C(C1(C1(U))),A,A,A,A,A,A,A,A,A,A,A,A,A,A)><L,U(U,A,A,A,A,A,C(U))>,
+     Unfolding: InlineRule (2, True, False)
+                (\ @ (t :: * -> *)
+                   @ a
+                   ($dFoldable :: Data.Foldable.Foldable t)
+                   ($dNum :: GHC.Num.Num a) ->
+                 let {
+                   $dMonoid :: GHC.Base.Monoid (Data.Monoid.Sum a)
+                   = Data.Monoid.$fMonoidSum @ a $dNum
+                 } in
+                 (\ (a1 :: t a) ->
+                  Data.Foldable.foldMap
+                    @ t
+                    $dFoldable
+                    @ (Data.Monoid.Sum a)
+                    @ a
+                    $dMonoid
+                    (Main.product'1 @ a)
+                      `cast`
+                    (<a>_R ->_R Sym (Data.Monoid.N:Sum[0] <a>_R))
+                    a1)
+                   `cast`
+                 (<t a>_R ->_R Data.Monoid.N:Sum[0] <a>_R)) -}
+7f0a149e011ab207c70f38129ef49af7
+  sum'1 :: GHC.Integer.Type.Integer
+  {- HasNoCafRefs, Unfolding: (0) -}
+instance [safe] GHC.Classes.Eq [Main.Identity] = Main.$fEqIdentity
+instance [safe] GHC.Classes.Eq [Main.Optional] = Main.$fEqOptional
+instance [safe] Data.Foldable.Foldable [Main.Identity]
+  = Main.$fFoldableIdentity
+instance [safe] Data.Foldable.Foldable [Main.Optional]
+  = Main.$fFoldableOptional
+instance [safe] GHC.Show.Show [Main.Identity] = Main.$fShowIdentity
+instance [safe] GHC.Show.Show [Main.Optional] = Main.$fShowOptional
+vectorised variables:
+vectorised tycons:
+vectorised reused tycons:
+parallel variables:
+parallel tycons:
+trusted: safe
+require own pkg trusted: False
+

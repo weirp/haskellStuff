@@ -1,0 +1,36 @@
+[1 of 1] Compiling Main             ( /tmp/stack15937/wreq-0.5.0.0/Setup.hs, /tmp/stack15937/wreq-0.5.0.0/.stack-work/dist/x86_64-linux/Cabal-1.24.2.0/setup/Main.o )
+
+/tmp/stack15937/wreq-0.5.0.0/Setup.hs:63:15: warning: [-Wdeprecations]
+    In the use of type constructor or class ‘InstalledPackageId’
+    (imported from Distribution.Package):
+    Deprecated: "Use UnitId instead"
+Linking /tmp/stack15937/wreq-0.5.0.0/.stack-work/dist/x86_64-linux/Cabal-1.24.2.0/setup/setup ...
+Configuring wreq-0.5.0.0...
+Building wreq-0.5.0.0...
+Preprocessing library wreq-0.5.0.0...
+[ 1 of 15] Compiling Paths_wreq       ( .stack-work/dist/x86_64-linux/Cabal-1.24.2.0/build/autogen/Paths_wreq.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.2.0/build/Paths_wreq.o )
+[ 2 of 15] Compiling Network.Wreq.Lens.Machinery ( Network/Wreq/Lens/Machinery.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.2.0/build/Network/Wreq/Lens/Machinery.o )
+[ 3 of 15] Compiling Network.Wreq.Internal.Types ( Network/Wreq/Internal/Types.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.2.0/build/Network/Wreq/Internal/Types.o )
+[ 4 of 15] Compiling Network.Wreq.Internal.OAuth1 ( Network/Wreq/Internal/OAuth1.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.2.0/build/Network/Wreq/Internal/OAuth1.o )
+[ 5 of 15] Compiling Network.Wreq.Internal.Lens ( Network/Wreq/Internal/Lens.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.2.0/build/Network/Wreq/Internal/Lens.o )
+
+Network/Wreq/Internal/Lens.hs:45:1: warning: [-Wunused-top-binds]
+    Defined but not used: ‘requestManagerOverride’
+[ 6 of 15] Compiling Network.Wreq.Types ( Network/Wreq/Types.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.2.0/build/Network/Wreq/Types.o )
+[ 7 of 15] Compiling Network.Wreq.Internal.Link ( Network/Wreq/Internal/Link.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.2.0/build/Network/Wreq/Internal/Link.o )
+[ 8 of 15] Compiling Network.Wreq.Lens.TH ( Network/Wreq/Lens/TH.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.2.0/build/Network/Wreq/Lens/TH.o )
+[ 9 of 15] Compiling Network.Wreq.Lens ( Network/Wreq/Lens.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.2.0/build/Network/Wreq/Lens.o )
+[10 of 15] Compiling Network.Wreq.Internal.AWS ( Network/Wreq/Internal/AWS.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.2.0/build/Network/Wreq/Internal/AWS.o )
+[11 of 15] Compiling Network.Wreq.Internal ( Network/Wreq/Internal.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.2.0/build/Network/Wreq/Internal.o )
+[12 of 15] Compiling Network.Wreq.Cache.Store ( Network/Wreq/Cache/Store.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.2.0/build/Network/Wreq/Cache/Store.o )
+[13 of 15] Compiling Network.Wreq.Cache ( Network/Wreq/Cache.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.2.0/build/Network/Wreq/Cache.o )
+
+Network/Wreq/Cache.hs:153:30: warning: [-Wdeprecations]
+    In the use of ‘parseTime’
+    (imported from Data.Time.Format, but defined in time-1.6.0.1:Data.Time.Format.Parse):
+    Deprecated: "use "parseTimeM True" instead"
+[14 of 15] Compiling Network.Wreq     ( Network/Wreq.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.2.0/build/Network/Wreq.o )
+[15 of 15] Compiling Network.Wreq.Session ( Network/Wreq/Session.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.2.0/build/Network/Wreq/Session.o )
+Installing library in
+/home/philip/.stack/snapshots/x86_64-linux/lts-8.5/8.0.2/lib/x86_64-linux-ghc-8.0.2/wreq-0.5.0.0-7kIQ4F3wRhx26bWAiFh9BS
+Registering wreq-0.5.0.0...
